@@ -91,7 +91,7 @@ const data = [
   },
   { src: "/twitter.svg", alt: "Twitter", href: "https://twitter.com/dinasso1" },
   {
-    src: "/linkedin.svg",
+    src: "/linkedIn.svg",
     alt: "LinkedIn",
     href:
       "https://www.linkedin.com/in/ilyass-ben-hakim-%E2%9A%9B%EF%B8%8F-859480160/",
