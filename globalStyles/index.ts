@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
-body{
+body {
   margin:0;
   background-color:#12141B;
   overflow-x:hidden;
@@ -28,7 +28,9 @@ h1,h2,h3,h4,h5,h6,p{
   ::selection{
     background-color:#4C4E58;
   }
-  font-family: 'Raleway', sans-serif;
 }
-
+html {
+  font-family: 'Inter',-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
+ 
+}
 `;

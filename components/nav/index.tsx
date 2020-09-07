@@ -22,7 +22,7 @@ const Nav = () => {
                 layoutId="logo"
                 transition={{
                   duration: 2,
-                  ease: [0.6, 0, 0, 1]
+                  ease: [0.6, 0, 0, 1],
                 }}
               >
                 Ilyass

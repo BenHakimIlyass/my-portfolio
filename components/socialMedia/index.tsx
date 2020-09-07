@@ -66,7 +66,7 @@ const SocialMedia = () => {
               )}
             </AnimatePresence>
             <motion.img
-              src="/mail.svg"
+              src="/icons/mail.svg"
               onClick={handleCopy}
               initial={{ y: 100 }}
               style={{ cursor: "pointer" }}
@@ -85,13 +85,17 @@ const SocialMedia = () => {
 };
 const data = [
   {
-    src: "/github.svg",
+    src: "/icons/github.svg",
     alt: "Github",
     href: "https://github.com/BenHakimIlyass",
   },
-  { src: "/twitter.svg", alt: "Twitter", href: "https://twitter.com/dinasso1" },
   {
-    src: "/linkedIn.svg",
+    src: "/icons/twitter.svg",
+    alt: "Twitter",
+    href: "https://twitter.com/dinasso1",
+  },
+  {
+    src: "/icons/linkedIn.svg",
     alt: "LinkedIn",
     href:
       "https://www.linkedin.com/in/ilyass-ben-hakim-%E2%9A%9B%EF%B8%8F-859480160/",
