@@ -6,6 +6,7 @@ import {
   Nav,
   Vstack,
   SocialMedia,
+  P,
 } from "../components";
 import Headroom from "react-headroom";
 import { useTimeout } from "../hooks";
@@ -30,8 +31,13 @@ const App = () => {
           style={{ overflowX: "hidden", transform: `translate3d(0,10vh,0)` }}
         >
           <Vstack space={12}>
-            <FrontendDev />
             <Minimalist />
+            <FrontendDev />
+            <P direction="center">
+              Keep in mind that this portfolio is designed and developed by me,
+              using Figma (prototyping) and React Next Typescript (web
+              developement)
+            </P>
             <Contact />
           </Vstack>
         </div>
