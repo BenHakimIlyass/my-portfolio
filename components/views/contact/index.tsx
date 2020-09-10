@@ -27,7 +27,7 @@ const Contact = () => {
                   <Image src="/me.jpeg" alt="Me" />
                 </Center>
                 <P direction="center" style={{ color: "#fff" }}>
-                  This is me Ilyass Ben Hakim
+                  Ilyass Ben Hakim
                 </P>
                 <P direction="center" style={{ color: "#CFCFCF" }}>
                   UI UX Web designer and React JS developer
