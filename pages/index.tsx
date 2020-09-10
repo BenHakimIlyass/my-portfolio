@@ -30,16 +30,12 @@ const App = () => {
         <div
           style={{
             transform: `translate3d(0,10vh,0)`,
+            marginBottom: 100,
           }}
         >
           <Vstack space={12}>
             <Minimalist />
             <FrontendDev />
-            <P direction="center">
-              Keep in mind that this portfolio is designed and developed by me,
-              using Figma (prototyping) and React Next Typescript (web
-              developement).
-            </P>
             <Contact />
           </Vstack>
         </div>

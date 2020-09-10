@@ -1,10 +1,12 @@
+import * as React from "react";
 import styled, { css } from "styled-components";
 
 type StackAPI = {
   space: number;
+  style?: React.CSSProperties;
 };
-
-const spaceGenerator = ({ space }: StackAPI) => css`
+const handleStyleProp = ({ style }: Pick<StackAPI, "style">) => css({ style });
+const spaceGenerator = ({ space }: Pick<StackAPI, "space">) => css`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -31,6 +33,7 @@ const handleBreakpoints = ({ space }: StackAPI) => {
 
 const VStack = styled.div<StackAPI>`
   ${handleBreakpoints}
+  ${handleStyleProp}
 `;
 
 export default VStack;

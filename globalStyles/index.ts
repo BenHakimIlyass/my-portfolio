@@ -4,7 +4,6 @@ body {
   margin:0;
   background-color:#12141B;
   overflow-x:hidden;
-  height:auto;
 }
 body::-webkit-scrollbar {
   width: 10px;

@@ -9,15 +9,6 @@ const Contact = () => {
         <Container>
           <div style={{ maxWidth: 860 }}>
             <Vstack space={3}>
-              <Vstack space={1}>
-                <Image src="/me.jpeg" alt="Me" />
-                <P direction="center" style={{ color: "#fff" }}>
-                  This is me Ilyass Ben Hakim
-                </P>
-                <P direction="center" style={{ color: "#CFCFCF" }}>
-                  UI UX Web designer and React JS developer
-                </P>
-              </Vstack>
               <H3
                 direction="center"
                 style={{ zIndex: 1 }}
@@ -29,10 +20,21 @@ const Contact = () => {
               </H3>
               <P direction="center" style={{ color: "#CFCFCF" }}>
                 I'm always looking for new challenges, so if you want to be in
-                touch with me, feel free to contact me.
+                touch with me, feel free to use my contact informations.
               </P>
+              <Vstack space={1}>
+                <Center>
+                  <Image src="/me.jpeg" alt="Me" />
+                </Center>
+                <P direction="center" style={{ color: "#fff" }}>
+                  This is me Ilyass Ben Hakim
+                </P>
+                <P direction="center" style={{ color: "#CFCFCF" }}>
+                  UI UX Web designer and React JS developer
+                </P>
+              </Vstack>
               <Center>
-                <a href="/Resume.pdf" target="_blanc">
+                <a href="/Cv_Ilyass_Ben_Hakim.pdf" target="_blanc">
                   <Button>My resume</Button>
                 </a>
               </Center>
@@ -45,7 +47,6 @@ const Contact = () => {
 };
 const Image = styled.img`
   object-fit: cover;
-  margin: 0 auto;
   border-radius: 150px;
   box-shadow: 0px 0px 40px rgba(1, 5, 10, 0.57);
   ${breakpoints({
@@ -55,7 +56,7 @@ const Image = styled.img`
 `;
 const Wrapper = styled.div`
   width: 100%;
-  height: 500px;
+  min-height: 500px;
   position: relative;
 `;
 const Button = styled.button`
