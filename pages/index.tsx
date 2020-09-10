@@ -28,7 +28,9 @@ const App = () => {
 
       {logoAnimationEnds && (
         <div
-          style={{ overflowX: "hidden", transform: `translate3d(0,10vh,0)` }}
+          style={{
+            transform: `translate3d(0,10vh,0)`,
+          }}
         >
           <Vstack space={12}>
             <Minimalist />
@@ -36,7 +38,7 @@ const App = () => {
             <P direction="center">
               Keep in mind that this portfolio is designed and developed by me,
               using Figma (prototyping) and React Next Typescript (web
-              developement)
+              developement).
             </P>
             <Contact />
           </Vstack>

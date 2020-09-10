@@ -9,7 +9,7 @@ import {
   AnimatedP,
   Vstack,
   Hstack,
-  Container
+  Container,
 } from "../../";
 import { breakpoints } from "../../../utils";
 import Img from "./imgs";
@@ -51,24 +51,24 @@ const FrontendDev = () => {
             {/* testimonials */}
             <Vstack space={1}>
               <H4 style={{ fontWeight: 700 }}>Experiences</H4>
-              <P style={{ color: "#CFCFCF" }}>
-                First, I started by writing/learning some javascript in React
-                JS, there were lots of things that just took me quite a while to
-                figure out, such as state/props concept, one-way data flow,
-                managing global state, reusable components...
+              <P style={{ color: "#CFCFCF" }} as="li">
+                Since i was 19 years old, I started writing/learning Javascript
+                in React JS, there were lots of things that just took me quite a
+                while to figure out, such as state/props concept, one-way data
+                flow, managing global state, reusable components...
               </P>
-              <P style={{ color: "#CFCFCF" }}>
+              <P style={{ color: "#CFCFCF" }} as="li">
                 But an 8-9 months later, I found myself falling in love with
                 react hooks, redux, Next JS, styled-components, typescript,
-                optimization concepts.
+                optimization concepts, web animations...
               </P>
-              <P style={{ color: "#CFCFCF" }}>
+              <P style={{ color: "#CFCFCF" }} as="li">
                 After that, I joined my friends, on a real project{" "}
                 <a href="gfree.co" target="_blanc" style={{ color: "white" }}>
-                  Gluten free community
+                  The Gluten-Free Community
                 </a>
                 , and this was the first experience that allowed me to discover
-                a lot of new concepts.
+                a lot of new concepts, as i said before.
               </P>
             </Vstack>
           </Vstack>
@@ -84,13 +84,13 @@ const FrontendDev = () => {
 };
 const TextBoundary = styled.div`
   ${breakpoints({
-    920: { maxWidth: 500 }
+    920: { maxWidth: 500 },
   })}
 `;
 const Cluster = styled(Hstack)`
   ${breakpoints({
     0: { flexWrap: "wrap" },
-    920: { flexWrap: "nowrap" }
+    920: { flexWrap: "nowrap" },
   })}
 `;
 const Wrapper = styled.div`
