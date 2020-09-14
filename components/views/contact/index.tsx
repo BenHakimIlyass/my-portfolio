@@ -20,7 +20,7 @@ const Contact = () => {
               </H3>
               <P direction="center" style={{ color: "#CFCFCF" }}>
                 I'm always looking for new challenges, so if you want to be in
-                touch with me, feel free to use my contact informations.
+                touch with me, feel free to use my contact informations
               </P>
               <Vstack space={1}>
                 <Center>

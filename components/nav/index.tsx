@@ -4,49 +4,62 @@ import styled from "styled-components";
 
 import { AnimatedH4, AnimatedP, Hstack, Container } from "../";
 import AnimatedLogo from "./animated-logo";
-import { useTimeout } from "../../hooks";
+import { useTimeout, useHeadroom } from "../../hooks";
 
 const Nav = () => {
   const animate = useTimeout(2000);
-
+  const isPinned = useHeadroom({});
   return (
-    <AnimateSharedLayout>
-      {animate ? (
-        <Wrapper
-          animate={{ backgroundImage: gradient(0.65) }}
-          initial={{ backgroundImage: gradient(0) }}
-        >
-          <Container>
-            <Hstack alignItems="center" justifyContent="space-between">
-              <AnimatedH4
-                layoutId="logo"
-                transition={{
-                  duration: 2,
-                  ease: [0.6, 0, 0, 1],
-                }}
-              >
-                Ilyass
-              </AnimatedH4>
-              {animate && (
-                <AnimatedP
-                  direction="right"
-                  transition={{ delay: 1 }}
-                  style={{ fontSize: 16, width: 200 }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
+    <div
+      style={{
+        transition: "all 0.4s",
+        position: "fixed",
+        width: "100%",
+        zIndex: 999,
+        top: 0,
+        transform: isPinned
+          ? `translate3d(0,0px,0)`
+          : `translate3d(0,-100px,0)`,
+      }}
+    >
+      <AnimateSharedLayout>
+        {animate ? (
+          <Wrapper
+            animate={{ backgroundImage: gradient(0.65) }}
+            initial={{ backgroundImage: gradient(0) }}
+          >
+            <Container>
+              <Hstack alignItems="center" justifyContent="space-between">
+                <AnimatedH4
+                  layoutId="logo"
+                  transition={{
+                    duration: 2,
+                    ease: [0.6, 0, 0, 1],
+                  }}
                 >
-                  Frontend developer / UI UX designer
-                </AnimatedP>
-              )}
-            </Hstack>
-          </Container>
-        </Wrapper>
-      ) : (
-        <AnimatePresence>
-          <AnimatedLogo />
-        </AnimatePresence>
-      )}
-    </AnimateSharedLayout>
+                  Ilyass
+                </AnimatedH4>
+                {animate && (
+                  <AnimatedP
+                    direction="right"
+                    transition={{ delay: 1 }}
+                    style={{ fontSize: 16, width: 200 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                  >
+                    Frontend developer / UI UX designer
+                  </AnimatedP>
+                )}
+              </Hstack>
+            </Container>
+          </Wrapper>
+        ) : (
+          <AnimatePresence>
+            <AnimatedLogo />
+          </AnimatePresence>
+        )}
+      </AnimateSharedLayout>
+    </div>
   );
 };
 const Wrapper = styled(motion.div)`

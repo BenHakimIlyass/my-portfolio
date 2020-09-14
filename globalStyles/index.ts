@@ -30,6 +30,5 @@ h1,h2,h3,h4,h5,h6,p{
 }
 html {
   font-family: 'Inter',-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
- 
 }
 `;

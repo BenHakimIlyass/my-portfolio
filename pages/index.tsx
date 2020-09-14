@@ -3,15 +3,16 @@ import {
   FrontendDev,
   Minimalist,
   Contact,
+  SunAndMoon,
   Nav,
   Vstack,
   SocialMedia,
-  P,
 } from "../components";
 import Headroom from "react-headroom";
 import { useTimeout } from "../hooks";
 import { GlobalStyle } from "../globalStyles";
 import Head from "next/head";
+import { motion } from "framer-motion";
 
 const App = () => {
   const logoAnimationEnds = useTimeout(4000);
@@ -21,9 +22,9 @@ const App = () => {
         <title>Ilyass Ben Hakim</title>
       </Head>
       <GlobalStyle />
-      <Headroom>
-        <Nav />
-      </Headroom>
+
+      <Nav />
+
       <SocialMedia />
 
       {logoAnimationEnds && (
@@ -36,6 +37,7 @@ const App = () => {
           <Vstack space={12}>
             <Minimalist />
             <FrontendDev />
+            <SunAndMoon />
             <Contact />
           </Vstack>
         </div>
