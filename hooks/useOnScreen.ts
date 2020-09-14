@@ -1,9 +1,9 @@
 import React from "react";
 
 const useOnScreen = (rootMargin = "0px") => {
-  const domRef = React.useRef(null);
-
   const [isOnScreen, setOnScreen] = React.useState(false);
+
+  const domRef = React.useRef(null);
   React.useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {

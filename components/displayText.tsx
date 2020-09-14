@@ -5,7 +5,7 @@ import { useOnScreen } from "../hooks";
 
 const DisplayText = ({
   title,
-  style
+  style,
 }: {
   title: string;
   style: React.CSSProperties;
@@ -23,7 +23,7 @@ const DisplayText = ({
             transition={{
               duration: 2.6,
               stiffness: 10,
-              ease: "easeOut"
+              ease: "easeOut",
             }}
           >
             {title}

@@ -16,7 +16,7 @@ export default function App() {
       <Paragraph direction="center">
         Here is a tiny cute animation, made by me
       </Paragraph>
-      <div ref={ref} style={{ height: "90vh" }}>
+      <AnimationSection ref={ref}>
         {isOnScreen && (
           <Playground
             onTap={() => toggle((prev) => !prev)}
@@ -42,10 +42,13 @@ export default function App() {
             </P>
           </Playground>
         )}
-      </div>
+      </AnimationSection>
     </Vstack>
   );
 }
+const AnimationSection = styled.div`
+  height: 90vh;
+`;
 const Playground = styled(motion.div)`
   overflow: hidden;
   height: 90vh;
