@@ -37,7 +37,10 @@ export default function App() {
               {dark ? <Night /> : <Midday />}
             </AnimatePresence>
 
-            <P animate={{ color: !dark ? "#BCCCDC" : "#DFF7FA" }}>
+            <P
+              animate={{ color: !dark ? "#BCCCDC" : "#DFF7FA" }}
+              style={{ userSelect: "none" }}
+            >
               Tap here to toggle time
             </P>
           </Playground>

@@ -8,11 +8,9 @@ import {
   Vstack,
   SocialMedia,
 } from "../components";
-import Headroom from "react-headroom";
 import { useTimeout } from "../hooks";
 import { GlobalStyle } from "../globalStyles";
 import Head from "next/head";
-import { motion } from "framer-motion";
 
 const App = () => {
   const logoAnimationEnds = useTimeout(4000);
@@ -21,12 +19,16 @@ const App = () => {
       <Head>
         <title>Ilyass Ben Hakim</title>
       </Head>
+      {/* Global style */}
       <GlobalStyle />
 
+      {/* The header */}
       <Nav />
 
+      {/* Contact informations */}
       <SocialMedia />
 
+      {/* Main sections */}
       {logoAnimationEnds && (
         <div
           style={{

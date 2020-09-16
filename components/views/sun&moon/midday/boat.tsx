@@ -8,11 +8,11 @@ const motions = (delay: number, y?: number) => ({
   transition: { delay: delay, type: "spring", stiffness: 200, damping: 20 },
 });
 
-const repeats = (delay: number) => ({
+const repeats = (delay: number, rest) => ({
   transition: {
     delay: delay,
     duration: 0.8,
-    repeatType: "mirror",
+    ...rest,
     repeat: Infinity,
   },
 });
@@ -35,14 +35,14 @@ const Boat = ({ ...props }) => {
       >
         <motion.g
           clipPath="url(#clip0)"
-          {...repeats(0)}
+          {...repeats(0, { repeatType: "mirror" })}
           initial={{ rotate: -4 }}
           animate={{ rotate: 0 }}
           exit={{ rotate: 4 }}
         >
           {/* flags start */}
           <motion.path
-            {...repeats(0.1)}
+            {...repeats(0.1, { repeatType: "mirror" })}
             initial={{ y: -4 }}
             animate={{ y: 0 }}
             exit={{ y: 4 }}
@@ -50,7 +50,7 @@ const Boat = ({ ...props }) => {
             fill="url(#blue_flag)"
           />
           <motion.path
-            {...repeats(0.2)}
+            {...repeats(0.2, { repeatType: "mirror" })}
             initial={{ y: -4 }}
             animate={{ y: 0 }}
             exit={{ y: 4 }}
@@ -62,7 +62,7 @@ const Boat = ({ ...props }) => {
             fill="#EFC534"
           />
           <motion.path
-            {...repeats(0, 3)}
+            {...repeats(0.3, { repeatType: "mirror" })}
             initial={{ rotate: -4 }}
             animate={{ rotate: 0 }}
             exit={{ rotate: 4 }}

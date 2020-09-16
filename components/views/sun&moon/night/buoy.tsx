@@ -8,9 +8,9 @@ const motions = (delay: number, y?: number) => ({
   transition: { delay: delay, type: "spring", stiffness: 200, damping: 20 },
 });
 
-const repeats = (delay: number) => ({
+const repeats = (delay: number, rest) => ({
   transition: {
-    repeatType: "mirror",
+    ...rest,
     repeat: Infinity,
     delay: delay,
     duration: 0.8,
@@ -35,14 +35,14 @@ const Buoy = ({ ...props }) => {
       >
         <motion.g
           clipPath="url(#group0)"
-          {...repeats(0)}
+          {...repeats(0, { repeatType: "mirror" })}
           initial={{ rotate: -4 }}
           animate={{ rotate: 0 }}
           exit={{ rotate: 4 }}
         >
           {/* top of the buoy */}
           <motion.path
-            {...repeats(0.1)}
+            {...repeats(0.1, { repeatType: "mirror" })}
             initial={{ y: 4 }}
             animate={{ y: 0 }}
             exit={{ y: -4 }}
@@ -50,7 +50,7 @@ const Buoy = ({ ...props }) => {
             fill="url(#paint10)"
           />
           <motion.path
-            {...repeats(0.1)}
+            {...repeats(0.1, { repeatType: "mirror" })}
             initial={{ y: -4 }}
             animate={{ y: 0 }}
             exit={{ y: 4 }}
@@ -58,7 +58,7 @@ const Buoy = ({ ...props }) => {
             fill="url(#paint11)"
           />
           <motion.path
-            {...repeats(0.1)}
+            {...repeats(0.1, { repeatType: "mirror" })}
             initial={{ y: -4 }}
             animate={{ y: 0 }}
             exit={{ y: 4 }}
@@ -66,7 +66,7 @@ const Buoy = ({ ...props }) => {
             fill="url(#paint12)"
           />
           <motion.path
-            {...repeats(0.1)}
+            {...repeats(0.1, { repeatType: "mirror" })}
             initial={{ y: -4 }}
             animate={{ y: 0 }}
             exit={{ y: 4 }}
@@ -74,7 +74,7 @@ const Buoy = ({ ...props }) => {
             fill="url(#paint13)"
           />
           <motion.path
-            {...repeats(0.1)}
+            {...repeats(0.1, { repeatType: "mirror" })}
             initial={{ y: -4 }}
             animate={{ y: 0 }}
             exit={{ y: 4 }}
@@ -82,7 +82,7 @@ const Buoy = ({ ...props }) => {
             fill="#E05D6F"
           />
           <motion.path
-            {...repeats(0.1)}
+            {...repeats(0.1, { repeatType: "mirror" })}
             initial={{ y: -4 }}
             animate={{ y: 0 }}
             exit={{ y: 4 }}
@@ -90,7 +90,7 @@ const Buoy = ({ ...props }) => {
             fill="url(#paint14)"
           />
           <motion.path
-            {...repeats(0.1)}
+            {...repeats(0.1, { repeatType: "mirror" })}
             initial={{ y: -4 }}
             animate={{ y: 0 }}
             exit={{ y: 4 }}
@@ -98,7 +98,7 @@ const Buoy = ({ ...props }) => {
             fill="url(#paint15)"
           />
           <motion.path
-            {...repeats(0.1)}
+            {...repeats(0.1, { repeatType: "mirror" })}
             initial={{ y: -4 }}
             animate={{ y: 0 }}
             exit={{ y: 4 }}
