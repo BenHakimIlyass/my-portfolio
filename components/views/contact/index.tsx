@@ -34,7 +34,10 @@ const Contact = () => {
                 </P>
               </Vstack>
               <Center>
-                <a href="/Cv_Ilyass_Ben_Hakim.pdf" target="_blanc">
+                <a
+                  href="/Ilyass_Ben_Hakim_-_Frontend_developer.pdf"
+                  target="_blanc"
+                >
                   <Button>My resume</Button>
                 </a>
               </Center>
