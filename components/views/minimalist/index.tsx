@@ -102,6 +102,7 @@ const Wrapper = styled.div`
   min-height: 400px;
   height: fit-content;
   position: relative;
+  overflow: hidden;
 `;
 
 export default Minimalist;

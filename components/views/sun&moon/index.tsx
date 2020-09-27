@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import Night from "./night";
 import Midday from "./midday";
-import { AnimatedP, P as Paragraph, Vstack } from "../../";
+import { AnimatedP, P as Paragraph, Vstack, Container } from "../../";
 import { useOnScreen } from "../../../hooks";
 
 export default function App() {
@@ -12,41 +12,43 @@ export default function App() {
   const [ref, isOnScreen] = useOnScreen();
 
   return (
-    <Vstack space={2}>
-      <Paragraph direction="center">
-        Here is a tiny cute animation, made by me
-      </Paragraph>
-      <AnimationSection ref={ref}>
-        {isOnScreen && (
-          <Playground
-            onTap={() => toggle((prev) => !prev)}
-            animate={{
-              backgroundImage: dark
-                ? "linear-gradient(180deg,  #051728,#173756)"
-                : "linear-gradient(180deg, #FFFFFF, #FFFAEB)",
-              boxShadow: dark
-                ? "0px 0px 16px rgba(0, 0, 0, 0.24)"
-                : "0px 0px 16px rgba(152, 163, 183, 0.24)",
-            }}
-            whileTap={{
-              scale: 0.9,
-              backgroundColor: dark ? "#102A43" : "#F4ECD1",
-            }}
-          >
-            <AnimatePresence exitBeforeEnter>
-              {dark ? <Night /> : <Midday />}
-            </AnimatePresence>
-
-            <P
-              animate={{ color: !dark ? "#BCCCDC" : "#DFF7FA" }}
-              style={{ userSelect: "none" }}
+    <Container>
+      <Vstack space={2}>
+        <Paragraph direction="center">
+          Here is a tiny cute animation, made by me
+        </Paragraph>
+        <AnimationSection ref={ref}>
+          {isOnScreen && (
+            <Playground
+              onTap={() => toggle((prev) => !prev)}
+              animate={{
+                backgroundImage: dark
+                  ? "linear-gradient(180deg,  #051728,#173756)"
+                  : "linear-gradient(180deg, #FFFFFF, #FFFAEB)",
+                boxShadow: dark
+                  ? "0px 0px 16px rgba(0, 0, 0, 0.24)"
+                  : "0px 0px 16px rgba(152, 163, 183, 0.24)",
+              }}
+              whileTap={{
+                scale: 0.9,
+                backgroundColor: dark ? "#102A43" : "#F4ECD1",
+              }}
             >
-              Tap here to toggle time
-            </P>
-          </Playground>
-        )}
-      </AnimationSection>
-    </Vstack>
+              <AnimatePresence exitBeforeEnter>
+                {dark ? <Night /> : <Midday />}
+              </AnimatePresence>
+
+              <P
+                animate={{ color: !dark ? "#BCCCDC" : "#DFF7FA" }}
+                style={{ userSelect: "none" }}
+              >
+                Tap here to toggle time
+              </P>
+            </Playground>
+          )}
+        </AnimationSection>
+      </Vstack>
+    </Container>
   );
 }
 const AnimationSection = styled.div`

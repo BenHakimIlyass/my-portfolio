@@ -2,9 +2,10 @@ import React from "react";
 import { AnimateSharedLayout, motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 
-import { AnimatedH4, AnimatedP, Hstack, Container } from "../";
+import { AnimatedH3, AnimatedP, Hstack, Container } from "../";
 import AnimatedLogo from "./animated-logo";
-import { useTimeout, useHeadroom } from "../../hooks";
+import { useTimeout } from "../../hooks";
+import useHeadroom from "react-useheadroom";
 
 const Nav = () => {
   const animate = useTimeout(2000);
@@ -30,7 +31,8 @@ const Nav = () => {
           >
             <Container>
               <Hstack alignItems="center" justifyContent="space-between">
-                <AnimatedH4
+                <AnimatedH3
+                  isAanimated
                   layoutId="logo"
                   transition={{
                     duration: 2,
@@ -38,7 +40,7 @@ const Nav = () => {
                   }}
                 >
                   Ilyass
-                </AnimatedH4>
+                </AnimatedH3>
                 {animate && (
                   <AnimatedP
                     direction="right"

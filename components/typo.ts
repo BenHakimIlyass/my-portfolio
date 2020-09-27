@@ -21,7 +21,7 @@ const Paragraph = css`
   ${alignement}
   ${breakpoints({
     0: { fontSize: "0.8rem", lineHeight: "calc(14px + 14px * 0.4)" },
-    520: { fontSize: "1.1rem", lineHeight: "calc(18px + 18px * 0.4)" }
+    520: { fontSize: "1.1rem", lineHeight: "calc(18px + 18px * 0.4)" },
   })}
 `;
 const Header = css`
@@ -35,11 +35,17 @@ const Header3 = css`
   font-size: 36px;
   color: #fff;
   line-height: calc(36px + 36px * 0.4);
+  ${({ isAnimated }) =>
+    !!isAnimated && `font-size: 36px;line-height: calc(36px + 36px * 0.4);`}
+
   ${alignement}
-  ${breakpoints({
-    0: { fontSize: "1.8rem", lineHeight: "calc(1.8rem + 1.8rem * 0.4)" },
-    520: { fontSize: 36, lineHeight: "calc(36px + 36px * 0.4)" }
-  })}
+
+    ${({ isAnimated }) =>
+    !!!isAnimated &&
+    breakpoints({
+      0: { fontSize: "1.8rem", lineHeight: "calc(1.8rem + 1.8rem * 0.4)" },
+      520: { fontSize: 36, lineHeight: "calc(36px + 36px * 0.4)" },
+    })}
 `;
 const Header4 = css`
   font-size: 1.6rem;

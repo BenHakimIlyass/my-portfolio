@@ -9527,6 +9527,11 @@ react-use-clipboard@1.0.0:
   dependencies:
     copy-to-clipboard "^3.0.8"
 
+react-useheadroom@^1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/react-useheadroom/-/react-useheadroom-1.4.3.tgz#616e6bd7f574a457a6de7c5c6b250a90768fde1b"
+  integrity sha512-WBBHwmnz1u+gZhAnBEHWwl1Q+TDNWhjr8rGNnNeHSbQg6+GTxlw9N+xj6lem8JbsaV4flicViGOfaOLHFtXjKw==
+
 react@^16.12.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"

@@ -1,59 +1,52 @@
 import * as React from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useTimeout } from "../../hooks";
 import { AnimatedH3 } from "../";
-import { motion } from "framer-motion";
 
 export default function AnimatedLogo() {
+  const animate = useTimeout(800);
+
   return (
-    <div>
-      <motion.div
-        layoutId="logo"
+    <>
+      <AnimatePresence exitBeforeEnter>
+        {!animate && (
+          <AnimatedH3
+            isAnimated
+            style={{
+              left: "50%",
+              marginLeft: -50,
+              top: "calc(50vh - 40px)",
+              position: "absolute",
+              color: "#12141B",
+              zIndex: 999,
+              WebkitTextStrokeWidth: "1px",
+              WebkitTextStrokeColor: "#fff",
+            }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }}
+          >
+            Ilyass
+          </AnimatedH3>
+        )}
+      </AnimatePresence>
+      <AnimatedH3
+        isAnimated
         style={{
-          width: 100,
           left: "50%",
           marginLeft: -50,
           top: "calc(50vh - 40px)",
           position: "absolute",
         }}
-        transition={{ delay: 1, type: "spring" }}
-        initial={{ x: 8 }}
-        animate={{ x: 0 }}
-      >
-        <AnimatedH3
-          transition={{ type: "tween", duration: 1 }}
-          initial={{
-            clipPath: "inset(45% 0 45% 0)",
-          }}
-          animate={{
-            clipPath: "inset(0% 0 45% 0)",
-          }}
-        >
-          Ilyass
-        </AnimatedH3>
-      </motion.div>
-      <motion.div
-        style={{
-          width: 100,
-          left: "50%",
-          marginLeft: -50,
-          position: "absolute",
-          top: "calc(50vh - 40.4px)",
+        layoutId="logo"
+        animate
+        transition={{
+          duration: 2,
+          ease: [0.6, 0, 0, 1],
         }}
-        transition={{ delay: 1, type: "spring" }}
-        initial={{ x: -8 }}
-        animate={{ x: 0 }}
       >
-        <AnimatedH3
-          transition={{ type: "tween", duration: 1 }}
-          initial={{
-            clipPath: "inset(55% 0 55% 0)",
-          }}
-          animate={{
-            clipPath: "inset(55% 0 0% 0)",
-          }}
-        >
-          Ilyass
-        </AnimatedH3>
-      </motion.div>
-    </div>
+        Ilyass
+      </AnimatedH3>
+    </>
   );
 }
