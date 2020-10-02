@@ -8,7 +8,7 @@ interface MetadataObj {
   [key: string]: Metadata;
 }
 type StyleProps = {
-  [key: string]: React.CSSProperties | MetadataObj;
+  [key: string]: string | React.CSSProperties;
 };
 
 export default (style: StyleProps) => {
@@ -18,7 +18,11 @@ export default (style: StyleProps) => {
         //  Wrapp breakpoints
         return css`
           @media only screen and (min-width: ${[objKey]}px) {
-            ${css(style[objKey])}
+            ${typeof style[objKey] === "string"
+              ? css`
+                  ${style[objKey]}
+                `
+              : css(style[objKey])}
           }
         `;
       })}

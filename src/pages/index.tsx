@@ -33,7 +33,7 @@ const App = () => {
       {/* Main sections */}
       {logoAnimationEnds && (
         <MainPlayground>
-          <Vstack space={12}>
+          <Vstack space={12.0}>
             <Minimalist />
             <FrontendDev />
             <SunAndMoon />
@@ -48,9 +48,7 @@ const MainPlayground = styled.div`
   margin-bottom: 100px;
   ${breakpoints({
     0: { transform: `translate3d(0,30vh,0)` },
-    520: {
-      transform: `translate3d(0,10vh,0)`,
-    },
+    920: `transform: translate3d(0,10vh,0)`,
   })}
 `;
 export default App;
