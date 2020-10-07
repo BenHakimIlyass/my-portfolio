@@ -48,44 +48,39 @@ const Minimalist = () => {
             <Vstack space={2}>
               <H4 style={{ fontWeight: 700 }}>Career</H4>
               <Vstack space={1}>
-                <P style={{ color: "#CFCFCF" }}>
+                <P>
                   In 2016 I was trying to learn image/video editing, and that
                   was the first step of my design career.{" "}
-                  <P style={{ color: "#CFCFCF" }}>
+                  <P>
                     After a while, a friend of mine told me that Adobe XD and
                     Figma are the best free tools for prototyping, and here my
                     real web design journey has started.
                   </P>
                 </P>
-                <P style={{ color: "#CFCFCF" }}>
+                <P>
                   In 2019 I started working as a web designer on{" "}
                   <a
-                    style={{ color: "#fff" }}
+                    style={{ color: "#0888E4" }}
                     href="https://gfree.co"
                     target="_blanc"
                   >
                     the Gluten-Free Community
                   </a>{" "}
                   project, and it was a big step in my career, in which I
-                  learned about a lot of topics such as{" "}
-                  <span style={{ color: "#fff" }}>Typography</span>,{" "}
-                  <span style={{ color: "#fff" }}>Consistency</span>,{" "}
-                  <span style={{ color: "#fff" }}>Hierarchical design</span>,{" "}
-                  <span style={{ color: "#fff" }}>Aesthetic effects</span>,{" "}
-                  <span style={{ color: "#fff" }}>Fits & Similarity laws</span>{" "}
-                  ...
+                  learned about a lot of topics such as <span>Typography</span>,{" "}
+                  <span>Consistency</span>, <span>Hierarchical design</span>,{" "}
+                  <span>Aesthetic effects</span>,{" "}
+                  <span>Fits & Similarity laws</span> ...
                 </P>
               </Vstack>
             </Vstack>
-            <Vstack space={3}>
+            <Vstack space={2}>
               <H4 style={{ fontWeight: 700 }}>Tools I use</H4>
               <Vstack space={1}>
-                <P style={{ color: "#CFCFCF" }} as="li">
+                <P as="li">
                   Figma for UI UX design, prototyping and icons drawing.
                 </P>
-                <P style={{ color: "#CFCFCF" }} as="li">
-                  Adobe photoshop CC for image editing.
-                </P>
+                <P as="li">Adobe photoshop CC for image editing.</P>
               </Vstack>
             </Vstack>
           </Vstack>

@@ -9,6 +9,7 @@
     "test": "react-scripts test"
   },
   "dependencies": {
+    "@xstyled/styled-components": "^1.19.0",
     "date-fns": "^2.11.1",
     "framer-motion": "2.6.5",
     "gray-matter": "^4.0.2",

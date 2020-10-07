@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { useColorMode } from "@xstyled/styled-components";
 import { motion } from "framer-motion";
 
 import { Hstack, Vstack, P } from "../../";
@@ -15,32 +15,38 @@ const motions = (delay: number) => ({
     type: "spring",
   },
 });
-
-const Imgs = ({ delay }: { delay: number }) => (
-  <Wrapper {...motions(delay + 0.2)}>
-    <Vstack space={3}>
-      <P direction="center">Hover on the icons</P>
-      <Vstack space={2}>
-        <Hstack alignItems="center" space={4} justifyContent="center">
-          <IconHolder>
-            <Bell />
-          </IconHolder>
-          <IconHolder>
-            <Camera />
-          </IconHolder>
-        </Hstack>
-        <Hstack alignItems="center" space={4} justifyContent="center">
-          <IconHolder>
-            <Wallet />
-          </IconHolder>
-          <IconHolder>
-            <Cloud />
-          </IconHolder>
-        </Hstack>
+const wrapShadow = (mode: string) => ({
+  boxShadow:
+    mode === "dark" ? `0px 0px 40px #000` : `0px 0px 40px rgba(0, 0, 0, 0.2)`,
+});
+const Imgs = ({ delay }: { delay: number }) => {
+  const [mode] = useColorMode();
+  return (
+    <Wrapper {...motions(delay + 0.2)}>
+      <Vstack space={3}>
+        <P direction="center">Hover on the icons</P>
+        <Vstack space={2}>
+          <Hstack alignItems="center" space={4} justifyContent="center">
+            <IconHolder style={wrapShadow(mode)}>
+              <Bell />
+            </IconHolder>
+            <IconHolder style={wrapShadow(mode)}>
+              <Camera />
+            </IconHolder>
+          </Hstack>
+          <Hstack alignItems="center" space={4} justifyContent="center">
+            <IconHolder style={wrapShadow(mode)}>
+              <Wallet />
+            </IconHolder>
+            <IconHolder style={wrapShadow(mode)}>
+              <Cloud />
+            </IconHolder>
+          </Hstack>
+        </Vstack>
       </Vstack>
-    </Vstack>
-  </Wrapper>
-);
+    </Wrapper>
+  );
+};
 const Wrapper = styled(motion.div)`
   margin: 0 auto !important;
   text-align: center;
@@ -57,7 +63,6 @@ const IconHolder = styled.div`
   width: 130px;
   height: 130px;
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 0px 40px rgba(1, 5, 10, 0.57);
+  border-radius: 70px;
 `;
 export default Imgs;

@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from "@xstyled/styled-components";
 import { motion } from "framer-motion";
 import { breakpoints } from "../utils";
 
@@ -16,7 +16,7 @@ const alignement = css`
   ${gradient}
 `;
 const Paragraph = css`
-  color: #fff;
+  color: black;
   font-size: 1.1rem;
   ${alignement}
   ${breakpoints({
@@ -27,13 +27,13 @@ const Paragraph = css`
 const Header = css`
   font-size: 3.4rem;
   font-weight: 700;
-  color: #fff;
+  color: black;
   line-height: 4rem;
   ${alignement}
 `;
 const Header3 = css`
   font-size: 36px;
-  color: #fff;
+  color: black;
   line-height: calc(36px + 36px * 0.4);
   ${({ isAnimated }) =>
     !!isAnimated && `font-size: 36px;line-height: calc(36px + 36px * 0.4);`}
@@ -48,9 +48,15 @@ const Header3 = css`
     })}
 `;
 const Header4 = css`
-  font-size: 1.6rem;
-  color: #fff;
+  font-size: 1.8rem;
+  color: black;
   line-height: 2.2rem;
+  ${alignement}
+`;
+const Header5 = css`
+  font-size: 1.2rem;
+  color: black;
+  line-height: 1.8rem;
   ${alignement}
 `;
 export const P = styled.p`
@@ -76,4 +82,7 @@ export const AnimatedH4 = styled(motion.h4)`
 `;
 export const H4 = styled.h4`
   ${Header4}
+`;
+export const H5 = styled.h5`
+  ${Header5}
 `;

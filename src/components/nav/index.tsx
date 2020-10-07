@@ -1,8 +1,8 @@
 import React from "react";
 import { AnimateSharedLayout, motion, AnimatePresence } from "framer-motion";
-import styled from "styled-components";
+import styled from "@xstyled/styled-components";
 
-import { AnimatedH3, AnimatedP, Hstack, Container } from "../";
+import { AnimatedH4, H5, Hstack, Container, Toggle } from "../";
 import AnimatedLogo from "./animated-logo";
 import { useTimeout } from "../../hooks";
 import useHeadroom from "react-useheadroom";
@@ -13,7 +13,7 @@ const Nav = () => {
   return (
     <div
       style={{
-        transition: "all 0.4s",
+        transition: "all 0.3s",
         position: "fixed",
         width: "100%",
         zIndex: 999,
@@ -25,13 +25,10 @@ const Nav = () => {
     >
       <AnimateSharedLayout>
         {animate ? (
-          <Wrapper
-            animate={{ backgroundImage: gradient(0.65) }}
-            initial={{ backgroundImage: gradient(0) }}
-          >
+          <Wrapper>
             <Container>
               <Hstack alignItems="center" justifyContent="space-between">
-                <AnimatedH3
+                <AnimatedH4
                   isAanimated
                   layoutId="logo"
                   transition={{
@@ -40,17 +37,16 @@ const Nav = () => {
                   }}
                 >
                   Ilyass
-                </AnimatedH3>
+                </AnimatedH4>
                 {animate && (
-                  <AnimatedP
-                    direction="right"
-                    transition={{ delay: 1 }}
-                    style={{ fontSize: 16, width: 200 }}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                  >
-                    Frontend developer / UI UX designer
-                  </AnimatedP>
+                  <Hstack space={4} alignItems="center">
+                    <Toggle />
+                    <Hstack space={1}>
+                      <H5>Sandbox</H5>
+                      <H5>Blog</H5>
+                      <H5>Contact</H5>
+                    </Hstack>
+                  </Hstack>
                 )}
               </Hstack>
             </Container>
@@ -64,22 +60,11 @@ const Nav = () => {
     </div>
   );
 };
-const Wrapper = styled(motion.div)`
-  height: 100px;
-  padding-top: 20px;
-  background-image: linear-gradient(
-    180deg,
-    #0a0a0c 0%,
-    rgba(10, 10, 12, 0.282717) 59.38%,
-    rgba(10, 10, 12, 0.183781) 68.75%,
-    rgba(10, 10, 12, 0.107444) 79.17%,
-    rgba(10, 10, 12, 0.03125) 92.71%,
-    rgba(10, 10, 12, 0.0133929) 95.31%,
-    rgba(10, 10, 12, 0) 100%
-  );
+const Wrapper = styled.div`
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background-color: white;
 `;
-const gradient = (value: number) => `linear-gradient(
-  180deg,
-  rgba(10, 10, 12, ${value}),
-  rgba(10, 10, 12, 0)`;
+
 export default Nav;

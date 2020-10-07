@@ -52,45 +52,45 @@ const FrontendDev = () => {
             <Vstack space={2}>
               <H4 style={{ fontWeight: 700 }}>Experiences</H4>
               <Vstack space={1}>
-                <P style={{ color: "#CFCFCF" }}>
-                  Since i was 19 years old, I started writing/learning
+                <P>
+                  Since I was 19 years old, I started writing/learning
                   Javascript in React JS, there were lots of things that just
                   took me quite a while to figure out, such as state/props
                   concept, one-way data flow, managing global state, reusable
                   components...
                 </P>
-                <P style={{ color: "#CFCFCF" }}>
+                <P>
                   But an 8-9 months later, I found myself falling in love with
                   react hooks, redux, Next JS, styled-components, typescript,
                   optimization concepts, web animations...
                 </P>
-                <P style={{ color: "#CFCFCF" }}>
+                <P>
                   After that, I joined my friends, on a real project{" "}
-                  <a href="gfree.co" target="_blanc" style={{ color: "white" }}>
+                  <a
+                    href="gfree.co"
+                    target="_blanc"
+                    style={{ color: "#0888E4" }}
+                  >
                     The Gluten-Free Community
                   </a>
                   , and this was the first experience that allowed me to
-                  discover a lot of new concepts, as i said before.
+                  discover a lot of new concepts, as I said before.
                 </P>
               </Vstack>
             </Vstack>
             <Vstack space={2}>
               <H4 style={{ fontWeight: 700 }}>Technologies I use</H4>
               <Vstack space={1}>
-                <P style={{ color: "#CFCFCF" }} as="li">
-                  React JS/TS and Next JS -- Frontend developement
-                </P>
-                <P style={{ color: "#CFCFCF" }} as="li">
-                  React custom hooks -- Code optimization
-                </P>
-                <P style={{ color: "#CFCFCF" }} as="li">
+                <P as="li">React JS/TS and Next JS -- Frontend developement</P>
+                <P as="li">React custom hooks -- Code optimization</P>
+                <P as="li">
                   Redux, React Context API and React Query -- State management
                 </P>
-                <P style={{ color: "#CFCFCF" }} as="li">
+                <P as="li">
                   Framer motion and react-spring -- Web animations & graphic
                   motions
                 </P>
-                <P style={{ color: "#CFCFCF" }} as="li">
+                <P as="li">
                   Native CSS, styled-components and xstyled/styled-components --
                   Styling components
                 </P>

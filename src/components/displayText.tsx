@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { useColorMode } from "@xstyled/styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 import { useOnScreen } from "../hooks";
 
@@ -11,7 +11,7 @@ const DisplayText = ({
   style: React.CSSProperties;
 }) => {
   const [ref, isOnScreen] = useOnScreen();
-
+  const [mode] = useColorMode();
   return (
     <Playgroud style={style} ref={ref}>
       <AnimatePresence exitBeforeEnter>
@@ -20,6 +20,7 @@ const DisplayText = ({
             initial={{ x: "-120%", opacity: 0 }}
             exit={{ x: "-120%", opacity: 0 }}
             animate={{ x: 0, opacity: 0.17 }}
+            mode={mode}
             transition={{
               duration: 2.6,
               stiffness: 10,
@@ -37,12 +38,13 @@ const Playgroud = styled.div`
   position: absolute;
 `;
 const Display = styled(motion.h1)`
-  color: #12141b;
+  color: white;
   text-align: right;
   font-size: 7rem;
   white-space: nowrap;
   font-weight: 900;
   -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: #fff;
+  -webkit-text-stroke-color: ${({ mode }: { mode: string }) =>
+    mode === "dark" ? "#fff" : "#000"};
 `;
 export default DisplayText;

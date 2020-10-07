@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 import useClipboard from "react-use-clipboard";
+import useHeadroom from "react-useheadroom";
 
 import { Hstack, Container } from "../";
 
@@ -31,9 +32,15 @@ const SocialMedia = () => {
   }, [copyState]);
 
   React.useEffect(() => setDelayState(true), []);
-
+  const isShown = useHeadroom({});
   return (
-    <Wrapper>
+    <Wrapper
+      style={{
+        transform: isShown
+          ? `translate3d(0px,0px,0px)`
+          : `translate3d(0px,80px,0px)`,
+      }}
+    >
       <Container>
         <Hstack space={2}>
           {data.map(({ src, alt, href }, key) => (
@@ -110,6 +117,7 @@ const Wrapper = styled.div`
   z-index: 100;
   left: 0%;
   width: 100%;
+  transition: all 0.3s;
   background-image: linear-gradient(
     0deg,
     #0a0a0c 0%,

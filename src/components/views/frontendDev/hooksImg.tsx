@@ -28,17 +28,7 @@ export default function HooksImg() {
           color-interpolation-filters="sRGB"
         >
           <feFlood flood-opacity="0" result="BackgroundImageFix" />
-          <feColorMatrix
-            in="SourceAlpha"
-            type="matrix"
-            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-          />
-          <feOffset />
-          <feGaussianBlur stdDeviation="20" />
-          <feColorMatrix
-            type="matrix"
-            values="0 0 0 0 0.0034375 0 0 0 0 0.0204688 0 0 0 0 0.0375 0 0 0 0.57 0"
-          />
+
           <feBlend
             mode="normal"
             in2="BackgroundImageFix"

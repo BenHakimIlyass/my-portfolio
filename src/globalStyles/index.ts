@@ -1,8 +1,9 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "@xstyled/styled-components";
+export { default as theme } from "./themeDependencies";
 export const GlobalStyle = createGlobalStyle`
 body {
   margin:0;
-  background-color:#12141B;
+  background-color:white;
   overflow-x:hidden;
 }
 body::-webkit-scrollbar {
@@ -14,18 +15,18 @@ body::-webkit-scrollbar-track {
 }
  
 body::-webkit-scrollbar-thumb {
-  background-color: #fff;
+  background-color: black;
   outline: 1px solid transparent;
 }
 body::-webkit-scrollbar-track {
-    background: #141623;
+    background-color: white;
 }
 h1,h2,h3,h4,h5,h6,p{
   margin:0;
 }
 * {
   ::selection{
-    background-color:#4C4E58;
+    background-color: lightBlack;
   }
 }
 html {
