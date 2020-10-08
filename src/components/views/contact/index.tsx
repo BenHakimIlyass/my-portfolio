@@ -1,10 +1,10 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "@xstyled/styled-components";
 import { H3, Center, P, Vstack, Container } from "../../";
 import { breakpoints } from "../../../utils";
 const Contact = () => {
   return (
-    <Center>
+    <Center id="contact_section">
       <Wrapper>
         <Container>
           <div style={{ maxWidth: 860 }}>
@@ -18,7 +18,7 @@ const Contact = () => {
                 Thank you for visiting my portfolio. I will be pleased to have
                 the opportunity to work with you.
               </H3>
-              <P direction="center" style={{ color: "#CFCFCF" }}>
+              <P direction="center">
                 I'm always looking for new challenges, so if you want to be in
                 touch with me, feel free to use my contact informations
               </P>
@@ -26,10 +26,8 @@ const Contact = () => {
                 <Center>
                   <Image src="/me.jpeg" alt="Me" />
                 </Center>
-                <P direction="center" style={{ color: "#fff" }}>
-                  Ilyass Ben Hakim
-                </P>
-                <P direction="center" style={{ color: "#CFCFCF" }}>
+                <P direction="center">Ilyass Ben Hakim</P>
+                <P direction="center">
                   UI UX Web designer and React JS developer
                 </P>
               </Vstack>
@@ -51,7 +49,7 @@ const Contact = () => {
 const Image = styled.img`
   object-fit: cover;
   border-radius: 150px;
-  box-shadow: 0px 0px 40px rgba(1, 5, 10, 0.57);
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
   ${breakpoints({
     0: { width: "200px", height: "200px" },
     920: { width: "240px", height: "240px" },
@@ -63,8 +61,8 @@ const Wrapper = styled.div`
   position: relative;
 `;
 const Button = styled.button`
-  background-color: white;
-  color: #12141b;
+  background-color: #fff;
+  color: #000;
   height: 40px;
   border: none;
   width: fit-content;
@@ -76,7 +74,7 @@ const Button = styled.button`
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.4s;
   &:hover {
-    box-shadow: 0px 0px 40px rgba(1, 5, 10, 0.57);
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
     transform: translate3d(0, -4px, 0);
   }
 `;

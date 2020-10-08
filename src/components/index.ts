@@ -5,4 +5,4 @@ export { default as SocialMedia } from "./socialMedia";
 export * from "./layouts";
 export * from "./typo";
 export * from "./views";
-export * from "./icons";
+export { default as Toggle } from "./toggle";

@@ -45,7 +45,7 @@ const Darkness = () => (
   </motion.svg>
 );
 
-export const Toggle = () => {
+const Toggle = () => {
   const [mode, setMode] = useColorMode();
   const [state, set] = React.useState(false);
   const toggle = () => {
@@ -53,17 +53,11 @@ export const Toggle = () => {
     setMode(mode === "dark" ? "default" : "dark");
   };
   return (
-    <Wrapper alignItems="center" space={0.6}>
+    <Wrapper alignItems="center" space={0.6} onClick={toggle} as="button">
       <div style={{ width: 24, height: 24 }}>
         <AnimatePresence>{!state && <Brightness />}</AnimatePresence>
       </div>
-      <svg
-        width="38"
-        height="38"
-        viewBox="0 0 32 32"
-        fill="none"
-        onClick={toggle}
-      >
+      <svg width="38" height="38" viewBox="0 0 32 32" fill="none">
         <Box
           forwardedAs="path"
           className="toggle_path"
@@ -85,7 +79,6 @@ export const Toggle = () => {
     </Wrapper>
   );
 };
-
 const Wrapper = styled(Hstack)`
   circle,
   path {
@@ -98,3 +91,4 @@ const Wrapper = styled(Hstack)`
     stroke: black !important;
   }
 `;
+export default Toggle;

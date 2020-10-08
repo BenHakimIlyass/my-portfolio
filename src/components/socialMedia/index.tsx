@@ -1,10 +1,11 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { useColorMode } from "@xstyled/styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 import useClipboard from "react-use-clipboard";
 import useHeadroom from "react-useheadroom";
 
 import { Hstack, Container } from "../";
+import Icon from "./icons";
 
 const SocialMedia = () => {
   const [copyState, setCopyState] = React.useState({
@@ -33,8 +34,11 @@ const SocialMedia = () => {
 
   React.useEffect(() => setDelayState(true), []);
   const isShown = useHeadroom({});
+  const [mode] = useColorMode();
+
   return (
     <Wrapper
+      mode={mode}
       style={{
         transform: isShown
           ? `translate3d(0px,0px,0px)`
@@ -42,21 +46,19 @@ const SocialMedia = () => {
       }}
     >
       <Container>
-        <Hstack space={2}>
-          {data.map(({ src, alt, href }, key) => (
-            <a href={href} target="_blanc">
-              <motion.img
-                src={src}
-                key={key}
-                initial={{ y: 100 }}
-                animate={{ y: 0 }}
-                transition={{ delay: delayState ? 0 : key * 0.1 }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                alt={alt}
-                draggable={false}
-              />
-            </a>
+        <Hstack space={2} alignItems="center">
+          {data.map(({ icon, href }, key) => (
+            <motion.a
+              initial={{ y: 100 }}
+              animate={{ y: 0 }}
+              style={{ width: 24, height: 24 }}
+              transition={{ delay: delayState ? 0 : key * 0.1 }}
+              whileHover={{ scale: 1.1 }}
+              href={href}
+              target="_blanc"
+            >
+              <Icon icon={icon} mode={mode} />
+            </motion.a>
           ))}
           <div>
             <AnimatePresence exitBeforeEnter>
@@ -72,18 +74,17 @@ const SocialMedia = () => {
                 </CopyIndicator>
               )}
             </AnimatePresence>
-            <motion.img
-              src="/icons/mail.svg"
+            <motion.button
               onClick={handleCopy}
               initial={{ y: 100 }}
-              style={{ cursor: "pointer" }}
+              style={{ width: 32, height: 32 }}
               animate={{ y: 0 }}
               transition={{ delay: delayState ? 0 : 0.3 }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              alt="Email"
-              draggable={false}
-            />
+            >
+              <Icon icon="mail" mode={mode} />
+            </motion.button>
           </div>
         </Hstack>
       </Container>
@@ -92,18 +93,15 @@ const SocialMedia = () => {
 };
 const data = [
   {
-    src: "/icons/github.svg",
-    alt: "Github",
+    icon: "github",
     href: "https://github.com/BenHakimIlyass",
   },
   {
-    src: "/icons/twitter.svg",
-    alt: "Twitter",
+    icon: "twitter",
     href: "https://twitter.com/dinasso1",
   },
   {
-    src: "/icons/linkedIn.svg",
-    alt: "LinkedIn",
+    icon: "linkedin",
     href:
       "https://www.linkedin.com/in/ilyass-ben-hakim-%E2%9A%9B%EF%B8%8F-859480160/",
   },
@@ -118,28 +116,30 @@ const Wrapper = styled.div`
   left: 0%;
   width: 100%;
   transition: all 0.3s;
-  background-image: linear-gradient(
-    0deg,
-    #0a0a0c 0%,
-    rgba(10, 10, 12, 0.282717) 59.38%,
-    rgba(10, 10, 12, 0.183781) 68.75%,
-    rgba(10, 10, 12, 0.107444) 79.17%,
-    rgba(10, 10, 12, 0.03125) 92.71%,
-    rgba(10, 10, 12, 0.0133929) 95.31%,
-    rgba(10, 10, 12, 0) 100%
-  );
+  background-image: ${({ mode }: { mode: string }) =>
+    mode === "dark"
+      ? `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)`
+      : `linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%)`};
+  a {
+    padding: 4px;
+    border-radius: 8px;
+  }
+  button {
+    border-radius: 8px;
+  }
 `;
 const CopyIndicator = styled(motion.div)`
   height: 30px;
   position: absolute;
   padding: 0 8px;
-  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.67);
-  color: #fff;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   z-index: 200;
   bottom: 50px;
   line-height: 30px;
-  background-color: #000;
+  font-weight: 500;
+  color: white;
+  background-color: black;
   user-select: none;
   font-size: 12px;
 `;

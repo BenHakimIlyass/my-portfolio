@@ -29,7 +29,7 @@ const FrontendDev = () => {
                   initial={{ opacity: 0 }}
                   transition={{ delay: 1 }}
                 >
-                  I make clean code for legit online products.
+                  I write clean code for legit online products.
                 </AnimatedH3>
                 <AnimatedP
                   style={{ zIndex: 1 }}
@@ -53,11 +53,10 @@ const FrontendDev = () => {
               <H4 style={{ fontWeight: 700 }}>Experiences</H4>
               <Vstack space={1}>
                 <P>
-                  Since I was 19 years old, I started writing/learning
-                  Javascript in React JS, there were lots of things that just
-                  took me quite a while to figure out, such as state/props
-                  concept, one-way data flow, managing global state, reusable
-                  components...
+                  Since I was 19 years old, I started practicing Javascript in
+                  React JS, there were lots of things that just took me quite a
+                  while to figure out, such as state/props concept, one-way data
+                  flow, managing global state, reusable components...
                 </P>
                 <P>
                   But an 8-9 months later, I found myself falling in love with
@@ -123,7 +122,6 @@ const Wrapper = styled.div`
   min-height: 400px;
   height: fit-content;
   position: relative;
-  overflow: hidden;
 `;
 
 export default FrontendDev;

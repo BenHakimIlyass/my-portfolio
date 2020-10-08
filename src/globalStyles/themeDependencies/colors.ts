@@ -1,14 +1,14 @@
 const modes = {
   dark: {
     black: "#fff",
-    lightBlack: "#E9E9E9",
+    lightBlack: "#434343",
     white: "#000",
-    grayWhite: "#3C3C42",
+    grayWhite: "#A0A1A5",
   },
 };
 const colors = {
   black: "#000",
-  lightBlack: "#3C3C42",
+  lightBlack: "#DEDEDE",
   white: "#fff",
   grayWhite: "#E9E9E9",
   modes,
