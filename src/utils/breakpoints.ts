@@ -11,7 +11,7 @@ type StyleProps = {
   [key: string]: string | React.CSSProperties;
 };
 
-export default (style: StyleProps) => {
+const breakpoints = (style: StyleProps) => {
   if (typeof style === "object") {
     return css`
       ${Object.keys(style).map((objKey, _) => {
@@ -30,3 +30,4 @@ export default (style: StyleProps) => {
   }
   return style;
 };
+export default breakpoints;

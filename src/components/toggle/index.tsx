@@ -9,9 +9,10 @@ const wrapAnimations = {
   exit: { opacity: 0 },
 };
 
-const Brightness = () => (
+const Brightness = (props) => (
   <motion.svg
     {...wrapAnimations}
+    {...props}
     width="24"
     height="24"
     viewBox="0 0 24 24"
@@ -27,9 +28,10 @@ const Brightness = () => (
   </motion.svg>
 );
 
-const Darkness = () => (
+const Darkness = (props) => (
   <motion.svg
     {...wrapAnimations}
+    {...props}
     width="24"
     height="24"
     viewBox="0 0 24 24"
@@ -52,10 +54,22 @@ const Toggle = () => {
     set((prev) => !prev);
     setMode(mode === "dark" ? "default" : "dark");
   };
+  const handleIconLowOpacity = (light, dark) =>
+    mode === "dark" ? dark : light;
+
   return (
-    <Wrapper alignItems="center" space={0.6} onClick={toggle} as="button">
+    <Wrapper
+      alignItems="center"
+      space={0.6}
+      onClick={toggle}
+      as="button"
+      htmlFor="Dark mode"
+    >
       <div style={{ width: 24, height: 24 }}>
-        <AnimatePresence>{!state && <Brightness />}</AnimatePresence>
+        <Brightness
+          initial={{ opacity: 0 }}
+          animate={{ opacity: state ? handleIconLowOpacity(0.2, 0.4) : 1 }}
+        />
       </div>
       <svg width="38" height="38" viewBox="0 0 32 32" fill="none">
         <Box
@@ -74,7 +88,10 @@ const Toggle = () => {
         />
       </svg>
       <div style={{ width: 24, height: 24 }}>
-        <AnimatePresence>{state && <Darkness />}</AnimatePresence>
+        <Darkness
+          initial={{ opacity: 0 }}
+          animate={{ opacity: state ? 1 : handleIconLowOpacity(0.2, 0.4) }}
+        />
       </div>
     </Wrapper>
   );
@@ -85,7 +102,7 @@ const Wrapper = styled(Hstack)`
     fill: black;
   }
   .toggle_path {
-    fill: white !important;
+    fill: transparent !important;
   }
   .toggle_circle {
     stroke: black !important;

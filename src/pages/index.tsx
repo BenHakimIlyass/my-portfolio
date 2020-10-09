@@ -1,52 +1,41 @@
 import * as React from "react";
 import Head from "next/head";
-import { useTimeout } from "../hooks";
-import { GlobalStyle, theme } from "../globalStyles";
-import { breakpoints } from "../utils";
-import styled, {
-  ThemeProvider,
-  ColorModeProvider,
-} from "@xstyled/styled-components";
+import { useTimeout, useAnimation } from "../hooks";
+import { breakpoints, scrollToElementById } from "../utils";
+import styled from "@xstyled/styled-components";
 import {
   FrontendDev,
   Minimalist,
   Contact,
   SunAndMoon,
-  Nav,
   Vstack,
-  SocialMedia,
 } from "../components";
+import { useRouter } from "next/router";
 
 const App = () => {
-  const logoAnimationEnds = useTimeout(4000);
+  const [{ logoWillAnimate }] = useAnimation();
+  const router = useRouter();
+  React.useEffect(() => {
+    router.pathname === "/#contact" && scrollToElementById("contact_section");
+  }, []);
   return (
-    <ThemeProvider theme={theme}>
-      <ColorModeProvider>
-        <Head>
-          <title>Ilyass Ben Hakim</title>
-        </Head>
-        {/* Global style */}
-        <GlobalStyle />
+    <>
+      <Head>
+        <title>Ilyass Ben Hakim</title>
+      </Head>
 
-        {/* The header */}
-        <Nav />
-
-        {/* Contact informations */}
-        <SocialMedia />
-
-        {/* Main sections */}
-        {logoAnimationEnds && (
-          <MainPlayground>
-            <Vstack space={12.0}>
-              <Minimalist />
-              <FrontendDev />
-              <SunAndMoon />
-              <Contact />
-            </Vstack>
-          </MainPlayground>
-        )}
-      </ColorModeProvider>
-    </ThemeProvider>
+      {/* Main sections */}
+      {!logoWillAnimate && (
+        <MainPlayground>
+          <Vstack space={12}>
+            <Minimalist />
+            {/* <FrontendDev />
+            <SunAndMoon /> */}
+            <Contact />
+          </Vstack>
+        </MainPlayground>
+      )}
+    </>
   );
 };
 const MainPlayground = styled.div`

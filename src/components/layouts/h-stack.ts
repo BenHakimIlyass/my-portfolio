@@ -9,14 +9,14 @@ type Props = {
 const handleAlignement = ({
   justifyContent,
   alignItems,
-  style
+  style,
 }: Partial<Props>): any =>
   css({
     display: "flex",
     flexWrap: "wrap",
     justifyContent,
     alignItems,
-    ...style
+    ...style,
   });
 const handleMargins = ({ space }: Partial<Props>): any => css`
   margin: calc(${space}rem / 2 * -1);

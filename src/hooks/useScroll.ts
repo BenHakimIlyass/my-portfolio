@@ -6,7 +6,7 @@ type Props = {
 };
 type Dist = { scroll: number; isOnScreen: boolean; isScrolling: boolean };
 // A hook for tracking vertical scroll
-export default ({ min, max }: Props): Dist => {
+const useScroll = ({ min, max }: Props): Dist => {
   const [scroll, setScroll] = React.useState<number>(0);
   const [isScrolling, setScrolling] = React.useState<boolean>(false);
 
@@ -33,3 +33,4 @@ export default ({ min, max }: Props): Dist => {
 
   return { scroll: scroll, isOnScreen: isOnScreen(), isScrolling: isScrolling };
 };
+export default useScroll;

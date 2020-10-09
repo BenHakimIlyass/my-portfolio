@@ -66,5 +66,6 @@ const Icons = (mode: string) => ({
     </svg>
   ),
 });
-export default ({ icon, mode }: { icon: string; mode: string }) =>
+const IconsWrapper = ({ icon, mode }: { icon: string; mode: string }) =>
   Icons(mode)[icon];
+export default IconsWrapper;

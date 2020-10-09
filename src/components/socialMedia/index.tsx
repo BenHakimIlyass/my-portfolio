@@ -5,6 +5,7 @@ import useClipboard from "react-use-clipboard";
 import useHeadroom from "react-useheadroom";
 
 import { Hstack, Container } from "../";
+import { repeate } from "../../utils";
 import Icon from "./icons";
 
 const SocialMedia = () => {
@@ -118,8 +119,11 @@ const Wrapper = styled.div`
   transition: all 0.3s;
   background-image: ${({ mode }: { mode: string }) =>
     mode === "dark"
-      ? `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)`
-      : `linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%)`};
+      ? repeate(`linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)`, 2)
+      : repeate(
+          `linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%)`,
+          2
+        )};
   a {
     padding: 4px;
     border-radius: 8px;

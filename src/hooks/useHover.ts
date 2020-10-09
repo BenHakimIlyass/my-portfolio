@@ -2,11 +2,12 @@ import React from "react";
 
 type Return = [{ onMouseEnter: () => void; onMouseLeave: () => void }, boolean];
 
-export default (initialState?: boolean): Return => {
+const useHover = (initialState?: boolean): Return => {
   const [isHovered, hover] = React.useState(!!initialState);
   const handleHover = () => ({
     onMouseEnter: () => hover(true),
-    onMouseLeave: () => hover(false)
+    onMouseLeave: () => hover(false),
   });
   return [handleHover(), isHovered];
 };
+export default useHover;
