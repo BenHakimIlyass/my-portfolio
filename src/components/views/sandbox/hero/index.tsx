@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import styled from "@xstyled/styled-components";
+import styled, { keyframes } from "@xstyled/styled-components";
 import { P, H3, Vstack, Center } from "../../../";
 // import { breakpoints } from "";
 const SandboxHero = () => {
@@ -20,14 +20,6 @@ const SandboxHero = () => {
       </Vstack>
       <Box zIndex={1}>
         <motion.svg
-          transition={{
-            repeat: Infinity,
-            repeatType: "mirror",
-            duration: 10,
-          }}
-          initial={{ rotate: 0 }}
-          animate={{ rotate: 180 }}
-          style={{ originX: "50%", originY: "50%" }}
           width="100%"
           height="100%"
           viewBox="0 0 500 500"
@@ -45,8 +37,17 @@ const SandboxHero = () => {
     </Center>
   );
 };
+const rotateSvg = keyframes`
+from{
+  transform: rotate(0deg);
+}
+to{
+  transform: rotate(180deg);
+}
+`;
 const Box = styled.div`
   width: 70%;
   max-width: 600px;
+  animation: ${rotateSvg} 10s infinite ease-out alternate;
 `;
 export default SandboxHero;

@@ -2,7 +2,6 @@ import React from "react";
 import styled, { useColorMode } from "@xstyled/styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 import { useOnScreen } from "../hooks";
-
 const DisplayText = ({
   title,
   style,

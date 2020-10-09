@@ -2,8 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useMousePosition } from "../../../../hooks";
 
-const Moon = ({ ...props }) => {
-  const { x, y } = useMousePosition();
+const Moon = ({ x, y, ...props }) => {
   const motions = (delay: number) => ({
     initial: { y: -400 },
     exit: { y: -400 },

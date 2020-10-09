@@ -5,13 +5,13 @@ import Beach from "./beach";
 import Buoy from "./buoy";
 import Lighthouse from "./lighthouse";
 
-const Midday = ({ ...props }) => {
+const Midday = ({ x, y, ...props }) => {
   return (
     <div {...props}>
-      <Moon />
+      <Moon x={x} y={y} />
       <Beach />
       <Buoy />
-      <Lighthouse />
+      <Lighthouse x={x} y={y} />
     </div>
   );
 };

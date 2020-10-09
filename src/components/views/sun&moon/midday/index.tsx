@@ -5,12 +5,12 @@ import Beach from "./beach";
 import Sun from "./sun";
 import Boat from "./boat";
 
-const Midday = () => {
+const Midday = ({ x, y }) => {
   return (
     <>
-      <Sun />
+      <Sun x={x} y={y} />
       <Beach />
-      <Umbrella />
+      <Umbrella x={x} y={y} />
       <Boat />
     </>
   );

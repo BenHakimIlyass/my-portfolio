@@ -1,12 +1,20 @@
 import { useEffect, useState } from "react";
+import { useHover } from ".";
 
-const useMousePosition = () => {
+const useMousePosition = (): [
+  {
+    onMouseEnter: () => void;
+    onMouseLeave: () => void;
+  },
+  { x: number; y: number }
+] => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isMounted, setMount] = useState(false);
+  const [events, isHovered] = useHover();
 
   useEffect(() => {
     const handleEvent = (e: any) =>
-      isMounted && setPosition({ x: e.clientX, y: e.clientY });
+      isHovered && isMounted && setPosition({ x: e.clientX, y: e.clientY });
 
     let timeout = setTimeout(() => setMount(true), 600);
 
@@ -16,8 +24,8 @@ const useMousePosition = () => {
       clearTimeout(timeout);
       window.removeEventListener("mousemove", handleEvent);
     };
-  }, [isMounted]);
+  }, [isMounted, isHovered]);
 
-  return position;
+  return [events, position];
 };
 export default useMousePosition;

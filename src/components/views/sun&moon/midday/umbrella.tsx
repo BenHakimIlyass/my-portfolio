@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useMousePosition } from "../../../../hooks";
 
 const motions = (delay: number, outterValue?: any) => ({
   initial: outterValue,
@@ -12,9 +11,7 @@ const motions = (delay: number, outterValue?: any) => ({
     damping: 20,
   },
 });
-const Umbrella = ({ ...props }) => {
-  const { x, y } = useMousePosition();
-
+const Umbrella = ({ x, y, ...props }) => {
   return (
     <div
       style={{

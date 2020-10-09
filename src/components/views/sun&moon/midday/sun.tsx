@@ -3,8 +3,7 @@ import { motion } from "framer-motion";
 import arr from "./data";
 import { useMousePosition } from "../../../../hooks";
 
-const Sun = ({ ...props }) => {
-  const { x, y } = useMousePosition();
+const Sun = ({ x, y, ...props }) => {
   const motions = (delay: number) => ({
     initial: { y: -400 },
     exit: { y: -400 },

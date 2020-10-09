@@ -2,8 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useMousePosition } from "../../../../hooks";
 
-const Lighthouse = ({ ...props }) => {
-  const { x, y } = useMousePosition();
+const Lighthouse = ({ x, y, ...props }) => {
   const motions = (delay: number, outterValue?: any) => ({
     initial: outterValue,
     exit: outterValue,

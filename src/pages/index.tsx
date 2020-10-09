@@ -29,8 +29,7 @@ const App = () => {
         <MainPlayground>
           <Vstack space={12}>
             <Minimalist />
-            {/* <FrontendDev />
-            <SunAndMoon /> */}
+            <FrontendDev />
             <Contact />
           </Vstack>
         </MainPlayground>

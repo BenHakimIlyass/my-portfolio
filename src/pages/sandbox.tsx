@@ -1,6 +1,13 @@
 import * as React from "react";
 import Head from "next/head";
-import { SandboxHero, Container } from "../components";
+import {
+  SandboxHero,
+  Container,
+  Vstack,
+  P,
+  H4,
+  SunAndMoon,
+} from "../components";
 import { breakpoints } from "../utils";
 import { useAnimation } from "../hooks";
 import styled from "@xstyled/styled-components";
@@ -16,7 +23,19 @@ const Sandbox = () => {
       {!logoWillAnimate && (
         <MainPlayground>
           <Container>
-            <SandboxHero />
+            <Vstack space={12}>
+              <SandboxHero />
+              <Vstack space={2}>
+                <H4>Sun & moon</H4>
+                <P>This repository is made with framer-motion and svg.</P>
+                <img
+                  src="/icons/codesandbox.svg"
+                  draggable={false}
+                  style={{ alignSelf: "flex-start" }}
+                />
+                <SunAndMoon />
+              </Vstack>
+            </Vstack>
           </Container>
         </MainPlayground>
       )}
