@@ -11,12 +11,19 @@ const gradient = ({ gradient }: { gradient: string }) =>
     background-image: linear-gradient(${gradient});
   `;
 const alignement = css`
-  text-align: ${({ direction }: { direction?: "center" | "right" }) =>
-    direction ? direction : "left"};
+  text-align: ${({ direction }: { direction?: "center" | "right" }) => (direction ? direction : "left")};
   ${gradient}
 `;
+const handleRevertCase = ({ revert }) =>
+  revert
+    ? css`
+        color: white;
+      `
+    : css`
+        color: black;
+      `;
 const Paragraph = css`
-  color: black;
+  ${(props) => handleRevertCase(props)}
   font-size: 1.1rem;
   ${alignement}
   ${breakpoints({
@@ -27,16 +34,15 @@ const Paragraph = css`
 const Header = css`
   font-size: 3.4rem;
   font-weight: 700;
-  color: black;
+  ${(props) => handleRevertCase(props)}
   line-height: 4rem;
   ${alignement}
 `;
 const Header3 = css`
   font-size: 36px;
-  color: black;
+  ${(props) => handleRevertCase(props)}
   line-height: calc(36px + 36px * 0.4);
-  ${({ isAnimated }) =>
-    !!isAnimated && `font-size: 36px;line-height: calc(36px + 36px * 0.4);`}
+  ${({ isAnimated }) => !!isAnimated && `font-size: 36px;line-height: calc(36px + 36px * 0.4);`}
 
   ${alignement}
 
@@ -49,13 +55,13 @@ const Header3 = css`
 `;
 const Header4 = css`
   font-size: 1.8rem;
-  color: black;
+  ${(props) => handleRevertCase(props)}
   line-height: 2.2rem;
   ${alignement}
 `;
 const Header5 = css`
   font-size: 1.2rem;
-  color: black;
+  ${(props) => handleRevertCase(props)}
   line-height: 1.8rem;
   ${alignement}
 `;

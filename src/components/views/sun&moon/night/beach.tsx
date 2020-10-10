@@ -10,8 +10,8 @@ const Beach = ({ ...props }) => {
   });
   return (
     <div
-      style={{
-        position: "absolute",
+         style={{
+        position:   "absolute",
         left: 0,
         bottom: -10,
         width: "100%",

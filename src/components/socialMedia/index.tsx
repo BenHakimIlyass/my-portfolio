@@ -26,10 +26,7 @@ const SocialMedia = () => {
   };
 
   React.useEffect(() => {
-    let timeout = setTimeout(
-      () => setCopyState({ firstClick: false, secondClick: false }),
-      1800
-    );
+    let timeout = setTimeout(() => setCopyState({ firstClick: false, secondClick: false }), 1800);
     return () => clearTimeout(timeout);
   }, [copyState]);
 
@@ -41,9 +38,7 @@ const SocialMedia = () => {
     <Wrapper
       mode={mode}
       style={{
-        transform: isShown
-          ? `translate3d(0px,0px,0px)`
-          : `translate3d(0px,80px,0px)`,
+        transform: isShown ? `translate3d(0px,0px,0px)` : `translate3d(0px,80px,0px)`,
       }}
     >
       <Container>
@@ -52,7 +47,7 @@ const SocialMedia = () => {
             <motion.a
               initial={{ y: 100 }}
               animate={{ y: 0 }}
-              style={{ width: 24, height: 24 }}
+              style={{ width: 24, height: 24, willChange: "transform" }}
               transition={{ delay: delayState ? 0 : key * 0.1 }}
               whileHover={{ scale: 1.1 }}
               href={href}
@@ -69,16 +64,14 @@ const SocialMedia = () => {
                   animate={{ opacity: 1, y: 30, x: 40 }}
                   exit={{ opacity: 0, y: 80, x: 40 }}
                 >
-                  {copyState.secondClick
-                    ? "Email copied !"
-                    : "Double click to copy my email"}
+                  {copyState.secondClick ? "Email copied !" : "Double click to copy my email"}
                 </CopyIndicator>
               )}
             </AnimatePresence>
             <motion.button
               onClick={handleCopy}
               initial={{ y: 100 }}
-              style={{ width: 32, height: 32 }}
+              style={{ width: 32, height: 32, willChange: "transform" }}
               animate={{ y: 0 }}
               transition={{ delay: delayState ? 0 : 0.3 }}
               whileHover={{ scale: 1.1 }}
@@ -103,8 +96,7 @@ const data = [
   },
   {
     icon: "linkedin",
-    href:
-      "https://www.linkedin.com/in/ilyass-ben-hakim-%E2%9A%9B%EF%B8%8F-859480160/",
+    href: "https://www.linkedin.com/in/ilyass-ben-hakim-%E2%9A%9B%EF%B8%8F-859480160/",
   },
 ];
 const Wrapper = styled.div`
@@ -120,10 +112,7 @@ const Wrapper = styled.div`
   background-image: ${({ mode }: { mode: string }) =>
     mode === "dark"
       ? repeate(`linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)`, 2)
-      : repeate(
-          `linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%)`,
-          2
-        )};
+      : repeate(`linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%)`, 2)};
   a {
     padding: 4px;
     border-radius: 8px;

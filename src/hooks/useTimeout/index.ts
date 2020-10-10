@@ -2,7 +2,7 @@ import React from "react";
 
 type Obj = { execute: (...args: any[]) => void; delay: number };
 
-const useTimeout = (props: number | Obj) => {
+const useTimeout = (props: number | Obj, deps?: any[]) => {
   const [state, set] = React.useState(false);
   React.useEffect(() => {
     // if the props given is a number, the hook will return a state
@@ -20,7 +20,7 @@ const useTimeout = (props: number | Obj) => {
       let timeout = setTimeout(execute, delay);
       return () => clearTimeout(timeout);
     }
-  }, [props]);
+  }, [props, deps]);
 
   if (typeof props === "number") return state;
 };

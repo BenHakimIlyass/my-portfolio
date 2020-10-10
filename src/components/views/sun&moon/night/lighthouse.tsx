@@ -41,18 +41,9 @@ const Lighthouse = ({ x, y, ...props }) => {
             d="M29.2133 135H56.6183L84.2893 107.329L81.2483 76.8691L24.1992 133.918C25.7227 134.612 27.4188 135 29.2133 135Z"
             fill="url(#paint21)"
           />
-          <path
-            d="M54.8977 74.5112H21.8703L18.207 111.202L54.8977 74.5112Z"
-            fill="url(#paint22)"
-          />
-          <path
-            d="M54.8977 74.5112H21.8703L18.207 111.202L54.8977 74.5112Z"
-            fill="url(#paint23)"
-          />
-          <path
-            d="M21.623 30.4321H81.261V62.8464H21.623V30.4321Z"
-            fill="url(#paint24)"
-          />
+          <path d="M54.8977 74.5112H21.8703L18.207 111.202L54.8977 74.5112Z" fill="url(#paint22)" />
+          <path d="M54.8977 74.5112H21.8703L18.207 111.202L54.8977 74.5112Z" fill="url(#paint23)" />
+          <path d="M21.623 30.4321H81.261V62.8464H21.623V30.4321Z" fill="url(#paint24)" />
           <path
             d="M81.8198 79.95H21.0644C18.0258 79.95 15.5625 77.4867 15.5625 74.4481V68.3481C15.5625 65.3095 18.0258 62.8462 21.0644 62.8462H81.8198C84.8584 62.8462 87.3217 65.3095 87.3217 68.3481V74.4481C87.3217 77.4867 84.8584 79.95 81.8198 79.95Z"
             fill="url(#paint25)"
@@ -215,14 +206,7 @@ const Lighthouse = ({ x, y, ...props }) => {
             <stop stop-color="#74D2E8" />
             <stop offset="1" stop-color="#BAEAF5" />
           </linearGradient>
-          <linearGradient
-            id="paint26"
-            x1="16.6539"
-            y1="15.216"
-            x2="86.0248"
-            y2="15.216"
-            gradientUnits="userSpaceOnUse"
-          >
+          <linearGradient id="paint26" x1="16.6539" y1="15.216" x2="86.0248" y2="15.216" gradientUnits="userSpaceOnUse">
             <stop stop-color="#74D2E8" />
             <stop offset="1" stop-color="#BAEAF5" />
           </linearGradient>
