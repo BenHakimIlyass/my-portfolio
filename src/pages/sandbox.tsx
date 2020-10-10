@@ -1,6 +1,16 @@
 import * as React from "react";
 import Head from "next/head";
-import { SandboxHero, Container, Vstack, P, H4, SunAndMoon, Jordans, CodeSandboxButton } from "../components";
+import {
+  SandboxHero,
+  Container,
+  Vstack,
+  P,
+  H4,
+  SunAndMoon,
+  Jordans,
+  CodeSandboxButton,
+  AnimatedIcons,
+} from "../components";
 import { breakpoints } from "../utils";
 import { useAnimation } from "../hooks";
 import styled from "@xstyled/styled-components";
@@ -29,6 +39,12 @@ const Sandbox = () => {
                 <P>This repository is made with framer-motion and svg.</P>
                 <CodeSandboxButton href="https://codesandbox.io/s/github/BenHakimIlyass/sun-moon-animation" />
                 <SunAndMoon />
+              </Vstack>
+              <Vstack space={2}>
+                <H4>Sun & moon</H4>
+                <P>This repository is made with framer-motion and svg.</P>
+                <CodeSandboxButton href="https://codesandbox.io/s/github/BenHakimIlyass/sun-moon-animation" />
+                <AnimatedIcons />
               </Vstack>
             </Vstack>
           </Container>

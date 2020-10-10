@@ -3,4 +3,5 @@ export { default as Minimalist } from "./minimalist";
 export { default as Contact } from "./contact";
 export { default as SunAndMoon } from "./sun&moon";
 export { default as Jordans } from "./jordans";
+export { default as AnimatedIcons } from "./animatedIcons";
 export * from "./sandbox";

@@ -20,6 +20,7 @@ export default function App() {
       {isOnScreen && (
         <Playground
           {...events}
+          style={{ height: "90vh" }}
           onTap={() => toggle((prev) => !prev)}
           animate={{
             backgroundImage: dark

@@ -39,7 +39,7 @@ const Container = styled.div`
   margin: 0 auto;
   padding-top: 14vh;
   width: 100%;
-  height: 1000px;
+  height: 90vh;
   user-select: none;
   position: relative;
   cursor: url("/cursor.png"), auto;

@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 
 const Playground = styled(motion.div)`
   overflow: hidden;
-  height: 90vh;
+  height: fit-content;
+  padding: 10px 0px;
   cursor: pointer;
   width: 100%;
   border-radius: 30px;
   position: relative;
-  margin: 0px auto;
   box-shadow: 0px 0px 16px rgba(152, 163, 183, 0.24);
 `;
 
