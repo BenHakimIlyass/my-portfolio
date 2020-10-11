@@ -11,15 +11,15 @@ export default function App() {
   const [dark, toggle] = React.useState(false);
 
   const [ref, isOnScreen] = useOnScreen();
-  const [events, isHovered] = useHover();
-  const bounds = useMousePosition();
-  const iconIsMounted = useTimeout(600);
-  const { x, y } = isHovered && iconIsMounted ? bounds : { x: 0, y: 0 };
+  // const [events, isHovered] = useHover();
+  const iconIsMounted = useTimeout(3000, [dark]);
+  const bounds = useMousePosition(iconIsMounted);
+  // console.log(bounds);
+
   return (
     <AnimationSection ref={ref}>
       {isOnScreen && (
         <Playground
-          {...events}
           style={{ height: "90vh" }}
           onTap={() => toggle((prev) => !prev)}
           animate={{
@@ -33,7 +33,7 @@ export default function App() {
             backgroundColor: dark ? "#102A43" : "#F4ECD1",
           }}
         >
-          <AnimatePresence exitBeforeEnter>{dark ? <Night x={x} y={y} /> : <Midday x={x} y={y} />}</AnimatePresence>
+          <AnimatePresence exitBeforeEnter>{dark ? <Night {...bounds} /> : <Midday {...bounds} />}</AnimatePresence>
 
           <P animate={{ color: !dark ? "#BCCCDC" : "#DFF7FA" }} style={{ userSelect: "none" }}>
             Tap here to toggle time

@@ -30,20 +30,20 @@ const Sandbox = () => {
               <SandboxHero />
               <Vstack space={2}>
                 <H4>Jordans</H4>
-                <P>This repository is made with framer-motion and svg.</P>
+                <P>This animation is designed by me, using framer-motion.</P>
                 <CodeSandboxButton href="https://codesandbox.io/s/new-platform-kn5sx" />
                 <Jordans />
               </Vstack>
               <Vstack space={2}>
-                <H4>Sun & moon</H4>
-                <P>This repository is made with framer-motion and svg.</P>
+                <H4>Sun and moon</H4>
+                <P>This repository is made also with framer-motion and svg.</P>
                 <CodeSandboxButton href="https://codesandbox.io/s/github/BenHakimIlyass/sun-moon-animation" />
                 <SunAndMoon />
               </Vstack>
               <Vstack space={2}>
-                <H4>Sun & moon</H4>
-                <P>This repository is made with framer-motion and svg.</P>
-                <CodeSandboxButton href="https://codesandbox.io/s/github/BenHakimIlyass/sun-moon-animation" />
+                <H4>Animated Icons</H4>
+                <P>These icons are designed and created by me, using Figma and framer-motion.</P>
+                <CodeSandboxButton href="https://codesandbox.io/s/github/BenHakimIlyass/animated-icons" />
                 <AnimatedIcons />
               </Vstack>
             </Vstack>
