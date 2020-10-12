@@ -1,25 +1,24 @@
 import React from "react";
 
-const useOnScreen = (rootMargin = "0px") => {
+const useOnScreen = ({ ref, rootMargin = "0px" }) => {
   const [isOnScreen, setOnScreen] = React.useState(false);
 
-  const domRef = React.useRef(null);
   React.useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setOnScreen(entry.isIntersecting);
       },
-      { rootMargin }
+      { rootMargin },
     );
-    if (domRef.current) {
-      observer.observe(domRef.current);
+    if (ref.current) {
+      observer.observe(ref.current);
     }
     return () => {
-      observer.unobserve(domRef.current);
+      observer.unobserve(ref.current);
     };
   }, []);
 
-  return [domRef, isOnScreen];
+  return isOnScreen;
 };
 
 export default useOnScreen;

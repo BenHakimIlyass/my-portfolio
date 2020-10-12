@@ -37,7 +37,7 @@ const spaceToBreakpoints = (space: Props["space"], important?: boolean) => {
       xs: css`
         margin: calc(${unit(space)} / 2 * -1);
         & > * {
-          margin: calc(${unit(space)} / 2) ${!!important && `!important`};
+          margin: calc(${unit(space)} / 2) ${important && ` !important`};
         }
       `,
     };
@@ -48,7 +48,7 @@ const spaceToBreakpoints = (space: Props["space"], important?: boolean) => {
         [key]: css`
           margin: calc(${unit(space)} / 2 * -1);
           & > * {
-            margin: calc(${unit(space)} / 2) ${!!important && `!important`};
+            margin: calc(${unit(space)} / 2);
           }
         `,
       }),

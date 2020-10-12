@@ -1,6 +1,6 @@
 import React from "react";
 import { AnimateSharedLayout, motion, AnimatePresence } from "framer-motion";
-import styled, { useColorMode } from "@xstyled/styled-components";
+import styled, { useColorMode, Box } from "@xstyled/styled-components";
 
 import { AnimatedH4, H5, Hstack, Container, Toggle } from "../";
 import AnimatedLogo from "./animated-logo";
@@ -42,7 +42,7 @@ const Nav = () => {
         <AnimatePresence exitBeforeEnter>
           {animate ? (
             <Container>
-              <Hstack alignItems="center" justifyContent="space-between" style={{ width: "100%" }} important>
+              <Hstack alignItems="center" justifyContent="space-between" style={{ width: "100%" }}>
                 <Link href="/">
                   <a>
                     <AnimatedH4
@@ -69,26 +69,28 @@ const Nav = () => {
                   </a>
                 </Link>
                 {animate && (
-                  <Hstack space={2} alignItems="center" justifyContent="flex-start">
-                    <div>
-                      <Toggle />
-                    </div>
-                    <Hstack space={2}>
-                      <Link href="/sandbox">
-                        <a>
-                          <H5>Sandbox</H5>
-                        </a>
-                      </Link>
-                      <Link href="/blog">
-                        <a>
-                          <H5>Blog</H5>
-                        </a>
-                      </Link>
-                      <button onClick={() => scrollToElementById("contact_section")}>
-                        <H5>Contact</H5>
-                      </button>
+                  <Box col={10 / 12}>
+                    <Hstack space={3} alignItems="center" justifyContent="flex-end">
+                      <div>
+                        <Toggle />
+                      </div>
+                      <Hstack space={2}>
+                        <Link href="/sandbox">
+                          <a>
+                            <H5>Sandbox</H5>
+                          </a>
+                        </Link>
+                        <Link href="/blog">
+                          <a>
+                            <H5>Blog</H5>
+                          </a>
+                        </Link>
+                        <button onClick={() => scrollToElementById("contact_section")}>
+                          <H5>Contact</H5>
+                        </button>
+                      </Hstack>
                     </Hstack>
-                  </Hstack>
+                  </Box>
                 )}
               </Hstack>
             </Container>

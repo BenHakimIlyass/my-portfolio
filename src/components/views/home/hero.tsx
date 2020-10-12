@@ -29,7 +29,7 @@ const HomeHero = () => {
           </AnimatedH3>
           <Vstack space={0.3}>
             <AnimatedP initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
-              A young self-taught frontend developer and UI UX designer.
+              A young software engineer, self-taught frontend developer and UI UX designer.
             </AnimatedP>
             <AnimatedP initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4 }}>
               I'm always working on my skillset, so I can be able to build such a perfect interactive web application,
