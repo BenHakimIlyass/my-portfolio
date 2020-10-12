@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useHover } from "../../../../hooks";
+import { useHover } from "../../../../../hooks";
 
 const Camera = () => {
   const [events, isHovered] = useHover();

@@ -18,11 +18,7 @@ const breakpoints = (style: StyleProps) => {
         //  Wrapp breakpoints
         return css`
           @media only screen and (min-width: ${[objKey]}px) {
-            ${typeof style[objKey] === "string"
-              ? css`
-                  ${style[objKey]}
-                `
-              : css(style[objKey])}
+            ${style[objKey]}
           }
         `;
       })}

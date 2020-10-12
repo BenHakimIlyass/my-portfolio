@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, { Box } from "@xstyled/styled-components";
-import { Playground, Center, Vstack } from "../../";
+import { Playground, Center, Vstack } from "../../../";
 import { Wallet, Camera, Cloud, Bell, Folder } from "./icons";
 const AnimatedIcons = () => {
   return (

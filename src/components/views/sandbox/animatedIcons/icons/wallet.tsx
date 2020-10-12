@@ -1,12 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useHover } from "../../../../hooks";
+import { useHover } from "../../../../../hooks";
 
 const Wallet = () => {
   const [events, isHovered] = useHover();
 
   return (
-    <svg {...events} width="220" height="200" viewBox="0 0 86 40" fill="none">
+    <svg {...events} width="200" height="200" viewBox="0 0 86 40" fill="none">
       <motion.path
         initial={{ rotate: 0 }}
         animate={{ rotate: isHovered ? -18 : 0, y: isHovered ? -10 : 0 }}
@@ -26,14 +26,7 @@ const Wallet = () => {
         fill="#AA58FF"
       />
 
-      <rect
-        y="0.576172"
-        width="56"
-        height="41"
-        rx="8"
-        fill="#E4CAFF"
-        fillOpacity="0.6"
-      />
+      <rect y="0.576172" width="56" height="41" rx="8" fill="#E4CAFF" fillOpacity="0.6" />
       <circle cx="44" cy="21.5762" r="6" fill="white" fillOpacity="0.62" />
     </svg>
   );

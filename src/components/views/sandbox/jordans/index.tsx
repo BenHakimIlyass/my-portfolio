@@ -6,7 +6,7 @@ import styled, { useColorMode } from "@xstyled/styled-components";
 import Indicators from "./indicators";
 import Placeholder from "./placeholder";
 import { products } from "./data";
-import { Playground } from "../../";
+import { Playground } from "../../../";
 
 export default function Jordans() {
   // this is a small hack to bypass the animatin delay

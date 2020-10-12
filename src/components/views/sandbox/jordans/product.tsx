@@ -1,7 +1,7 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import { Vstack, AnimatedP, AnimatedH3 } from "../../";
+import { Vstack, AnimatedP, AnimatedH3 } from "../../../";
 
 type Props = {
   onPass: () => void;

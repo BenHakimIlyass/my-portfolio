@@ -2,17 +2,8 @@ import styled, { css } from "@xstyled/styled-components";
 import { motion } from "framer-motion";
 import { breakpoints } from "../utils";
 
-const gradient = ({ gradient }: { gradient: string }) =>
-  !!gradient &&
-  css`
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(${gradient});
-  `;
 const alignement = css`
   text-align: ${({ direction }: { direction?: "center" | "right" }) => (direction ? direction : "left")};
-  ${gradient}
 `;
 const handleRevertCase = ({ revert }) =>
   revert
@@ -22,8 +13,9 @@ const handleRevertCase = ({ revert }) =>
     : css`
         color: black;
       `;
-const Paragraph = css`
-  ${(props) => handleRevertCase(props)}
+
+export const Paragraph = (props) => css`
+  ${handleRevertCase(props)}
   font-size: 1.1rem;
   ${alignement}
   ${breakpoints({
@@ -31,6 +23,14 @@ const Paragraph = css`
     520: { fontSize: "1.1rem", lineHeight: "calc(18px + 18px * 0.4)" },
   })}
 `;
+export const SmallP = css`
+  ${alignement}
+  ${breakpoints({
+    0: { fontSize: "0.8rem", lineHeight: "calc(0.6rem + 0.6rem * 0.4)" },
+    520: { fontSize: "1rem", lineHeight: "calc(1rem + 1rem * 0.4)" },
+  })}
+`;
+
 const Header = css`
   font-size: 3.4rem;
   font-weight: 700;

@@ -4,8 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import Night from "./night";
 import Midday from "./midday";
-import { AnimatedP, Playground } from "../../";
-import { useOnScreen, useMousePosition, useHover, useTimeout } from "../../../hooks";
+import { AnimatedP, Playground } from "../../../";
+import { useOnScreen, useMousePosition, useHover, useTimeout } from "../../../../hooks";
 
 export default function App() {
   const [dark, toggle] = React.useState(false);

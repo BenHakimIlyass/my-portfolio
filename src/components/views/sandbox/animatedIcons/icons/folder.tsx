@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useHover } from "../../../../hooks";
+import { useHover } from "../../../../../hooks";
 
 const lines = [
   { x1: "25", y1: "19.9", x2: "58", y2: "19.9" },

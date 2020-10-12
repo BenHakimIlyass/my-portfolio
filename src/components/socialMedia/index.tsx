@@ -60,9 +60,9 @@ const SocialMedia = () => {
             <AnimatePresence exitBeforeEnter>
               {copyState.firstClick && (
                 <CopyIndicator
-                  initial={{ opacity: 0, y: 40, x: 40 }}
-                  animate={{ opacity: 1, y: 30, x: 40 }}
-                  exit={{ opacity: 0, y: 80, x: 40 }}
+                  initial={{ opacity: 0, y: 40, x: copyState.secondClick ? -60 : -150 }}
+                  animate={{ opacity: 1, y: -10, x: copyState.secondClick ? -60 : -150 }}
+                  exit={{ opacity: 0, y: 80, x: copyState.secondClick ? -60 : -150 }}
                 >
                   {copyState.secondClick ? "Email copied !" : "Double click to copy my email"}
                 </CopyIndicator>
@@ -124,7 +124,8 @@ const Wrapper = styled.div`
 const CopyIndicator = styled(motion.div)`
   height: 30px;
   position: absolute;
-  padding: 0 8px;
+  padding: 0 12px;
+  width: fit-content;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   z-index: 200;
