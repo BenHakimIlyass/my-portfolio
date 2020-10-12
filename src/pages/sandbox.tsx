@@ -1,24 +1,14 @@
 import * as React from "react";
 import Head from "next/head";
-import {
-  SandboxHero,
-  Container,
-  Vstack,
-  Hstack,
-  P,
-  H4,
-  SunAndMoon,
-  Jordans,
-  CodeSandboxButton,
-  AnimatedIcons,
-} from "../components";
-import { breakpoints } from "../utils";
+import { SandboxHero, Container, Vstack, Hstack, P, H4, Center, CodeSandboxButton } from "../components";
+import { breakpoints, shorten } from "../utils";
 import { useAnimation, useOnScreen } from "../hooks";
 import styled, { Box } from "@xstyled/styled-components";
 import { motion } from "framer-motion";
 
 const Sandbox = () => {
   const [{ logoWillAnimate }] = useAnimation();
+
   return (
     <>
       <Head>
@@ -38,7 +28,7 @@ const Sandbox = () => {
                 <CodeSandboxButton href="https://codesandbox.io/s/new-platform-kn5sx" />
                 <Hstack space={{ xs: 2, lg: 4 }} justifyContent="space-between">
                   <WrappGif src="/icons/jordans.gif" color="#FFB3B9" />
-                  <Box col={{ xs: 1, lg: 5 / 12 }} mt={{ md: "auto" }} mb={{ md: "50px" }}>
+                  <Box width={{ xs: "100%", lg: "40%" }} mb={{ md: 50 }} mt={{ md: "auto" }}>
                     <P>
                       The idea of this repository is to make a realistic product slider, but it was my first try with
                       framer-motion, we can say I was expermenting.
@@ -53,7 +43,7 @@ const Sandbox = () => {
                 <P>These icons are designed and created by me, using Figma and framer-motion.</P>
                 <CodeSandboxButton href="https://codesandbox.io/s/github/BenHakimIlyass/animated-icons" />
                 <Hstack space={{ xs: 2, lg: 4 }} justifyContent="space-between">
-                  <Box col={{ xs: 1, lg: 5 / 12 }} mt={{ md: "auto" }} mb={{ md: "50px" }}>
+                  <Box width={{ xs: "100%", lg: "40%" }} mb={{ md: 50 }} mt={{ md: "auto" }}>
                     <P direction="right">
                       Before, I was making web animation with react-spring which was one of the best ever, and I was
                       using it to animate svg elements sometimes. So here I created these tiny cute icons and I tried to
@@ -71,7 +61,7 @@ const Sandbox = () => {
                 <CodeSandboxButton href="https://codesandbox.io/s/github/BenHakimIlyass/sun-moon-animation" />
                 <Hstack space={{ xs: 2, lg: 4 }} justifyContent="space-between">
                   <WrappGif src="/icons/sunandmoon.gif" color="#051728" />
-                  <Box col={{ xs: 1, lg: 5 / 12 }} mt={{ md: "auto" }} mb={{ md: "50px" }}>
+                  <Box width={{ xs: "100%", lg: "40%" }} mb={{ md: 50 }} mt={{ md: "auto" }}>
                     <P>
                       After getting a litle bit familiarized with framer-motion, I made this full animated svg elements
                       repository
@@ -89,19 +79,28 @@ const Sandbox = () => {
 const WrappGif = ({ color, ...props }) => {
   const [ref, isOnScreen] = useOnScreen();
   return (
-    <Gif col={{ xs: 1, lg: 5 / 12 }} ref={ref}>
+    <Gif width={{ xs: "100%", lg: "40%" }} ref={ref}>
       {isOnScreen && (
         <motion.div
           initial={{ x: "-100%" }}
           transition={{ duration: 1.4 }}
           exit={{ x: 0 }}
           animate={{ x: "100%" }}
-          style={{ backgroundColor: color, width: "100%", zIndex: 10, height: "100%", position: "absolute" }}
+          style={{
+            backgroundColor: color,
+            width: "100%",
+            zIndex: 10,
+            top: "-25%",
+            height: "200%",
+            position: "absolute",
+          }}
         />
       )}
-      <motion.div initial={{ filter: "blur(2px)" }} animate={{ filter: "blur(0px)" }} transition={{ delay: 1 }}>
-        <img {...props} draggable={false} />
-      </motion.div>
+      <Center>
+        <motion.div initial={{ scale: 1.3 }} animate={{ scale: 1 }} transition={{ delay: 1 }}>
+          <img {...props} draggable={false} />
+        </motion.div>
+      </Center>
     </Gif>
   );
 };

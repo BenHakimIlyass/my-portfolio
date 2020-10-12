@@ -29,23 +29,28 @@ const handleAlignement = ({ justifyContent, alignItems, style }: Partial<Props>)
 //handle string case
 const unit = (space) => (typeof space === "number" ? `${space}rem` : space);
 //margins functions
-const handleMargins = (space) => css`
-  margin: calc(${space} / 2 * -1);
-  & > * {
-    margin: calc(${space} / 2) !important;
-  }
-`;
+
 //breakpoints sipporting function
-const spaceToBreakpoints = (space: Props["space"]) => {
+const spaceToBreakpoints = (space: Props["space"], important?: boolean) => {
   if (typeof space === "number" || typeof space === "string") {
     return {
-      xs: handleMargins(unit(space)),
+      xs: css`
+        margin: calc(${unit(space)} / 2 * -1);
+        & > * {
+          margin: calc(${unit(space)} / 2) ${!!important && `!important`};
+        }
+      `,
     };
   } else if (typeof space === "object") {
     return Object.keys(space).reduce(
       (acc, key) => ({
         ...acc,
-        [key]: handleMargins(unit(space[key])),
+        [key]: css`
+          margin: calc(${unit(space)} / 2 * -1);
+          & > * {
+            margin: calc(${unit(space)} / 2) ${!!important && `!important`};
+          }
+        `,
       }),
       {},
     );
@@ -53,7 +58,7 @@ const spaceToBreakpoints = (space: Props["space"]) => {
 };
 
 const Cluster = styled.div<Props>`
-  ${({ space }) => breakpoints(spaceToBreakpoints(space))}
+  ${({ space, important }) => breakpoints(spaceToBreakpoints(space, important))}
   ${handleAlignement};
 `;
 

@@ -42,7 +42,7 @@ const Nav = () => {
         <AnimatePresence exitBeforeEnter>
           {animate ? (
             <Container>
-              <Hstack alignItems="center" justifyContent="space-between" style={{ width: "100%" }}>
+              <Hstack alignItems="center" justifyContent="space-between" style={{ width: "100%" }} important>
                 <Link href="/">
                   <a>
                     <AnimatedH4
@@ -69,7 +69,7 @@ const Nav = () => {
                   </a>
                 </Link>
                 {animate && (
-                  <Hstack space={2} alignItems="center" justifyContent="center">
+                  <Hstack space={2} alignItems="center" justifyContent="flex-start">
                     <div>
                       <Toggle />
                     </div>
