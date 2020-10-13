@@ -1,10 +1,9 @@
 import * as React from "react";
 import Head from "next/head";
-import {  useAnimation, useOnScreen } from "../hooks";
+import {  useAnimation } from "../hooks";
 import { breakpoints } from "../utils";
 import styled from "@xstyled/styled-components";
 import { HomeHero, Vstack, Container, Technologies, Experiences } from "../components";
-import {  motion } from "framer-motion";
 
 const App = () => {
   const [{ logoWillAnimate }] = useAnimation();

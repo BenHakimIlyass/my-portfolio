@@ -1,7 +1,7 @@
 import * as React from "react";
 import Head from "next/head";
 import { SandboxHero, Container, Vstack, Hstack, P, H4, Center, CodeSandboxButton } from "../components";
-import { breakpoints, shorten } from "../utils";
+import { breakpoints } from "../utils";
 import { useAnimation, useOnScreen } from "../hooks";
 import styled, { Box, useDown } from "@xstyled/styled-components";
 import { motion } from "framer-motion";

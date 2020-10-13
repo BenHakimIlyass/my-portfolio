@@ -5,7 +5,7 @@ import { Container, Contact } from "@components";
 import { useAnimation } from "../hooks";
 import styled from "@xstyled/styled-components";
 
-const Blog = () => {
+const Contact = () => {
   const [{ logoWillAnimate }] = useAnimation();
   return (
     <>
@@ -30,4 +30,4 @@ const MainPlayground = styled.div`
     920: `transform: translate3d(0,30vh,0);`,
   })}
 `;
-export default Blog;
+export default Contact;
