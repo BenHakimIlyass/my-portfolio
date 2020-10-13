@@ -13,6 +13,8 @@ import Menu from "./menu";
 import Logo from "./logo";
 import Sidebar from "./sidebar";
 
+const links = ["Sandbox", "Blog", "Contact"];
+
 const Nav = () => {
   const [{ sidebar }, dispatch] = useAnimation();
   const animate = useTimeout(configs.animationDelay);
@@ -52,21 +54,14 @@ const Nav = () => {
                           <Toggle />
                         </div>
                         <Hstack space={2}>
-                          <Link href="/sandbox">
-                            <a>
-                              <H5>Sandbox</H5>
-                            </a>
-                          </Link>
-                          <Link href="/blog">
-                            <a>
-                              <H5>Blog</H5>
-                            </a>
-                          </Link>
-                          <Link href="/contact">
-                            <a>
-                              <H5>Contact</H5>
-                            </a>
-                          </Link>
+                        {links.map((item, i) => (
+                 
+                  <Link href={`/${item.toLowerCase()}`} key={i}>
+                    <a >
+                      <H5>{item}</H5>
+                    </a>
+                  </Link>
+              ))} 
                         </Hstack>
                       </Hstack>
                     </Box>
