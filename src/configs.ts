@@ -9,7 +9,7 @@ const configs = {
       site_name: "Ilyass Ben Hakim",
       images: [
         {
-          url: "https://gfree.co/seo_thumbnail.png",
+          url: "https://ilyassbh.me/seo_thumbnail.png",
           width: 800,
           height: 600,
           alt: "Ilyass's Portfolio preview image",
