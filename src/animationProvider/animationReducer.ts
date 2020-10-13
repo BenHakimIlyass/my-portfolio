@@ -1,5 +1,17 @@
 export default function animationReducer(state, action) {
   switch (action.type) {
+    case "TOGGLE_SIDEBAR_ON": {
+      return {
+        ...state,
+        sidebar: true,
+      };
+    }
+    case "TOGGLE_SIDEBAR_OFF": {
+      return {
+        ...state,
+        sidebar: false,
+      };
+    }
     case "TOGGLE_ANIMATION_ON": {
       return {
         ...state,

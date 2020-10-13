@@ -1,14 +1,19 @@
 import React from "react";
 
-const useOnScreen = ({ ref, rootMargin = "0px" }) => {
-  const [isOnScreen, setOnScreen] = React.useState(false);
+// Hook
+function useOnScreen(ref, rootMargin = "0px") {
+  // State and setter for storing whether element is visible
+  const [isIntersecting, setIntersecting] = React.useState(false);
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setOnScreen(entry.isIntersecting);
+        // Update our state when observer callback fires
+        setIntersecting(entry.isIntersecting);
       },
-      { rootMargin },
+      {
+        rootMargin,
+      },
     );
     if (ref.current) {
       observer.observe(ref.current);
@@ -16,9 +21,8 @@ const useOnScreen = ({ ref, rootMargin = "0px" }) => {
     return () => {
       observer.unobserve(ref.current);
     };
-  }, []);
+  }, []); // Empty array ensures that effect is only run on mount and unmount
 
-  return isOnScreen;
-};
-
+  return isIntersecting;
+}
 export default useOnScreen;

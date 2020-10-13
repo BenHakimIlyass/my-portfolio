@@ -1,105 +1,84 @@
 import React from "react";
-import { AnimateSharedLayout, motion, AnimatePresence } from "framer-motion";
-import styled, { useColorMode, Box } from "@xstyled/styled-components";
-
-import { AnimatedH4, H5, Hstack, Container, Toggle } from "../";
-import AnimatedLogo from "./animated-logo";
-import { useTimeout, useAnimation } from "../../hooks";
-import { scrollToElementById, repeate } from "../../utils";
+import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
+import styled, { useColorMode, Box, useDown } from "@xstyled/styled-components";
 import useHeadroom from "react-useheadroom";
 import Link from "next/link";
+
+import { H5, Hstack, Container, Toggle } from "../";
+import AnimatedLogo from "./animated-logo";
+import { useTimeout, useAnimation } from "@hooks";
+import { repeate } from "../../utils";
 import configs from "../../configs";
+import Menu from "./menu";
+import Logo from "./logo";
+import Sidebar from "./sidebar";
 
 const Nav = () => {
-  const [logoHoverState, hover] = React.useState(false);
-  const [_, dispatch] = useAnimation();
-  // shared layout animation timeout
-  const animate = useTimeout(2000);
-  // logo second animation timeout
-  const logoHiddenLettersState = useTimeout(configs.animationDelay);
-
+  const [{ sidebar }, dispatch] = useAnimation();
+  const animate = useTimeout(configs.animationDelay);
   const isPinned = useHeadroom({});
 
-  const handleHover = () =>
-    logoHiddenLettersState && {
-      onMouseEnter: () => hover(true),
-      onMouseLeave: () => hover(false),
-    };
+  const toggleSidebar = () =>
+    sidebar ? dispatch({ type: "TOGGLE_SIDEBAR_OFF" }) : dispatch({ type: "TOGGLE_SIDEBAR_ON" });
+
   useTimeout({
     delay: configs.animationDelay,
     execute: () => dispatch({ type: "TOGGLE_ANIMATION_OFF" }),
   });
   const [mode] = useColorMode();
+  const isDownMd = useDown("md");
 
   return (
-    <Navbar
-      mode={mode}
-      style={{
-        transform: isPinned ? `translate3d(0,0px,0)` : `translate3d(0,-100px,0)`,
-      }}
-    >
-      <AnimateSharedLayout>
-        <AnimatePresence exitBeforeEnter>
-          {animate ? (
-            <Container>
-              <Hstack alignItems="center" justifyContent="space-between" style={{ width: "100%" }}>
-                <Link href="/">
-                  <a>
-                    <AnimatedH4
-                      {...handleHover()}
-                      isAnimated
-                      layoutId="logo"
-                      transition={{
-                        duration: 2,
-                        ease: [0.6, 0, 0, 1],
-                      }}
-                    >
-                      .il
-                      <motion.span
-                        transition={{
-                          type: "tween",
-                        }}
-                        animate={{
-                          opacity: !logoHiddenLettersState ? 1 : logoHiddenLettersState && logoHoverState ? 1 : 0,
-                        }}
-                      >
-                        yass
-                      </motion.span>
-                    </AnimatedH4>
-                  </a>
-                </Link>
-                {animate && (
-                  <Box col={10 / 12}>
-                    <Hstack space={3} alignItems="center" justifyContent="flex-end">
-                      <div>
-                        <Toggle />
-                      </div>
-                      <Hstack space={2}>
-                        <Link href="/sandbox">
-                          <a>
-                            <H5>Sandbox</H5>
-                          </a>
-                        </Link>
-                        <Link href="/blog">
-                          <a>
-                            <H5>Blog</H5>
-                          </a>
-                        </Link>
-                        <button onClick={() => scrollToElementById("contact_section")}>
-                          <H5>Contact</H5>
-                        </button>
+    <>
+      <AnimatePresence exitBeforeEnter>
+        {sidebar && isDownMd && <Sidebar mode={mode} onClose={toggleSidebar} />}
+      </AnimatePresence>
+      <Navbar
+        mode={mode}
+        style={{
+          transform: isPinned ? `translate3d(0,0px,0)` : `translate3d(0,-100px,0)`,
+        }}
+      >
+        <AnimateSharedLayout>
+          <AnimatePresence exitBeforeEnter>
+            {animate ? (
+              <Container>
+                <Hstack alignItems="center" justifyContent="space-between" style={{ width: "100%" }}>
+                  <Logo layoutId="logo" />
+                  {!isDownMd && animate && (
+                    <Box col={10 / 12}>
+                      <Hstack space={3} alignItems="center" justifyContent="flex-end">
+                        <div>
+                          <Toggle />
+                        </div>
+                        <Hstack space={2}>
+                          <Link href="/sandbox">
+                            <a>
+                              <H5>Sandbox</H5>
+                            </a>
+                          </Link>
+                          <Link href="/blog">
+                            <a>
+                              <H5>Blog</H5>
+                            </a>
+                          </Link>
+                          <Link href="/contact">
+                            <H5>Contact</H5>
+                          </Link>
+                        </Hstack>
                       </Hstack>
-                    </Hstack>
-                  </Box>
-                )}
-              </Hstack>
-            </Container>
-          ) : (
-            <AnimatedLogo />
-          )}
-        </AnimatePresence>
-      </AnimateSharedLayout>
-    </Navbar>
+                    </Box>
+                  )}
+                  {isDownMd && animate && <Menu mode={mode} sidebar={sidebar} onClick={toggleSidebar} />}
+                </Hstack>
+              </Container>
+            ) : (
+              <AnimatedLogo />
+            )}
+          </AnimatePresence>
+        </AnimateSharedLayout>
+      </Navbar>
+    </>
   );
 };
 
@@ -107,7 +86,7 @@ const Navbar = styled.div`
   transition: all 0.3s;
   position: fixed;
   width: 100%;
-  z-index: 999;
+  z-index: 900;
   padding-top: 1rem;
   top: 0;
   background-image: ${({ mode }: { mode: string }) =>

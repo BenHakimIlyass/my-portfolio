@@ -17,6 +17,25 @@ const Button = styled.button`
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
     transform: translate3d(0, -4px, 0);
   }
+  &:focus {
+    outline: none;
+    text-align: center;
+    position: relative;
+    &:after {
+      position: absolute;
+      content: "";
+      height: inherit;
+      left: 6px;
+      top: 8px;
+      border-radius: 4px;
+      will-change: tranform;
+      border-color: black;
+      border-width: 2px;
+      border-style: dashed;
+      background-color: transparent;
+      width: 100%;
+    }
+  }
 `;
 
 export default Button;

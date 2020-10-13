@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle(css`
   body {
     margin: 0;
     background-color: white;
+    min-height: 2000px;
   }
   body::-webkit-scrollbar {
     width: 10px;
@@ -59,6 +60,7 @@ export const GlobalStyle = createGlobalStyle(css`
     &:after {
       position: absolute;
       left: 0;
+      will-change: tranform;
       content: "";
       height: 2px;
       bottom: -4px;
@@ -75,6 +77,7 @@ export const GlobalStyle = createGlobalStyle(css`
       position: absolute;
       left: 0%;
       content: "";
+      will-change: tranform;
       height: 2px;
       bottom: -4px;
       background-color: black;

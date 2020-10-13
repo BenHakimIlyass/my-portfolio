@@ -15,12 +15,12 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "@components": ["/components/index"],
-      "@utils": ["/utils/index"],
-      "@hooks": ["/hooks/index"],
-      "@config": ["/configs"]
+      "@components": ["src/components/index"],
+      "@utils": ["src/utils/index"],
+      "@hooks": ["src/hooks/index"],
+      "@config": ["src/configs"]
     }
   },
   "exclude": ["node_modules"],
