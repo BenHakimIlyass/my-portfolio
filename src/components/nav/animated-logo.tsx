@@ -1,5 +1,6 @@
 import * as React from "react";
 import { AnimatedH4 } from "../";
+const ease = [0.6, 0, 0, 1];
 
 export default function AnimatedLogo() {
   return (
@@ -14,7 +15,7 @@ export default function AnimatedLogo() {
       }}
       initial={{ filter: "blur(4px)", scale: 2 }}
       animate={{ filter: "blur(0px)", scale: 1 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 1, ease }}
       layoutId="logo"
     >
       .ilyass

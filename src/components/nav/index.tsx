@@ -44,7 +44,7 @@ const Nav = () => {
             {animate ? (
               <Container>
                 <Hstack alignItems="center" justifyContent="space-between" style={{ width: "100%" }}>
-                  <Logo layoutId="logo" />
+                  <Logo />
                   {!isDownMd && animate && (
                     <Box col={10 / 12}>
                       <Hstack space={3} alignItems="center" justifyContent="flex-end">
@@ -52,18 +52,20 @@ const Nav = () => {
                           <Toggle />
                         </div>
                         <Hstack space={2}>
-                          <Link href="/sandbox">
+                          <Link href="/Sandbox">
                             <a>
                               <H5>Sandbox</H5>
                             </a>
                           </Link>
-                          <Link href="/blog">
+                          <Link href="/Blog">
                             <a>
                               <H5>Blog</H5>
                             </a>
                           </Link>
-                          <Link href="/contact">
-                            <H5>Contact</H5>
+                          <Link href="/Contact">
+                            <a>
+                              <H5>Contact</H5>
+                            </a>
                           </Link>
                         </Hstack>
                       </Hstack>

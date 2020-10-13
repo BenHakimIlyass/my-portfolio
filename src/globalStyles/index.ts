@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle(css`
   body {
     margin: 0;
     background-color: white;
-    min-height: 2000px;
+    overflow-x: hidden;
   }
   body::-webkit-scrollbar {
     width: 10px;

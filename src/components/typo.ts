@@ -1,6 +1,5 @@
-import styled, { css } from "@xstyled/styled-components";
+import styled, { css, breakpoints } from "@xstyled/styled-components";
 import { motion } from "framer-motion";
-import { breakpoints } from "../utils";
 
 const alignement = css`
   text-align: ${({ direction }: { direction?: "center" | "right" }) => (direction ? direction : "left")};
@@ -19,15 +18,15 @@ export const Paragraph = (props) => css`
   font-size: 1.1rem;
   ${alignement}
   ${breakpoints({
-    0: { fontSize: "0.8rem", lineHeight: "calc(14px + 14px * 0.4)" },
-    520: { fontSize: "1.1rem", lineHeight: "calc(18px + 18px * 0.4)" },
+    xs: { fontSize: "0.9rem", lineHeight: "calc(0.9rem + 0.9rem * 0.4)" },
+    md: { fontSize: "1.1rem", lineHeight: "calc(1.1rem + 1.1rem * 0.4)" },
   })}
 `;
 export const SmallP = css`
   ${alignement}
   ${breakpoints({
-    0: { fontSize: "0.8rem", lineHeight: "calc(0.6rem + 0.6rem * 0.4)" },
-    520: { fontSize: "1rem", lineHeight: "calc(1rem + 1rem * 0.4)" },
+    xs: { fontSize: "0.9rem", lineHeight: "calc(0.9rem + 0.9rem * 0.4)" },
+    md: { fontSize: "1rem", lineHeight: "calc(1rem + 1rem * 0.4)" },
   })}
 `;
 
@@ -49,8 +48,8 @@ const Header3 = css`
     ${({ isAnimated }) =>
     !!!isAnimated &&
     breakpoints({
-      0: { fontSize: "1.8rem", lineHeight: "calc(1.8rem + 1.8rem * 0.4)" },
-      520: { fontSize: 36, lineHeight: "calc(36px + 36px * 0.4)" },
+      xs: { fontSize: "1.8rem", lineHeight: "calc(1.8rem + 1.8rem * 0.4)" },
+      md: { fontSize: 36, lineHeight: "calc(36px + 36px * 0.4)" },
     })}
 `;
 const Header4 = css`

@@ -64,7 +64,9 @@ const SandboxHero = () => {
               </AnimatedP>
             </Vstack>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8 }}>
-              <Button>My github</Button>
+              <a href="https://github.com/BenHakimIlyass" target="_blanc">
+                <Button>My github</Button>
+              </a>
             </motion.div>
           </Vstack>
         </Center>

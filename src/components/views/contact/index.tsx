@@ -1,46 +1,35 @@
 import React from "react";
-import styled from "@xstyled/styled-components";
-import { H3, Center, P, Vstack, Container } from "../../";
+import styled, { Box } from "@xstyled/styled-components";
+import { H3, H4, Center, P, Vstack, Container, Button } from "../../";
 import { breakpoints } from "../../../utils";
 const Contact = () => {
   return (
     <Center id="contact_section">
       <Wrapper>
         <Container>
-          <div style={{ maxWidth: 860 }}>
-            <Vstack space={3}>
-              <H3
-                direction="center"
-                style={{ zIndex: 1 }}
-                animate={{ opacity: 1 }}
-                initial={{ opacity: 0 }}
-              >
-                Thank you for visiting my portfolio. I will be pleased to have
-                the opportunity to work with you.
-              </H3>
-              <P direction="center">
-                I'm always looking for new challenges, so if you want to be in
-                touch with me, feel free to use my contact informations
-              </P>
-              <Vstack space={1}>
-                <Center>
-                  <Image src="/me.jpeg" alt="Me" />
-                </Center>
-                <P direction="center">Ilyass Ben Hakim</P>
-                <P direction="center">
-                  UI UX Web designer and React JS developer
-                </P>
-              </Vstack>
+          <Vstack space={3}>
+            <H3 direction="center" style={{ zIndex: 1 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+              Thank you for visiting my portfolio.
+            </H3>
+            <H4 direction="center" style={{ zIndex: 1 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+              I will be pleased to have the opportunity to work with you.
+            </H4>
+            <P direction="center">I'm always looking for new challenges, so please feel free to contact me.</P>
+            <Vstack space={1}>
               <Center>
-                <a
-                  href="/Ilyass_Ben_Hakim_-_Frontend_developer.pdf"
-                  target="_blanc"
-                >
-                  <Button>My resume</Button>
-                </a>
+                <Image src="/me.jpeg" alt="Me" />
               </Center>
+              <P direction="center">Ilyass Ben Hakim</P>
+              <Box forwardedAs={P} color="gray" direction="center">
+                UI UX Web designer and React JS developer
+              </Box>
             </Vstack>
-          </div>
+            <Center>
+              <a href="/Ilyass_Ben_Hakim_-_Frontend_developer.pdf" target="_blanc">
+                <Button>My resume</Button>
+              </a>
+            </Center>
+          </Vstack>
         </Container>
       </Wrapper>
     </Center>
@@ -60,22 +49,5 @@ const Wrapper = styled.div`
   min-height: 500px;
   position: relative;
 `;
-const Button = styled.button`
-  background-color: #fff;
-  color: #000;
-  height: 40px;
-  border: none;
-  width: fit-content;
-  padding: 0 16px;
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  border-radius: 4px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.4s;
-  &:hover {
-    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
-    transform: translate3d(0, -4px, 0);
-  }
-`;
+
 export default Contact;

@@ -1,6 +1,13 @@
-import styled from "@xstyled/styled-components";
+import styled, { useColorMode } from "@xstyled/styled-components";
 import { Paragraph } from ".";
-const Button = styled.button`
+const wrapShadow = ({ mode }) =>
+  mode === "dark"
+    ? `0px 1px 3px rgba(255, 255, 255, 0.12), 0px 1px 2px rgba(255, 255, 255, 0.24)`
+    : `0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24)`;
+
+const wrapShadowOnHover = ({ mode }) =>
+  mode === "dark" ? `0px 0px 40px rgba(255, 255, 255, 0.2)` : `0px 0px 40px rgba(0, 0, 0, 0.2)`;
+const Thumbnail = styled.button`
   background-color: black;
   ${() => Paragraph({ revert: true })}
   height: 42px;
@@ -10,11 +17,11 @@ const Button = styled.button`
   font-weight: 500;
   cursor: pointer;
   border-radius: 4px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: ${wrapShadow};
   transition: all 0.4s;
   line-height: 42px !important;
   &:hover {
-    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: ${wrapShadowOnHover};
     transform: translate3d(0, -4px, 0);
   }
   &:focus {
@@ -37,5 +44,8 @@ const Button = styled.button`
     }
   }
 `;
-
+const Button = ({ children }) => {
+  const [mode] = useColorMode();
+  return <Thumbnail mode={mode}>{children}</Thumbnail>;
+};
 export default Button;

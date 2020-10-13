@@ -21,7 +21,7 @@ const App = () => {
       {/* Main sections */}
       {!logoWillAnimate && (
         <MainPlayground>
-          <Vstack space={12}>
+          <Vstack space={{ xs: 8, md: 12 }}>
             <HomeHero />
             <Container>
               <Experiences />
@@ -36,7 +36,6 @@ const App = () => {
                   d="M1.5 509C35 343.5 892.576 461.751 909.5 203.5C923 -2.5 754.212 108.644 964 198C1090.22 251.761 1149 114 1149 0"
                   stroke="#FF7E06"
                   strokeWidth="1"
-                  opacity={0.4}
                 />
               </svg>
             </SvgBox>
@@ -53,7 +52,7 @@ const App = () => {
 const MainPlayground = styled.div`
   margin-bottom: 100px;
   ${breakpoints({
-    0: { transform: `translate3d(0,30vh,0)` },
+    0: { transform: `translate3d(0,24vh,0)` },
     920: `transform: translate3d(0,10vh,0);`,
   })}
 `;

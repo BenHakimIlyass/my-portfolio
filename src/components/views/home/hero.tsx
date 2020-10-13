@@ -1,14 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import styled, { keyframes } from "@xstyled/styled-components";
+import styled, { useDown } from "@xstyled/styled-components";
 import { AnimatedP, AnimatedH3, Vstack, Center, Container, Button } from "../../";
 import { breakpoints } from "../../../utils";
 import { variants, itemsVariants } from "./variants";
+import Link from "next/link";
 
 const Title = "Hi dear! I'm Ilyass Ben Hakim";
-const P1 = "A young self-taught frontend developer and UI UX designer.";
-const P2 = `I'm always working on my skillset, so I can be able to build such a perfect interactive web application,
-in which every component serves a reason.`;
 
 const Split = (e) => e.split("");
 
@@ -37,7 +35,11 @@ const HomeHero = () => {
             </AnimatedP>
           </Vstack>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8 }}>
-            <Button>Contact</Button>
+            <Link href="/Contact">
+              <a>
+                <Button>Contact</Button>
+              </a>
+            </Link>
           </motion.div>
         </Vstack>
       </HeroContainer>
@@ -49,8 +51,8 @@ const HomeHero = () => {
             initial={{ pathLength: 0 }}
             transition={{ duration: 2 }}
             stroke="#FF7E06"
-            opacity={0.4}
-            strokeWidth="1"
+            opacity={1}
+            strokeWidth={1}
           />
         </svg>
       </Box>

@@ -51,15 +51,15 @@ const Sidebar = ({ mode, onClose }: { onClose: () => void; mode: string }) => {
             <Close onClick={onClose} mode={mode} />
           </Hstack>
           <Vstack space={8}>
-            <Hstack justifyContent="flex-end">
+            <Hstack>
               <Toggle />
             </Hstack>
             <Vstack space={2}>
               {links.map((item, i) => (
-                <Hstack space={2} style={shorten({ x: pathname.slice(1) === item ? -32 : 0 })}>
-                  {pathname.slice(1) === item && <Box backgroundColor="black" width={2} height={30} />}
+                <Hstack space={1.8} style={shorten({ x: pathname.slice(1) === item ? -24 : 0 })}>
+                  {pathname.slice(1) === item && <Box backgroundColor="black" width={4} height={30} />}
                   <Link href={`/${item}`} key={i}>
-                    <a onClick={onClose}>
+                    <a onClick={onClose} style={shorten({ x: pathname.slice(1) === item ? -4 : 0 })}>
                       <H5>{item}</H5>
                     </a>
                   </Link>
@@ -83,18 +83,17 @@ const UnFocuser = styled(motion.div)`
 `;
 const Playground = styled(motion.div)`
   z-index: 999;
-  width: 70%;
+  width: 80%;
   right: 0px;
   position: aboslute;
-  height: 70vh;
+  height: 100vh;
   background-color: white;
   box-sizing: border-box;
-  border-radius: 0 0 0 100px;
-  padding: 32;
+  padding: 1.4rem;
   box-shadow: ${({ mode }) =>
     mode === "dark"
-      ? "0px 1px 3px rgba(255, 255,255, 0.12), 0px 1px 2px rgba(255, 255, 255, 0.24)"
-      : "0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24)"};
+      ? "0px 2px 3px rgba(255, 255,255, 0.12), 0px 2px 2px rgba(255, 255, 255, 0.24)"
+      : "0px 2px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24)"};
   a {
     width: fit-content;
   }

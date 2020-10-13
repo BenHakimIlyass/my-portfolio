@@ -1,39 +1,59 @@
-import * as React from "react";
-import styled, { css } from "styled-components";
+import styled, { css } from "@xstyled/styled-components";
+import { breakpoints } from "@xstyled/system";
 
 type StackAPI = {
-  space: number;
-  style?: React.CSSProperties;
+  space: number | { xs?: number; md?: number; lg?: number; xl?: number };
+  splitAfter?: number;
 };
-const handleStyleProp = ({ style }: Pick<StackAPI, "style">) => css({ style });
-const spaceGenerator = ({ space }: Pick<StackAPI, "space">) => css`
+
+const spaceToBreakpoints = (space: StackAPI["space"]) => {
+  if (typeof space === "undefined") {
+    return {};
+  }
+  if (typeof space === "number" || typeof space === "string") {
+    return {
+      xs: css`
+        margin-top: ${space}rem !important;
+      `,
+    };
+  }
+  return Object.keys(space).reduce(
+    (acc, key) => ({
+      ...acc,
+      [key]: css`
+        margin-top: ${space[key]}rem !important;
+      `,
+    }),
+    {},
+  );
+};
+
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+const spaceGenerator = ({ space }: StackAPI) => css`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   & > * + * {
-    margin-top: ${space}rem !important;
+    ${breakpoints(spaceToBreakpoints(space))}
   }
 `;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 
-const handleBreakpoints = ({ space }: StackAPI) => {
-  if (typeof space === "object") {
-    return css`
-      ${Object.keys(space).map((objKey, _) => {
-        //  Wrapp breakpoints
-        return css`
-          @media only screen and (min-width: ${[objKey]}px) {
-            ${spaceGenerator({ space: space[objKey] })}
-          }
-        `;
-      })}
-    `;
-  }
-  return spaceGenerator({ space: space });
-};
+const splitHandler = ({ splitAfter }: StackAPI): any =>
+  splitAfter &&
+  css`
+    &:only-child {
+      height: 100%;
+    }
+    & > :nth-child(${splitAfter}) {
+      margin-bottom: auto;
+    }
+  `;
 
-const VStack = styled.div<StackAPI>`
-  ${handleBreakpoints}
-  ${handleStyleProp}
+const Vstack = styled.div<StackAPI>`
+  position: relative;
+  ${spaceGenerator}
+  ${splitHandler}
 `;
 
-export default VStack;
+export default Vstack;
