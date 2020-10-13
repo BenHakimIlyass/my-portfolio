@@ -39,7 +39,6 @@ const App = () => {
                 />
               </svg>
             </SvgBox>
-
             <Container>
               <Technologies />
             </Container>
@@ -50,11 +49,11 @@ const App = () => {
   );
 };
 const MainPlayground = styled.div`
-  margin-bottom: 100px;
   ${breakpoints({
     0: { transform: `translate3d(0,24vh,0)` },
     920: `transform: translate3d(0,10vh,0);`,
   })}
+  margin-bottom: 100px;
 `;
 const SvgBox = styled.div`
   width: 100%;
