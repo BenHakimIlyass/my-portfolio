@@ -5,7 +5,7 @@ const initialState = {
   sidebar: false,
 };
 export const AnimationContext = React.createContext([]);
-const AnimationProvider = ({ children }: { children: React.Element | React.Element[] }) => {
+const AnimationProvider = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   return <AnimationContext.Provider value={[state, dispatch]}>{children}</AnimationContext.Provider>;
 };
