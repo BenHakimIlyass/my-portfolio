@@ -56,9 +56,9 @@ const Sidebar = ({ mode, onClose }: { onClose: () => void; mode: string }) => {
             </Hstack>
             <Vstack space={2}>
               {links.map((item, i) => (
-                <Hstack space={1.8} style={shorten({ x: pathname.slice(1) === item ? -24 : 0 })}>
-                  {pathname.slice(1) === item && <Box backgroundColor="black" width={4} height={30} />}
-                  <Link href={`/${item}`} key={i}>
+                <Hstack space={1.8} style={shorten({ x: pathname.toLowerCase().slice(1) === item ? -24 : 0 })}>
+                  {pathname.slice(1) === item.toLowerCase() && <Box backgroundColor="black" width={4} height={30} />}
+                  <Link href={`/${item.toLowerCase()}`} key={i}>
                     <a onClick={onClose} style={shorten({ x: pathname.slice(1) === item ? -4 : 0 })}>
                       <H5>{item}</H5>
                     </a>

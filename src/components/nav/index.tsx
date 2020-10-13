@@ -52,17 +52,17 @@ const Nav = () => {
                           <Toggle />
                         </div>
                         <Hstack space={2}>
-                          <Link href="/Sandbox">
+                          <Link href="/sandbox">
                             <a>
                               <H5>Sandbox</H5>
                             </a>
                           </Link>
-                          <Link href="/Blog">
+                          <Link href="/blog">
                             <a>
                               <H5>Blog</H5>
                             </a>
                           </Link>
-                          <Link href="/Contact">
+                          <Link href="/contact">
                             <a>
                               <H5>Contact</H5>
                             </a>
