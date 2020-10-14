@@ -8,7 +8,7 @@ const wrapShadow = ({ mode }) =>
 const wrapShadowOnHover = ({ mode }) =>
   mode === "dark" ? `0px 0px 40px rgba(255, 255, 255, 0.2)` : `0px 0px 40px rgba(0, 0, 0, 0.2)`;
 const Thumbnail = styled.button`
-  background-color: black;
+  background-color: secondary;
   ${() => Paragraph({ revert: true })}
   height: 42px;
   border: none;
@@ -36,7 +36,7 @@ const Thumbnail = styled.button`
       top: 8px;
       border-radius: 4px;
       will-change: tranform;
-      border-color: black;
+      border-color: secondary;
       border-width: 2px;
       border-style: dashed;
       background-color: transparent;

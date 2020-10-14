@@ -1,12 +1,12 @@
 import React from "react";
 import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
-import styled, { useColorMode, Box, useDown } from "@xstyled/styled-components";
+import styled, { Box, useDown } from "@xstyled/styled-components";
 import useHeadroom from "react-useheadroom";
 import Link from "next/link";
 
 import { H5, Hstack, Container, Toggle } from "../";
 import AnimatedLogo from "./animated-logo";
-import { useTimeout, useAnimation } from "@hooks";
+import { useTimeout, useAnimation, useColorModeWrapper } from "@hooks";
 import { repeate } from "../../utils";
 import configs from "../../configs";
 import Menu from "./menu";
@@ -27,17 +27,18 @@ const Nav = () => {
     delay: configs.animationDelay,
     execute: () => dispatch({ type: "TOGGLE_ANIMATION_OFF" }),
   });
-  const [mode] = useColorMode();
+  const handleColor = useColorModeWrapper();
   const isDownMd = useDown("md");
 
   return (
     <>
-      <AnimatePresence exitBeforeEnter>
-        {sidebar && isDownMd && <Sidebar mode={mode} onClose={toggleSidebar} />}
-      </AnimatePresence>
+      <AnimatePresence exitBeforeEnter>{sidebar && isDownMd && <Sidebar onClose={toggleSidebar} />}</AnimatePresence>
       <Navbar
-        mode={mode}
         style={{
+          backgroundImage: handleColor(
+            repeate(`linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)`, 2),
+            repeate(`linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%)`, 2),
+          ),
           transform: isPinned ? `translate3d(0,0px,0)` : `translate3d(0,-100px,0)`,
         }}
       >
@@ -54,19 +55,18 @@ const Nav = () => {
                           <Toggle />
                         </div>
                         <Hstack space={2}>
-                        {links.map((item, i) => (
-                 
-                  <Link href={`/${item.toLowerCase()}`} key={i}>
-                    <a >
-                      <H5>{item}</H5>
-                    </a>
-                  </Link>
-              ))} 
+                          {links.map((item, i) => (
+                            <Link href={`/${item.toLowerCase()}`} key={i}>
+                              <a>
+                                <H5>{item}</H5>
+                              </a>
+                            </Link>
+                          ))}
                         </Hstack>
                       </Hstack>
                     </Box>
                   )}
-                  {isDownMd && animate && <Menu mode={mode} sidebar={sidebar} onClick={toggleSidebar} />}
+                  {isDownMd && animate && <Menu sidebar={sidebar} onClick={toggleSidebar} />}
                 </Hstack>
               </Container>
             ) : (
@@ -86,10 +86,6 @@ const Navbar = styled.div`
   z-index: 900;
   padding-top: 1rem;
   top: 0;
-  background-image: ${({ mode }: { mode: string }) =>
-    mode === "dark"
-      ? repeate(`linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%)`, 2)
-      : repeate(`linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)`, 2)};
 `;
 
 export default Nav;

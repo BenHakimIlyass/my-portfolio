@@ -4,7 +4,7 @@ export { default as theme } from "./themeDependencies";
 export const GlobalStyle = createGlobalStyle(css`
   body {
     margin: 0;
-    background-color: white;
+    background-color: primary;
     overflow-x: hidden;
   }
   body::-webkit-scrollbar {
@@ -15,11 +15,11 @@ export const GlobalStyle = createGlobalStyle(css`
   }
 
   body::-webkit-scrollbar-thumb {
-    background-color: black;
+    background-color: secondary;
     outline: 1px solid transparent;
   }
   body::-webkit-scrollbar-track {
-    background-color: white;
+    background-color: primary;
   }
   h1,
   h2,
@@ -49,6 +49,7 @@ export const GlobalStyle = createGlobalStyle(css`
     background-color: transparent;
     border: none;
     text-decoration: none;
+    color: secondary;
     cursor: pointer;
     transition: all 0.4s;
     text-align: center;
@@ -64,7 +65,7 @@ export const GlobalStyle = createGlobalStyle(css`
       content: "";
       height: 2px;
       bottom: -4px;
-      background-color: black;
+      background-color: secondary;
       width: 100%;
     }
   }
@@ -80,7 +81,7 @@ export const GlobalStyle = createGlobalStyle(css`
       will-change: tranform;
       height: 2px;
       bottom: -4px;
-      background-color: black;
+      background-color: secondary;
       width: 100%;
     }
   }

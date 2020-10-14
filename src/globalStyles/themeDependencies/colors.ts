@@ -1,17 +1,12 @@
 const modes = {
-  dark: {
-    black: "#fff",
-    gray: "#A0A1A5",
-    orange: "#FF7E06",
-    white: "#000",
-  },
+  lightMode: { secondary: "#000", primary: "#fff", gray: "#A0A1A5", orange: "#FF7E06" },
+  darkMode: { secondary: "#fff", gray: "#DEDEDE", orange: "#FF7E06", primary: "#000" },
 };
 const colors = {
-  black: "#000",
-  gray: "#DEDEDE",
+  secondary: "#000",
+  primary: "#fff",
+  gray: "#A0A1A5",
   orange: "#FF7E06",
-  white: "#fff",
-
   modes,
 };
 

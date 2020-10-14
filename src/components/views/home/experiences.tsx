@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { H4, P, Vstack, Hstack, Title } from "../../";
-import { breakpoints } from "../../../utils";
+import { H4, P, Vstack, Title } from "../../";
 
 const Experiences = () => {
   return (
@@ -53,17 +52,7 @@ const Experiences = () => {
     </Wrapper>
   );
 };
-const TextBoundary = styled.div`
-  ${breakpoints({
-    920: { maxWidth: 500 },
-  })}
-`;
-const Cluster = styled(Hstack)`
-  ${breakpoints({
-    0: { flexWrap: "wrap" },
-    920: { flexWrap: "nowrap" },
-  })}
-`;
+
 const Wrapper = styled.div`
   width: 100%;
   min-height: 400px;

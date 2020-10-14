@@ -7,22 +7,24 @@ const alignement = css`
 const handleRevertCase = ({ revert }) =>
   revert
     ? css`
-        color: white;
+        color: primary !important;
       `
     : css`
-        color: black;
+        color: secandary !important;
       `;
 
 export const Paragraph = (props) => css`
   ${handleRevertCase(props)}
   font-size: 1.1rem;
   ${alignement}
+  color:secondary;
   ${breakpoints({
     xs: { fontSize: "0.9rem", lineHeight: "calc(0.9rem + 0.9rem * 0.4)" },
     md: { fontSize: "1.1rem", lineHeight: "calc(1.1rem + 1.1rem * 0.4)" },
   })}
 `;
 export const SmallP = css`
+  color: secondary;
   ${alignement}
   ${breakpoints({
     xs: { fontSize: "0.9rem", lineHeight: "calc(0.9rem + 0.9rem * 0.4)" },
@@ -31,6 +33,7 @@ export const SmallP = css`
 `;
 
 const Header = css`
+  color: secondary;
   font-size: 3.4rem;
   font-weight: 700;
   ${(props) => handleRevertCase(props)}
@@ -38,13 +41,12 @@ const Header = css`
   ${alignement}
 `;
 const Header3 = css`
+  color: secondary;
   font-size: 36px;
   ${(props) => handleRevertCase(props)}
   line-height: calc(36px + 36px * 0.4);
   ${({ isAnimated }) => !!isAnimated && `font-size: 36px;line-height: calc(36px + 36px * 0.4);`}
-
   ${alignement}
-
     ${({ isAnimated }) =>
     !!!isAnimated &&
     breakpoints({
@@ -54,6 +56,7 @@ const Header3 = css`
 `;
 const Header4 = css`
   font-size: 1.8rem;
+  color: secondary;
   ${(props) => handleRevertCase(props)}
   line-height: 2.2rem;
   ${alignement}
@@ -61,6 +64,7 @@ const Header4 = css`
 const Header5 = css`
   font-size: 1.2rem;
   ${(props) => handleRevertCase(props)}
+  color:secondary;
   line-height: 1.8rem;
   ${alignement}
 `;

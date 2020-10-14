@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { H4, P, Vstack, Hstack, Title } from "../../";
-import { breakpoints } from "../../../utils";
+import { H4, P, Vstack, Title } from "../../";
 
 const Experiences = () => {
   return (

@@ -1,11 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styled from "@xstyled/styled-components";
+import { useColorModeWrapper } from "@hooks";
 
-type Props = { sidebar: boolean; onClick: () => void; mode: string };
+type Props = { sidebar: boolean; onClick: () => void };
 
-const Menu = ({ mode, onClick, sidebar }: Props) => {
-  const wrapFill = { fill: mode === "dark" ? "#fff" : "#000" };
+const Menu = ({ onClick, sidebar }: Props) => {
+  const handleColor = useColorModeWrapper();
+
+  const wrapFill = { fill: handleColor("#000", "#fff") };
   const wrapMotions = (i: number, a: number) => ({
     initial: { x: i },
     animate: { x: sidebar ? i : a },

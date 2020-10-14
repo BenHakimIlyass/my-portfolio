@@ -13,8 +13,8 @@ export default function AnimatedLogo() {
         position: "absolute",
         zIndex: 999,
       }}
-      initial={{ filter: "blur(4px)", scale: 2 }}
-      animate={{ filter: "blur(0px)", scale: 1 }}
+      initial={{ scale: 2 }}
+      animate={{ scale: 1 }}
       transition={{ duration: 1, ease }}
       layoutId="logo"
     >

@@ -1,5 +1,5 @@
 import styled, { Box } from "@xstyled/styled-components";
-import { P, Hstack, SmallP } from ".";
+import { Hstack, SmallP } from ".";
 
 const Title = ({ children }) => (
   <Hstack space={0.6} alignItems="center">
@@ -9,7 +9,7 @@ const Title = ({ children }) => (
 );
 
 const Paragraph = styled.p`
-  color: gray;
+  color: gray !important;
   ${SmallP}
 `;
 export default Title;

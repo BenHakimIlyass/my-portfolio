@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import styled, { useDown } from "@xstyled/styled-components";
-import { AnimatedP, AnimatedH3, Vstack, Center, Container, Button } from "../../";
+import styled from "@xstyled/styled-components";
+import { AnimatedP, AnimatedH3, Vstack, Container, Button } from "../../";
 import { breakpoints } from "../../../utils";
 import { variants, itemsVariants } from "./variants";
 import Link from "next/link";
@@ -43,7 +43,7 @@ const HomeHero = () => {
           </motion.div>
         </Vstack>
       </HeroContainer>
-      <Box>
+      <Box top={0}>
         <svg width="100%" height="100%" viewBox="0 0 1152 466" fill="none" xmlns="http://www.w3.org/2000/svg">
           <motion.path
             d="M0.5 1.5C0.5 1.5 153.081 178.006 284 239C481.825 331.165 657.712 171.144 867.5 260.5C993.719 314.261 1153.5 464.5 1153.5 464.5"
@@ -56,27 +56,23 @@ const HomeHero = () => {
           />
         </svg>
       </Box>
-      <SvgBox >
-              <svg width="100%" height="100%" viewBox="0 0 1150 510" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <motion.path
-                  animate={{ pathLength: 1 }}
-                  initial={{ pathLength: 0 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 2, type: "tween" }}
-                  d="M1.5 509C35 343.5 892.576 461.751 909.5 203.5C923 -2.5 754.212 108.644 964 198C1090.22 251.761 1149 114 1149 0"
-                  stroke="#FF7E06"
-                  strokeWidth="1"
-                />
-              </svg>
-            </SvgBox>
+      <Box top="100vh">
+        <svg width="100%" height="100%" viewBox="0 0 1150 510" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <motion.path
+            animate={{ pathLength: 1 }}
+            initial={{ pathLength: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 2, type: "tween" }}
+            d="M1.5 509C35 343.5 892.576 461.751 909.5 203.5C923 -2.5 754.212 108.644 964 198C1090.22 251.761 1149 114 1149 0"
+            stroke="#FF7E06"
+            strokeWidth="1"
+          />
+        </svg>
+      </Box>
     </SectionHolder>
   );
 };
-const SvgBox = styled.div`
-  width: 100%;
-  top: 70vh;
-  position: absolute;
-`;
+
 const SectionHolder = styled.div`
   position: relative;
   ${breakpoints({
@@ -96,9 +92,8 @@ const HeroContainer = styled(Container)`
     920: `transform: translate3d(0,340px,0)`,
   })}
 `;
-const Box = styled.div`
+const Box = styled.divBox`
   width: 100%;
-  top: 0;
   position: absolute;
 `;
 export default HomeHero;

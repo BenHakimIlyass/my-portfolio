@@ -11,13 +11,13 @@ const Contact = () => {
             <H3 direction="center" style={{ zIndex: 1 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
               Thank you for visiting my portfolio.
             </H3>
-            <H4 direction="center" style={{ zIndex: 1 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
-              I will be pleased to have the opportunity to work with you.
-            </H4>
-            <P direction="center">I'm always looking for new challenges, so please feel free to contact me.</P>
+            <P direction="center">
+              I will be pleased to have the opportunity to work with you, I'll be always looking for new challenges, so
+              please feel free to contact me.
+            </P>
             <Vstack space={1}>
               <Center>
-                <Image src="/me.jpeg" alt="Me" />
+                <Image src="/me.jpeg" alt="Me" draggable={false} />
               </Center>
               <P direction="center">Ilyass Ben Hakim</P>
               <Box forwardedAs={P} color="gray" direction="center">

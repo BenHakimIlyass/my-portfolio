@@ -1,8 +1,9 @@
 import React from "react";
-import styled, { useColorMode } from "@xstyled/styled-components";
+import styled from "@xstyled/styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 import useClipboard from "react-use-clipboard";
 import useHeadroom from "react-useheadroom";
+import { useColorModeWrapper } from "@hooks";
 
 import { Hstack, Container } from "../";
 import { repeate } from "../../utils";
@@ -32,12 +33,15 @@ const SocialMedia = () => {
 
   React.useEffect(() => setDelayState(true), []);
   const isShown = useHeadroom({});
-  const [mode] = useColorMode();
+  const handleColor = useColorModeWrapper();
 
   return (
     <Wrapper
-      mode={mode}
       style={{
+        backgroundImage: handleColor(
+          repeate(`linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%)`, 2),
+          repeate(`linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)`, 2),
+        ),
         transform: isShown ? `translate3d(0px,0px,0px)` : `translate3d(0px,80px,0px)`,
       }}
     >
@@ -53,7 +57,7 @@ const SocialMedia = () => {
               href={href}
               target="_blanc"
             >
-              <Icon icon={icon} mode={mode} />
+              <Icon icon={icon} style={{ fill: handleColor("#000", "#fff") }} />
             </motion.a>
           ))}
           <div>
@@ -77,7 +81,7 @@ const SocialMedia = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <Icon icon="mail" mode={mode} />
+              <Icon icon="mail" style={{ fill: handleColor("#000", "#fff") }} />
             </motion.button>
           </div>
         </Hstack>
@@ -109,10 +113,6 @@ const Wrapper = styled.div`
   left: 0%;
   width: 100%;
   transition: all 0.3s;
-  background-image: ${({ mode }: { mode: string }) =>
-    mode === "dark"
-      ? repeate(`linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)`, 2)
-      : repeate(`linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%)`, 2)};
   a {
     padding: 4px;
     border-radius: 8px;
@@ -132,8 +132,8 @@ const CopyIndicator = styled(motion.div)`
   bottom: 50px;
   line-height: 30px;
   font-weight: 500;
-  color: white;
-  background-color: black;
+  color: primary;
+  background-color: secondary;
   user-select: none;
   font-size: 12px;
 `;
