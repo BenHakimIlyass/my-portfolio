@@ -34,11 +34,8 @@ const Nav = () => {
     <>
       <AnimatePresence exitBeforeEnter>{sidebar && isDownMd && <Sidebar onClose={toggleSidebar} />}</AnimatePresence>
       <Navbar
+        handleColor={handleColor}
         style={{
-          backgroundImage: handleColor(
-            repeate(`linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)`, 2),
-            repeate(`linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%)`, 2),
-          ),
           transform: isPinned ? `translate3d(0,0px,0)` : `translate3d(0,-100px,0)`,
         }}
       >
@@ -86,6 +83,11 @@ const Navbar = styled.div`
   z-index: 900;
   padding-top: 1rem;
   top: 0;
+  background-image: ${({ handleColor }) =>
+    handleColor(
+      repeate(`linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)`, 2),
+      repeate(`linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%)`, 2),
+    )};
 `;
 
 export default Nav;

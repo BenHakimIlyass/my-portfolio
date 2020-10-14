@@ -49,12 +49,9 @@ const Darkness = (props) => (
 
 const Toggle = () => {
   const [mode, setMode] = useColorMode();
-  const [state, set] = React.useState(false);
 
-  const toggle = () => {
-    set((prev) => !prev);
-    setMode(mode === "darkMode" ? "lightMode" : "darkMode");
-  };
+  const toggle = () => setMode(mode === "darkMode" ? "lightMode" : "darkMode");
+
   const handleIconLowOpacity = (light, dark) => (mode === "darkMode" ? dark : light);
 
   return (
@@ -67,7 +64,10 @@ const Toggle = () => {
       htmlFor="Dark mode"
     >
       <div style={{ width: 24, height: 24 }}>
-        <Brightness initial={{ opacity: 0 }} animate={{ opacity: state ? handleIconLowOpacity(0.2, 0.4) : 1 }} />
+        <Brightness
+          initial={{ opacity: 0 }}
+          animate={{ opacity: mode === "darkMode" ? handleIconLowOpacity(0.2, 0.4) : 1 }}
+        />
       </div>
       <svg width="38" height="38" viewBox="0 0 32 32" fill="none">
         <Box
@@ -77,10 +77,13 @@ const Toggle = () => {
           d="M9.33333 7.66667H22.6667C27.269 7.66667 31 11.3976 31 16C31 20.6024 27.269 24.3333 22.6667 24.3333H9.33333C4.73096 24.3333 1 20.6024 1 16C1 11.3976 4.73096 7.66667 9.33333 7.66667Z"
           strokeWidth="2"
         />
-        <motion.circle animate={{ x: state ? 13 : 0 }} cx="9.33333" cy="16" r="4.33333" strokeWidth="2" />
+        <motion.circle animate={{ x: mode === "darkMode" ? 13 : 0 }} cx="9.33333" cy="16" r="4.33333" strokeWidth="2" />
       </svg>
       <div style={{ width: 24, height: 24 }}>
-        <Darkness initial={{ opacity: 0 }} animate={{ opacity: state ? 1 : handleIconLowOpacity(0.2, 0.4) }} />
+        <Darkness
+          initial={{ opacity: 0 }}
+          animate={{ opacity: mode === "lightMode" ? handleIconLowOpacity(0.2, 0.4) : 1 }}
+        />
       </div>
     </Wrapper>
   );
