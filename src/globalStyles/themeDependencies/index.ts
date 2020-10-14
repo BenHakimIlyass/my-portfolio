@@ -3,7 +3,7 @@ import { space, shadows, borders } from "./styles";
 import fontSizes from "./type";
 
 const theme = {
-  defaultColorModeName: "darkMode",
+  defaultColorModeName: "lightMode",
   colors,
   space,
   shadows,
