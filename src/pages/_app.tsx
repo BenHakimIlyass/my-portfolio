@@ -1,9 +1,9 @@
 import { ThemeProvider, ColorModeProvider } from "@xstyled/styled-components";
 import { GlobalStyle, theme } from "../globalStyles";
-import { Nav, SocialMedia } from "../components";
+import { Nav, SocialMediaBar } from "../components";
 import AnimationProvider from "../animationProvider";
 import { DefaultSeo } from "next-seo";
-import configs from '../configs'
+import configs from "../configs";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -13,12 +13,12 @@ export default function App({ Component, pageProps }) {
           <GlobalStyle />
           <AnimationProvider>
             <header>
-              <DefaultSeo {...configs.seo}/>
+              <DefaultSeo {...configs.seo} />
               <Nav />
             </header>
             <main>
-              <SocialMedia />
               <Component {...pageProps} />
+              <SocialMediaBar />
             </main>
           </AnimationProvider>
         </ColorModeProvider>

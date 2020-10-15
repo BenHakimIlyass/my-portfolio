@@ -2,24 +2,21 @@ import * as React from "react";
 import Head from "next/head";
 import { breakpoints } from "../utils";
 import { Container, Contact } from "@components";
-import { useAnimation } from "../hooks";
+import { withAnimation } from "../animationProvider";
 import styled from "@xstyled/styled-components";
 
 const ContactPage = () => {
-  const [{ logoWillAnimate }] = useAnimation();
   return (
     <>
       <Head>
         <title>Ilyass Ben Hakim</title>
       </Head>
 
-      {!logoWillAnimate && (
-        <MainPlayground>
-          <Container>
-            <Contact />
-          </Container>
-        </MainPlayground>
-      )}
+      <MainPlayground>
+        <Container>
+          <Contact />
+        </Container>
+      </MainPlayground>
     </>
   );
 };
@@ -30,4 +27,4 @@ const MainPlayground = styled.div`
     920: `transform: translate3d(0,30vh,0);`,
   })}
 `;
-export default ContactPage;
+export default withAnimation(ContactPage);

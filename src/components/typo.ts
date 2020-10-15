@@ -55,7 +55,10 @@ const Header3 = css`
     })}
 `;
 const Header4 = css`
-  font-size: 1.8rem;
+  ${breakpoints({
+    xs: { fontSize: "1.6rem", lineHeight: "calc(1.6rem + 1.6rem * 0.4)" },
+    md: { fontSize: "1.8rem", lineHeight: "calc(1.8rem + 1.8rem * 0.4)" },
+  })}
   color: secondary;
   ${(props) => handleRevertCase(props)}
   line-height: 2.2rem;

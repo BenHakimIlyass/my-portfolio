@@ -1,5 +1,5 @@
 import React from "react";
-import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
+import { AnimateSharedLayout, motion, AnimatePresence } from "framer-motion";
 import styled, { Box, useDown } from "@xstyled/styled-components";
 import useHeadroom from "react-useheadroom";
 import Link from "next/link";
@@ -7,14 +7,15 @@ import Link from "next/link";
 import { H5, Hstack, Container, Toggle } from "../";
 import AnimatedLogo from "./animated-logo";
 import { useTimeout, useAnimation, useColorModeWrapper } from "@hooks";
-import { repeate } from "../../utils";
 import configs from "../../configs";
 import Menu from "./menu";
 import Logo from "./logo";
 import Sidebar from "./sidebar";
 
 const links = ["Sandbox", "Blog", "Contact"];
-
+const shDark = "0px 2px 3px rgba(255, 255,255, 0), 0px 2px 2px rgba(255, 255, 255, 0.14)";
+const shDef = "0px 2px 3px rgba(0, 0, 0, 0), 0px 1px 2px rgba(0, 0, 0, 0.08)";
+const noSh = "0px 2px 3px rgba(255, 255,255, 0), 0px 2px 2px rgba(255, 255, 255, 0)";
 const Nav = () => {
   const [{ sidebar }, dispatch] = useAnimation();
   const animate = useTimeout(configs.animationDelay);
@@ -35,6 +36,7 @@ const Nav = () => {
       <AnimatePresence exitBeforeEnter>{sidebar && isDownMd && <Sidebar onClose={toggleSidebar} />}</AnimatePresence>
       <Navbar
         handleColor={handleColor}
+        animate={{ boxShadow: animate ? handleColor(shDef, shDark) : noSh }}
         style={{
           transform: isPinned ? `translate3d(0,0px,0)` : `translate3d(0,-100px,0)`,
         }}
@@ -76,18 +78,14 @@ const Nav = () => {
   );
 };
 
-const Navbar = styled.div`
+const Navbar = styled(motion.div)`
   transition: all 0.3s;
   position: fixed;
   width: 100%;
   z-index: 900;
-  padding-top: 1rem;
+  padding: 1rem 0;
   top: 0;
-  background-image: ${({ handleColor }) =>
-    handleColor(
-      repeate(`linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%)`, 2),
-      repeate(`linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%)`, 2),
-    )};
+  background-color: primary;
 `;
 
 export default Nav;

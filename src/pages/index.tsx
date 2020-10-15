@@ -1,14 +1,11 @@
 import * as React from "react";
 import Head from "next/head";
-import {  useAnimation } from "../hooks";
+import { withAnimation } from "../animationProvider";
 import { breakpoints } from "../utils";
 import styled from "@xstyled/styled-components";
 import { HomeHero, Vstack, Container, Technologies, Experiences } from "../components";
 
-const App = () => {
-  const [{ logoWillAnimate }] = useAnimation();
-
-
+const HomePage = () => {
   return (
     <>
       <Head>
@@ -16,20 +13,17 @@ const App = () => {
       </Head>
 
       {/* Main sections */}
-      {!logoWillAnimate && (
-        <MainPlayground>
-          <Vstack space={{ xs: 8, md: 12 }}>
-            <HomeHero />
-            <Container>
-              <Experiences />
-            </Container>
-            <Container>
-              <Technologies />
-            </Container>
-          </Vstack>
-          
-        </MainPlayground>
-      )}
+      <MainPlayground>
+        <Vstack space={{ xs: 8, md: 12 }}>
+          <HomeHero />
+          <Container>
+            <Experiences />
+          </Container>
+          <Container>
+            <Technologies />
+          </Container>
+        </Vstack>
+      </MainPlayground>
     </>
   );
 };
@@ -41,4 +35,4 @@ const MainPlayground = styled.div`
   margin-bottom: 100px;
 `;
 
-export default App;
+export default withAnimation(HomePage);

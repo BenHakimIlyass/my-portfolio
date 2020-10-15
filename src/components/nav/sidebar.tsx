@@ -10,7 +10,7 @@ import { shorten } from "@utils";
 
 const ease = [0.6, 0, 0, 1];
 const shDark = "0px 2px 3px rgba(255, 255,255, 0.12), 0px 2px 2px rgba(255, 255, 255, 0.24)";
-const shDef = "0px 2px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24)";
+const shDef = "0px 2px 3px rgba(0, 0, 0, 0), 0px 1px 2px rgba(0, 0, 0, 0.1)";
 const Close = (props) => {
   const handleColor = useColorModeWrapper();
   const [{ sidebar }] = useAnimation();
@@ -43,7 +43,7 @@ const Sidebar = ({ onClose }: { onClose: () => void }) => {
         initial={{ x: "120%" }}
         animate={{ x: "0%" }}
         exit={{ x: "120%" }}
-        style={{ BoxShadow: handleColor(shDef, shDark) }}
+        style={{ boxShadow: handleColor(shDef, shDark) }}
         transition={{
           delay: 0.2,
           duration: 0.8,
@@ -91,8 +91,7 @@ const UnFocuser = styled(motion.div)`
 const Playground = styled(motion.div)`
   z-index: 999;
   width: 80%;
-  right: 0px;
-  position: aboslute;
+  position: relative;
   height: 100vh;
   background-color: primary;
   box-sizing: border-box;
