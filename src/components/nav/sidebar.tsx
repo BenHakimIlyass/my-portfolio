@@ -11,6 +11,7 @@ import { shorten } from "@utils";
 const ease = [0.6, 0, 0, 1];
 const shDark = "0px 2px 3px rgba(255, 255,255, 0.12), 0px 2px 2px rgba(255, 255, 255, 0.24)";
 const shDef = "0px 2px 3px rgba(0, 0, 0, 0), 0px 1px 2px rgba(0, 0, 0, 0.1)";
+
 const Close = (props) => {
   const handleColor = useColorModeWrapper();
   const [{ sidebar }] = useAnimation();

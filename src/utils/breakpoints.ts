@@ -1,12 +1,7 @@
 import { css } from "styled-components";
 import React from "react";
-interface Metadata {
-  key: string;
-  value: React.CSSProperties;
-}
-interface MetadataObj {
-  [key: string]: Metadata;
-}
+
+
 type StyleProps = {
   [key: string]: string | React.CSSProperties;
 };

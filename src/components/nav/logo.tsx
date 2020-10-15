@@ -5,7 +5,6 @@ import configs from "../../configs";
 import Link from "next/link";
 import { AnimatedH4 } from "../";
 import { motion } from "framer-motion";
-const ease = [0.6, 0, 0, 1];
 
 const Logo = ({ focused, onClick, ...props }: { focused?: boolean; onClick?: () => void }) => {
   const [logoHoverState, hover] = React.useState(false);

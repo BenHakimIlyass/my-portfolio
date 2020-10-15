@@ -30,12 +30,10 @@ const Experiences = () => {
           </Vstack>
           <Vstack space={1}>
             <Title>As a designer</Title>
+            <P>In 2016 I was trying to learn image/video editing, and that was the first step of my design career. </P>
             <P>
-              In 2016 I was trying to learn image/video editing, and that was the first step of my design career.{" "}
-              <P>
-                After a while, a friend of mine told me that Adobe XD and Figma are the best free tools for prototyping,
-                and here my real web design journey has started.
-              </P>
+              After a while, a friend of mine told me that Adobe XD and Figma are the best free tools for prototyping,
+              and here my real web design journey has started.
             </P>
             <P>
               In 2019 I started working as a web designer on{" "}

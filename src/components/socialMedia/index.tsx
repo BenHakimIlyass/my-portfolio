@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { useDown } from "@xstyled/styled-components";
+import styled from "@xstyled/styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 import useClipboard from "react-use-clipboard";
 import useHeadroom from "react-useheadroom";
@@ -38,6 +38,7 @@ const SocialMediaIcons = (props) => {
       {data.map(({ icon, href }, key) => (
         <motion.a
           initial={{ y: 100 }}
+          key={key}
           animate={{ y: 0 }}
           style={{ width: 24, height: 24, willChange: "transform" }}
           transition={{ delay: delayState ? 0 : key * 0.1, type: "tween" }}

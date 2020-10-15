@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { Box } from "@xstyled/styled-components";
-import { H3, H4, Center, P, Vstack, Container, Button } from "../../";
+import { H3, Center, P, Vstack, Container, Button } from "../../";
 import { breakpoints } from "../../../utils";
 const Contact = () => {
   return (
