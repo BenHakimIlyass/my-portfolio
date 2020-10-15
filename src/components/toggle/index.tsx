@@ -61,6 +61,7 @@ const Toggle = () => {
       space={0.6}
       onClick={toggle}
       as="button"
+      name="Dark mode"
       htmlFor="Dark mode"
     >
       <div style={{ width: 24, height: 24 }}>

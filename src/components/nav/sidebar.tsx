@@ -66,7 +66,7 @@ const Sidebar = ({ onClose }: { onClose: () => void }) => {
                     <Box backgroundColor="secondary" width={4} height={30} />
                   )}
                   <Link href={`/${item.toLowerCase()}`} key={i}>
-                    <a onClick={onClose} style={shorten({ x: pathname.slice(1) === item ? -4 : 0 })}>
+                    <a onClick={onClose} style={shorten({ x: pathname.slice(1) === item ? -4 : 0 })} aria-label={item}>
                       <H5>{item}</H5>
                     </a>
                   </Link>

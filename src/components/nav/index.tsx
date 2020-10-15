@@ -16,6 +16,7 @@ const links = ["Sandbox", "Blog", "Contact"];
 const shDark = "0px 2px 3px rgba(255, 255,255, 0), 0px 2px 2px rgba(255, 255, 255, 0.14)";
 const shDef = "0px 2px 3px rgba(0, 0, 0, 0), 0px 1px 2px rgba(0, 0, 0, 0.08)";
 const noSh = "0px 2px 3px rgba(255, 255,255, 0), 0px 2px 2px rgba(255, 255, 255, 0)";
+
 const Nav = () => {
   const [{ sidebar }, dispatch] = useAnimation();
   const animate = useTimeout(configs.animationDelay);
@@ -56,7 +57,7 @@ const Nav = () => {
                         <Hstack space={2}>
                           {links.map((item, i) => (
                             <Link href={`/${item.toLowerCase()}`} key={i}>
-                              <a>
+                              <a aria-label={item}>
                                 <H5>{item}</H5>
                               </a>
                             </Link>

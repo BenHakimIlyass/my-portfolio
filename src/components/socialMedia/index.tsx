@@ -45,6 +45,7 @@ const SocialMediaIcons = (props) => {
           href={href}
           target={href === "#" ? "" : "_blanc"}
           onClick={() => href === "#" && handleCopy()}
+          aria-label={href}
         >
           <Icon icon={icon} style={{ fill: handleColor("#000", "#fff") }} />
         </motion.a>

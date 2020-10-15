@@ -50,7 +50,7 @@ const splitHandler = ({ splitAfter }: StackAPI): any =>
     }
   `;
 
-const Vstack = styled.div<StackAPI>`
+const Vstack = styled.divBox<StackAPI>`
   position: relative;
   ${spaceGenerator}
   ${splitHandler}

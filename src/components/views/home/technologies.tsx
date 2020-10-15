@@ -8,7 +8,7 @@ const Experiences = () => {
     <Wrapper>
       <Vstack space={2}>
         <H4 style={{ fontWeight: 700 }}>Technologies I use</H4>
-        <Vstack space={1}>
+        <Vstack space={1} forwardedAs="ul">
           <Title>As a developer</Title>
           <P as="li">React JS/TS and Next JS -- Frontend developement</P>
           <P as="li">React custom hooks -- Code optimization</P>
@@ -16,7 +16,7 @@ const Experiences = () => {
           <P as="li">Framer motion and react-spring -- Web animations & graphic motions</P>
           <P as="li">Native CSS, styled-components and xstyled/styled-components -- Styling components</P>
         </Vstack>
-        <Vstack space={1}>
+        <Vstack space={1} forwardedAs="ul">
           <Title>As a designer</Title>
           <P as="li">Figma for UI UX design, prototyping and icons drawing.</P>
           <P as="li">Adobe photoshop CC for image editing.</P>{" "}
