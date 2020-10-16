@@ -26,7 +26,7 @@ const Sandbox = () => {
               <P>This animation is designed by me, using framer-motion.</P>
               <CodeSandboxButton href="https://codesandbox.io/s/new-platform-kn5sx" />
               <Hstack space={{ xs: 2, md: 4 }} justifyContent="space-between">
-                <WrappGif src="/icons/jordans.gif" color="#FFB3B9" />
+                <WrappGif src="/icons/jordans.gif" />
                 <Box width={{ xs: "100%", lg: "40%" }} mb={{ md: 50 }} mt={{ md: "auto" }}>
                   <P>
                     The idea of this repository is to make a realistic product slider, but it was my first try with
@@ -51,7 +51,7 @@ const Sandbox = () => {
                     </P>
                   </Box>
                 )}
-                <WrappGif src="/icons/icons.gif" color="#FFD2BD" />
+                <WrappGif src="/icons/icons.gif" />
                 {downLg && (
                   <Box width={{ xs: "100%", lg: "40%" }} mb={{ md: 50 }} mt={{ md: "auto" }}>
                     <P>
@@ -70,7 +70,7 @@ const Sandbox = () => {
               <P>This repository is made also with framer-motion and svg.</P>
               <CodeSandboxButton href="https://codesandbox.io/s/github/BenHakimIlyass/sun-moon-animation" />
               <Hstack space={{ xs: 2, md: 4 }} justifyContent="space-between">
-                <WrappGif src="/icons/sunandmoon.gif" color="#051728" />
+                <WrappGif src="/icons/sunandmoon.gif" />
                 <Box width={{ xs: "100%", lg: "40%" }} mb={{ md: 50 }} mt={{ md: "auto" }}>
                   <P>
                     After getting a litle bit familiarized with framer-motion, I made this full animated svg elements

@@ -1,7 +1,7 @@
 import * as React from "react";
 import Head from "next/head";
 import { breakpoints } from "../utils";
-import { Container, H4 } from "@components";
+import { Container, H4, Article, P, Vstack, BlogHero } from "@components";
 import { withAnimation } from "../animationProvider";
 import styled from "@xstyled/styled-components";
 
@@ -13,9 +13,12 @@ const Blog = () => {
       </Head>
 
       <MainPlayground>
-        <Container>
-          <H4 direction="center">I'm working on something useful ...</H4>
-        </Container>
+        <Vstack space={{ xs: 8, md: 12 }}>
+          <BlogHero />
+          <Container>
+            <H4>Articles</H4>
+          </Container>
+        </Vstack>
       </MainPlayground>
     </>
   );

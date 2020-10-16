@@ -4,6 +4,7 @@ export * from "./socialMedia";
 export * from "./layouts";
 export * from "./typo";
 export * from "./views";
+export * from "./wrapLetter";
 export { default as Toggle } from "./toggle";
 export { default as Button } from "./button";
 export { default as Title } from "./title";
