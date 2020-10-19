@@ -1,4 +1,4 @@
-export default function animationReducer(state, action) {
+export default function rootReducer(state, action) {
   switch (action.type) {
     case "TOGGLE_SIDEBAR_ON": {
       return {

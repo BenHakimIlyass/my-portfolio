@@ -1,11 +1,11 @@
 import { createGlobalStyle, css } from "@xstyled/styled-components";
 export { default as theme } from "./themeDependencies";
-
 export const GlobalStyle = createGlobalStyle(css`
   body {
     margin: 0;
     background-color: primary;
     overflow-x: hidden;
+    height: fit-content;
   }
   body::-webkit-scrollbar {
     width: 10px;
@@ -50,6 +50,7 @@ export const GlobalStyle = createGlobalStyle(css`
     border: none;
     text-decoration: none;
     color: secondary;
+    border: none;
     cursor: pointer;
     transition: all 0.4s;
     text-align: center;

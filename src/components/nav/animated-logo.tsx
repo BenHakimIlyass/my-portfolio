@@ -1,11 +1,14 @@
 import * as React from "react";
-import { AnimatedH4 } from "../";
+import styled from "@xstyled/styled-components";
+import { motion } from "framer-motion";
+import { Text } from "@components";
+
 const ease = [0.6, 0, 0, 1];
 
 export default function AnimatedLogo() {
   return (
-    <AnimatedH4
-      isAnimated
+    <motion.div
+      layoutId="logo"
       style={{
         left: "50%",
         marginLeft: -50,
@@ -16,9 +19,8 @@ export default function AnimatedLogo() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1, ease }}
-      layoutId="logo"
     >
-      .ilyass
-    </AnimatedH4>
+      <Text isBold clone='h4'>.ilyass</Text>
+    </motion.div>
   );
 }

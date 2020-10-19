@@ -1,49 +1,55 @@
 import React from "react";
 import styled from "styled-components";
 
-import { H4, P, Vstack, Title } from "../../";
+import { Text, Vstack, Title } from "@components";
 
 const Experiences = () => {
   return (
     <Wrapper>
       <Vstack space={4}>
         <Vstack space={2}>
-          <H4 style={{ fontWeight: 700 }}>Experiences</H4>
+          <Text clone="h3" isBold>
+            Experiences
+          </Text>
           <Vstack space={1}>
             <Title>As a developer</Title>
-            <P>
+            <Text clone="p">
               Since I was 19 years old, I started practicing Javascript in React JS, there were lots of things that just
               took me quite a while to figure out, such as state/props concept, one-way data flow, managing global
               state, reusable components...
-            </P>
-            <P>
+            </Text>
+            <Text clone="p">
               But an 8-9 months later, I found myself falling in love with react hooks, redux, Next JS,
               styled-components, typescript, optimization concepts, web animations...
-            </P>
-            <P>
-              After that, I joined my friends, on a real project{" "}
+            </Text>
+            <Text clone="p">
+              <span>After that, I joined my friends, on a real project </span>
               <a href="gfree.co" target="_blanc" style={{ color: "#0888E4" }}>
-                The Gluten-Free Community
+                the Gluten-Free Community
               </a>
-              , and this was the first experience that allowed me to discover a lot of new concepts, as I said before.
-            </P>
+              <span>
+                , and this was the first experience that allowed me to discover a lot of new concepts, as I said before.
+              </span>
+            </Text>
           </Vstack>
           <Vstack space={1}>
             <Title>As a designer</Title>
-            <P>In 2016 I was trying to learn image/video editing, and that was the first step of my design career. </P>
-            <P>
+            <Text clone="p">
+              In 2016 I was trying to learn image/video editing, and that was the first step of my design career.{" "}
+            </Text>
+            <Text clone="p">
               After a while, a friend of mine told me that Adobe XD and Figma are the best free tools for prototyping,
               and here my real web design journey has started.
-            </P>
-            <P>
+            </Text>
+            <Text clone="p">
               In 2019 I started working as a web designer on{" "}
               <a style={{ color: "#0888E4" }} href="https://gfree.co" target="_blanc">
                 the Gluten-Free Community
               </a>{" "}
               project, and it was a big step in my career, in which I learned about a lot of topics such as{" "}
-              <span>Typography</span>, <span>Consistency</span>, <span>Hierarchical design</span>,{" "}
-              <span>Aesthetic effects</span>, <span>Fits & Similarity laws</span> ...
-            </P>
+              <b>Typography</b>, <b>Consistency</b>, <b>Hierarchical design</b>, <b>Aesthetic effects</b>,{" "}
+              <b>Fits & Similarity</b>, <b>Accessibility</b> ...
+            </Text>
           </Vstack>
         </Vstack>
       </Vstack>

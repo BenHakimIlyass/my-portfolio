@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styled, { keyframes } from "@xstyled/styled-components";
-import { AnimatedP, AnimatedH3, Vstack, Center, Container, Button } from "../../";
+import { Text, Vstack, Center, Container, Button } from "../../";
 import { breakpoints } from "../../../utils";
 import { variants, itemsVariants } from "./variants";
 
@@ -15,7 +15,10 @@ const SandboxHero = () => {
       <HeroContainer>
         <Center intrinsic>
           <Vstack space={2}>
-            <AnimatedH3
+            <Text
+              clone="h3"
+              isBold
+              bindWith={motion.h3}
               variants={variants(0)}
               initial="empty"
               animate="full"
@@ -24,11 +27,17 @@ const SandboxHero = () => {
               {Split(Title).map((item, i) => (
                 <WrapLetter letter={item} delay={0} key={i} />
               ))}
-            </AnimatedH3>
+            </Text>
             <Vstack space={0.3}>
-              <AnimatedP initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
-                I often use codesandbox for small ideas, feel free to edit them.
-              </AnimatedP>
+              <Text
+                clone="p"
+                bindWith={motion.p}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 }}
+              >
+                I often use codesandbox for small ideas, so feel free to edit them.
+              </Text>
             </Vstack>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8 }}>
               <a href="https://github.com/BenHakimIlyass" target="_blanc">
@@ -57,6 +66,7 @@ const SandboxHero = () => {
     </SectionHolder>
   );
 };
+
 const SectionHolder = styled.div`
   position: relative;
   ${breakpoints({

@@ -2,14 +2,14 @@ import * as React from "react";
 import Head from "next/head";
 import { breakpoints } from "../utils";
 import { Container, Contact } from "@components";
-import { withAnimation } from "../animationProvider";
+import { withAnimation } from "../contextProvider";
 import styled from "@xstyled/styled-components";
 
 const ContactPage = () => {
   return (
     <>
       <Head>
-        <title>Ilyass Ben Hakim</title>
+        <title>Ilyass Ben Hakim - Contact</title>
       </Head>
 
       <MainPlayground>

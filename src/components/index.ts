@@ -2,7 +2,7 @@ export { default as Nav } from "./nav";
 export { default as Container } from "./container";
 export * from "./socialMedia";
 export * from "./layouts";
-export * from "./typo";
+export { default as Text } from "./text";
 export * from "./views";
 export * from "./wrapLetter";
 export { default as Toggle } from "./toggle";

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { AnimatedH4, WrapLetter, P, Container, Vstack, Hstack, varientsProps } from "@components";
+import { Text, WrapLetter, Container, Vstack, Hstack, varientsProps } from "@components";
 import styled, { breakpoints, css } from "@xstyled/styled-components";
 import { motion } from "framer-motion";
 
@@ -12,14 +12,14 @@ const BlogHero = () => {
     <div style={{ position: "relative" }}>
       <Container>
         <Vstack space={2} style={{ zIndex: 199 }}>
-          <AnimatedH4 {...varientsProps}>
+          <Text clone="h4" bindWith={motion.h4} {...varientsProps} isBold>
             {Split(Title).map((item, i) => (
               <WrapLetter letter={item} delay={0} key={i} style={{ fontSize: i === 0 ? 61 : "inherit" }} />
             ))}
-          </AnimatedH4>
+          </Text>
           <Hstack justifyContent="space-between">
-            <P>Good reading</P>
-            <P>- Harper Lee</P>
+            <Text clone="p">Good reading</Text>
+            <Text clone="p">- Harper Lee</Text>
           </Hstack>
         </Vstack>
       </Container>
@@ -54,4 +54,5 @@ const Box = styled.divBox`
   position: absolute;
   right: 0;
 `;
+
 export default BlogHero;
