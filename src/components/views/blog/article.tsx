@@ -13,18 +13,18 @@ const shDef = (blur = 3, opacity = 0.18) =>
 const bgImageDef = `linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)`;
 const bgImageDark = `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)`;
 
-const Article = ({ src, id, url, title, description }) => {
+const Article = ({ src, id, title, description }) => {
   const handleColor = useColorModeWrapper();
 
   return (
-    <Link href={url}>
+    <Link href={`/blog/${title.replace(/ /g, "_")}?_id=${id}`}>
       <Wrapper
         style={{ boxShadow: handleColor(shDef(), shDark()) }}
         bgImage={handleColor(bgImageDef, bgImageDark)}
         onHover={handleColor(shDef(10), shDark(10))}
       >
         <Vstack space={2}>
-          <Thumbnail src={src} alt={title} />
+          <Thumbnail src={src} alt={title} draggable={false} />
           <Box forwardedAs={Vstack} space={{ xs: 1, md: 2 }} px={5} pb={5}>
             <Text clone="h4" isBold>
               {title}
