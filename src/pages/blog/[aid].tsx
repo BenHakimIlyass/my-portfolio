@@ -4,22 +4,13 @@ import { Container, Hstack, Text, Vstack } from "@components";
 import styled, { Box, breakpoints } from "@xstyled/styled-components";
 import { articles } from "../../../data";
 import { NextPage } from "next";
-import { useContextValue, useScript } from "@hooks";
+import { useContextValue } from "@hooks";
 import ErrorPage from "../404";
 import { pickFromObject } from "@utils";
 import { motion } from "framer-motion";
 import config from "@config";
 
-import ScriptTag from "react-script-tag";
-
-const Script = ({ src }) => <ScriptTag type="text/javascript" src={src} />;
-// const Script = ({ src }) => {
-//   return React.createElement("script", {
-//     type: "text/javascript",
-//     src:
-//       "https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2FBenHakimIlyass%2Freact-useheadroom%2Fblob%2Fblog_ressource%2Fsrc%2Findex.js&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on",
-//   });
-// };
+import Gist from "react-gist";
 
 const Article: NextPage<any> = ({ articleId }) => {
   const [{ logoWillAnimate }] = useContextValue();
@@ -45,29 +36,45 @@ const Article: NextPage<any> = ({ articleId }) => {
             <Thumbnail src={src} />
             <Container style={{ maxWidth: 920 }}>
               <Vstack space={2}>
-                <Text clone="h1" isBold>
+                {/* title */}
+                <Text clone="h1" isSemiBold>
                   {title}
                 </Text>
                 <Vstack space={1}>
+                  {/* spoiler */}
                   <Text clone="p" fontStyle="italic" color="gray">
                     {spoiler}
                   </Text>
                   {body.map((element, i) => {
+                    // render quote
                     if (element.hasOwnProperty("quote")) return <Quote key={i}>{element.quote}</Quote>;
 
+                    // render bulleted list
+                    if (element.hasOwnProperty("bulleted"))
+                      return (
+                        <Vstack as="ul" space={1} key={i}>
+                          {element.bulleted.map((item, index) => (
+                            <Text clone="p" bindWith="li" key={index}>
+                              {item}
+                            </Text>
+                          ))}
+                        </Vstack>
+                      );
+                    // render image
                     if (element.hasOwnProperty("img"))
                       return <Image key={i} src={element.img.src} alt={element.img.alt} />;
 
-                    if (!!wrapBody(element))
+                    // render text (i, smallP, p, h5, h4, h3, h2, h1)
+                    if (!!wrapBody(element)) {
                       return (
                         <Text key={i} {...wrapBody(element)}>
-                          {element[wrapBody(element).clone]}
+                          {element[wrapBody(element).as]}
                         </Text>
                       );
-                    if (element.hasOwnProperty("code"))
-                      return (
-                        <ScriptTag src="https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2FBenHakimIlyass%2Freact-useheadroom%2Fblob%2Fblog_ressource%2Fsrc%2Findex.js&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on" />
-                      );
+                    }
+
+                    // render github gist
+                    if (element.hasOwnProperty("code")) return <Gist id={element.code} key={i} />;
                     return null;
                   })}
                 </Vstack>
@@ -79,17 +86,21 @@ const Article: NextPage<any> = ({ articleId }) => {
     </div>
   );
 };
-const wrapBody = (element): { clone: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "smallP"; isBold?: boolean } | null => {
+
+const wrapBody = (
+  element,
+): { clone: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "smallP"; isSemiBold?: boolean; [key: string]: any } | null => {
   const has = (prop) => element.hasOwnProperty(prop);
-
-  if (has("h1")) return { clone: "h1", isBold: true };
-  if (has("h2")) return { clone: "h2", isBold: true };
-  if (has("h3")) return { clone: "h3", isBold: true };
-  if (has("h4")) return { clone: "h4", isBold: true };
-  if (has("h5")) return { clone: "h5", isBold: true };
-  if (has("p")) return { clone: "p" };
-
-  return null;
+  const wrapProps = (e, props) => (has(e) ? { clone: e, as: e, ...props } : null);
+  return (
+    wrapProps("h1", { isSemiBold: true }) ||
+    wrapProps("h2", { isSemiBold: true }) ||
+    wrapProps("h3", { isSemiBold: true }) ||
+    wrapProps("h4", { isSemiBold: true }) ||
+    wrapProps("h5", { isSemiBold: true }) ||
+    wrapProps("p", {}) ||
+    wrapProps("i", { fontSize: "italic", clone: "p", color: "gray" })
+  );
 };
 const Quote = ({ children }) => (
   <Hstack alignItems="center" space={2} style={{ flexWrap: "nowrap" }}>

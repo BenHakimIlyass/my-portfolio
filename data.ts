@@ -23,10 +23,29 @@ export const articles = [
       },
       { h3: `Useheadroom hook` },
       {
-        code: `https://emgithub.com/embed.js?target=https%3A%2F%2Fgithub.com%2FBenHakimIlyass%2Freact-useheadroom%2Fblob%2Fblog_ressource%2Fsrc%2Findex.js&style=github&showBorder=on&showLineNumbers=on&showFileMeta=on`,
+        code: `2a356d49a140714551e8f224fbcae725`,
       },
+      { h3: `Usage` },
+      {
+        code: `0cef878a036197683644f2c10f57cad3`,
+      },
+      { p: `It serves the need with less than 300b of Javascript.` },
+      {
+        p: `After some researches, I noticed that the majority of other packages provide some methods and values such as:`,
+      },
+      { bulleted: ["onHeaderPinned", "onHeaderUnpinned", "onHeaderFixed", "onUnHeaderfixed", "fixAtValue "] },
+      {
+        p: `So after adding those optional props, the hook was looking like that:`,
+      },
+      { i: `I added a file called helpers for handling all callbacks provided by this hook.` },
+      { code: `9ca5a6e3a547e8515e39808169ae6edd` },
+      { p: `In the index.js I wrapped every callback inside useEffect hook, for handling changes on each case.` },
+      { code: `4d4b634f3c9a2d4d64c2221c38b90d69` },
+      { p: `And the usage was something like that, it looks nice isn't?` },
+      { code: `e4a04a7be86dbd978613d70bf2dc9f2f` },
     ],
   },
+
   {
     id: 24,
     title: `Useful utils for styled-components`,
