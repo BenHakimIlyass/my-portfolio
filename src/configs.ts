@@ -1,8 +1,10 @@
 const configs = {
   animationDelay: 2000,
- seo: {
+  ease: [0.6, 0, 0, 1],
+  seo: {
     title: "Ilyass Ben Hakim | Frontend developer",
-    description: "Hi dear! I'm Ilyass Ben Hakim, a software engineer, self-taught frontend developer and UI UX designer.",
+    description:
+      "Hi dear! I'm Ilyass Ben Hakim, a software engineer, self-taught frontend developer and UI UX designer.",
     openGraph: {
       type: "website",
       url: "https://ilyassbh.me/",

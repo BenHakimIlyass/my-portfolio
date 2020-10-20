@@ -2,8 +2,7 @@ import * as React from "react";
 import styled from "@xstyled/styled-components";
 import { motion } from "framer-motion";
 import { Text } from "@components";
-
-const ease = [0.6, 0, 0, 1];
+import config from "@config";
 
 export default function AnimatedLogo() {
   return (
@@ -18,9 +17,11 @@ export default function AnimatedLogo() {
       }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1, ease }}
+      transition={{ duration: 1, ease: config.ease }}
     >
-      <Text isBold clone='h4'>.ilyass</Text>
+      <Text isBold clone="h4">
+        .ilyass
+      </Text>
     </motion.div>
   );
 }

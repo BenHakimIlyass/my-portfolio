@@ -31,7 +31,7 @@ const Logo = ({ focused, onClick, ...props }: { focused?: boolean; onClick?: () 
           animate
           transition={{
             duration: 2,
-            ease: [0.6, 0, 0, 1],
+            ease: configs.ease,
           }}
           {...handleHover()}
         >

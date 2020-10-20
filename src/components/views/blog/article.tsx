@@ -13,7 +13,7 @@ const shDef = (blur = 3, opacity = 0.18) =>
 const bgImageDef = `linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)`;
 const bgImageDark = `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)`;
 
-const Article = ({ src, id, title, description }) => {
+const Article = ({ src, id, title, spoiler }) => {
   const handleColor = useColorModeWrapper();
 
   return (
@@ -30,8 +30,8 @@ const Article = ({ src, id, title, description }) => {
               {title}
             </Text>
             <Text clone="p">
-              {description.slice(0, 140)}
-              {description.length > 140 ? "..." : ""}
+              {spoiler.slice(0, 140)}
+              {spoiler.length > 140 ? "..." : ""}
             </Text>
           </Box>
         </Vstack>
