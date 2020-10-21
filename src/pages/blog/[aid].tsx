@@ -1,7 +1,7 @@
 import * as React from "react";
 import Head from "next/head";
 import { Container, Hstack, Text, Vstack } from "@components";
-import styled, { Box, breakpoints } from "@xstyled/styled-components";
+import styled, { Box, breakpoints, css } from "@xstyled/styled-components";
 import { articles } from "../../../data";
 import { NextPage } from "next";
 import { useContextValue } from "@hooks";
@@ -10,8 +10,10 @@ import { pickFromObject } from "@utils";
 import { motion } from "framer-motion";
 import config from "@config";
 
-import Gist from "react-gist";
+// import Gist from "react-gist";
+import dynamic from "next/dynamic";
 
+const Gist = dynamic(() => import("react-gist"));
 const Article: NextPage<any> = ({ articleId }) => {
   const [{ logoWillAnimate }] = useContextValue();
 
@@ -26,7 +28,7 @@ const Article: NextPage<any> = ({ articleId }) => {
           <Head>
             <title>Ilyass Ben Hakim - {title}</title>
           </Head>
-          <Vstack space={4} style={{ position: "relative" }}>
+          <Vstack space={4} style={{ position: "relative", paddingBottom: 20 }}>
             <ImagePlaceholder
               initial={{ y: 70 }}
               animate={{ y: "-60vh" }}
@@ -46,11 +48,13 @@ const Article: NextPage<any> = ({ articleId }) => {
                     {spoiler}
                   </Text>
                   {body.map((element, i) => {
+                    const has = (prop) => element.hasOwnProperty(prop);
+
                     // render quote
-                    if (element.hasOwnProperty("quote")) return <Quote key={i}>{element.quote}</Quote>;
+                    if (has("quote")) return <Quote key={i}>{element.quote}</Quote>;
 
                     // render bulleted list
-                    if (element.hasOwnProperty("bulleted"))
+                    if (has("bulleted"))
                       return (
                         <Vstack as="ul" space={1} key={i}>
                           {element.bulleted.map((item, index) => (
@@ -61,8 +65,7 @@ const Article: NextPage<any> = ({ articleId }) => {
                         </Vstack>
                       );
                     // render image
-                    if (element.hasOwnProperty("img"))
-                      return <Image key={i} src={element.img.src} alt={element.img.alt} />;
+                    if (has("image")) return <Image key={i} src={element.image.src} alt={element.image.alt} />;
 
                     // render text (i, smallP, p, h5, h4, h3, h2, h1)
                     if (!!wrapBody(element)) {
@@ -72,9 +75,10 @@ const Article: NextPage<any> = ({ articleId }) => {
                         </Text>
                       );
                     }
-
-                    // render github gist
-                    if (element.hasOwnProperty("code")) return <Gist id={element.code} key={i} />;
+                    if (has("code")) return <CodeWrapper clone="smallP">{element.code}</CodeWrapper>;
+                    if (has("gist"))
+                      // render github gist
+                      return <Gist id={element.gist} key={i} />;
                     return null;
                   })}
                 </Vstack>
@@ -102,6 +106,22 @@ const wrapBody = (
     wrapProps("i", { fontSize: "italic", clone: "p", color: "gray" })
   );
 };
+const CodeWrapper = styled(Text)`
+  background-color: lightGray;
+  color: tomato !important;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
+  ${breakpoints({
+    xs: css`
+      padding: 4px;
+    `,
+    md: css`
+      padding: 6px;
+    `,
+  })}
+  border-radius: 4px;
+  width: fit-content;
+  box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.03);
+`;
 const Quote = ({ children }) => (
   <Hstack alignItems="center" space={2} style={{ flexWrap: "nowrap" }}>
     <Box height="1.8rem" width={4} backgroundColor="secondary" zIndex={90} />
@@ -115,10 +135,16 @@ const Thumbnail = styled.img`
 `;
 const Image = styled.img`
   object-fit: cover;
+  border-radius: 4px;
   width: 100%;
+  box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.11);
   ${breakpoints({
-    xs: 300,
-    md: 400,
+    xs: css`
+      height: 300px;
+    `,
+    md: css`
+      height: 500px;
+    `,
   })}
 `;
 const ImagePlaceholder = styled(motion.div)`

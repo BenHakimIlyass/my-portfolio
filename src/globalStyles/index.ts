@@ -1,6 +1,14 @@
 import { createGlobalStyle, css } from "@xstyled/styled-components";
 export { default as theme } from "./themeDependencies";
 export const GlobalStyle = createGlobalStyle(css`
+  @font-face {
+    font-family: "Inconsolata-Regular";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/Inconsolata-Regular.ttf") format("ttf");
+  }
+
   body {
     margin: 0;
     background-color: primary;
