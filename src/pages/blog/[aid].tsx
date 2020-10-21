@@ -6,14 +6,14 @@ import { articles } from "../../../data";
 import { NextPage } from "next";
 import { useContextValue } from "@hooks";
 import ErrorPage from "../404";
-import { pickFromObject } from "@utils";
+import { pickFromObject, wrapBody } from "@utils";
 import { motion } from "framer-motion";
 import config from "@config";
-
-// import Gist from "react-gist";
 import dynamic from "next/dynamic";
 
+// import Gist from "react-gist";
 const Gist = dynamic(() => import("react-gist"));
+
 const Article: NextPage<any> = ({ articleId }) => {
   const [{ logoWillAnimate }] = useContextValue();
 
@@ -39,7 +39,7 @@ const Article: NextPage<any> = ({ articleId }) => {
             <Container style={{ maxWidth: 920 }}>
               <Vstack space={2}>
                 {/* title */}
-                <Text clone="h1" isSemiBold>
+                <Text clone="h1" isSemiBold transition="all 0.4" whileHover={{ opacity: 0 }}>
                   {title}
                 </Text>
                 <Vstack space={1}>
@@ -91,21 +91,12 @@ const Article: NextPage<any> = ({ articleId }) => {
   );
 };
 
-const wrapBody = (
-  element,
-): { clone: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "smallP"; isSemiBold?: boolean; [key: string]: any } | null => {
-  const has = (prop) => element.hasOwnProperty(prop);
-  const wrapProps = (e, props) => (has(e) ? { clone: e, as: e, ...props } : null);
-  return (
-    wrapProps("h1", { isSemiBold: true }) ||
-    wrapProps("h2", { isSemiBold: true }) ||
-    wrapProps("h3", { isSemiBold: true }) ||
-    wrapProps("h4", { isSemiBold: true }) ||
-    wrapProps("h5", { isSemiBold: true }) ||
-    wrapProps("p", {}) ||
-    wrapProps("i", { fontSize: "italic", clone: "p", color: "gray" })
-  );
-};
+const Quote = ({ children }) => (
+  <Hstack alignItems="center" space={2} style={{ flexWrap: "nowrap" }}>
+    <Box height="1.8rem" width={4} backgroundColor="secondary" zIndex={90} />
+    <Text clone="h4">{children}</Text>
+  </Hstack>
+);
 const CodeWrapper = styled(Text)`
   background-color: lightGray;
   color: tomato !important;
@@ -122,12 +113,6 @@ const CodeWrapper = styled(Text)`
   width: fit-content;
   box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.03);
 `;
-const Quote = ({ children }) => (
-  <Hstack alignItems="center" space={2} style={{ flexWrap: "nowrap" }}>
-    <Box height="1.8rem" width={4} backgroundColor="secondary" zIndex={90} />
-    <Text clone="h4">{children}</Text>
-  </Hstack>
-);
 const Thumbnail = styled.img`
   width: 100%;
   height: 60vh;

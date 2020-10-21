@@ -7,8 +7,9 @@ type Props = {
   x?: number;
   y?: number;
 };
-const shorten = ({ x, y }: Props) => {
-  if (!x && !y) return;
+const shorten = (style: Props) => {
+  if (!style.hasOwnProperty("x") && !style.hasOwnProperty("y")) return style;
+  const { x, y } = style;
   if (x && y) return init({ x, y }).xy;
   if (x) return init(x).x;
   if (y) return init(y).y;

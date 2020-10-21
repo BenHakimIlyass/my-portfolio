@@ -12,6 +12,7 @@ type Props = {
   initial?: string | boolean | string[] | any;
   transition?: Transition;
   children: JSX.Element | JSX.Element[] | any;
+  whileHover: React.CSSProperties;
 };
 
 const styles = {
@@ -25,7 +26,7 @@ const styles = {
 };
 
 // bypass type checking for @xstyled/styled-components box
-const Text: React.FC<Props & { [key: string]: any }> = ({
+const Text: React.FC<Props | { [key: string]: any }> = ({
   clone,
   revert,
   isBold,

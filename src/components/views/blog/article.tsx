@@ -45,7 +45,7 @@ const Thumbnail = styled.img`
   width: 100%;
   ${breakpoints({
     xs: css`
-      height: 100px;
+      height: 140px;
     `,
     md: css`
       height: 180px;
@@ -53,7 +53,6 @@ const Thumbnail = styled.img`
   })}
 `;
 const Wrapper = styled.div`
-  width: 100%;
   cursor: pointer;
   border-radius: 8px;
   position: relative;
