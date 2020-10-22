@@ -2,7 +2,7 @@ import React from "react";
 import styled, { Box, breakpoints, css } from "@xstyled/styled-components";
 import { Text, Vstack } from "../../";
 import { useColorModeWrapper } from "@hooks";
-import { shorten } from "@utils";
+import { shorten, createUrlFromTitle } from "@utils";
 import Link from "next/link";
 
 const shDark = (blur = 3, opacity = 0.2) =>
@@ -10,19 +10,21 @@ const shDark = (blur = 3, opacity = 0.2) =>
 const shDef = (blur = 3, opacity = 0.18) =>
   `0px 0px ${blur}px rgba(0, 0, 0, 0), 0px 0px ${blur}px rgba(0, 0, 0, ${opacity})`;
 
-const Article = ({ src, id, title, spoiler }) => {
+const Article = ({ thumbnail, id, title, spoiler }) => {
   const handleColor = useColorModeWrapper();
 
   return (
-    <Link href={`/blog/${title.replace(/ /g, "_")}?_id=${id}`}>
-      <Wrapper style={{ boxShadow: handleColor(shDef(), shDark()) }} onHover={handleColor(shDef(10), shDark(10))}>
+    <Link href={createUrlFromTitle({ id, title })}>
+      <Wrapper style={{ boxShadow: handleColor(shDef(), shDark()) }} hover={handleColor(shDef(10), shDark(10))}>
         <Vstack space={2}>
-          <Thumbnail src={src} alt={title} draggable={false} />
+          <Thumbnail src={thumbnail} alt={title} draggable={false} />
           <Box forwardedAs={Vstack} space={{ xs: 1, md: 2 }} px={5} pb={5}>
-            <Title clone="h4" isBold>
+            <Title forwardedAs={Text} clone="h4" isBold>
               {title}
             </Title>
-            <Body clone="p">{spoiler}</Body>
+            <Body forwardedAs={Text} clone="p">
+              {spoiler}
+            </Body>
           </Box>
         </Vstack>
       </Wrapper>
@@ -37,10 +39,10 @@ const lineClamp = css`
   overflow: hidden;
   width: auto;
 `;
-const Body = styled(Text)`
+const Body = styled.box`
   ${lineClamp}
 `;
-const Title = styled(Text)`
+const Title = styled.box`
   ${lineClamp}
 `;
 const Thumbnail = styled.img`
@@ -65,7 +67,7 @@ const Wrapper = styled.div`
   padding-bottom: 2rem;
   &:hover {
     ${css(shorten({ y: -10 }))};
-    box-shadow: ${({ onHover }) => onHover} !important;
+    box-shadow: ${({ hover }) => hover} !important;
   }
   ${breakpoints({
     xs: css`

@@ -1,9 +1,10 @@
-export { default as Nav } from "./nav";
 export * from "./socialMedia";
 export * from "./layouts";
-export { default as Text } from "./text";
 export * from "./views";
 export * from "./wrapLetter";
+export * from "./SEO";
+export { default as Nav } from "./nav";
+export { default as Text } from "./text";
 export { default as Toggle } from "./toggle";
 export { default as Button } from "./button";
 export { default as Title } from "./title";

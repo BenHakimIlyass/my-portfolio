@@ -1,6 +1,6 @@
 import * as React from "react";
 import Head from "next/head";
-import { Container, Hstack, Text, Vstack, Gist, Code } from "@components";
+import { Container, Hstack, Text, Vstack, Gist, Code, ArticleSEO } from "@components";
 import styled, { Box, breakpoints, css } from "@xstyled/styled-components";
 import { articles } from "../../../data";
 import { NextPage } from "next";
@@ -15,16 +15,16 @@ const Article: NextPage<any> = ({ articleId }) => {
 
   const articleIsValid = !!articles.find(({ id }) => id === articleId);
   if (!articleIsValid) return <ErrorPage />;
-
-  const { title, body, src, color, spoiler } = pickFromObject(articleId, articles, "id");
+  const article = pickFromObject(articleId, articles, "id");
+  const { title, body, thumbnail, color, spoiler } = article;
   return (
     <div>
       {!logoWillAnimate && articleIsValid ? (
         <>
           <Head>
-            <title>Ilyass Ben Hakim - {title}</title>
             <meta name="theme-color" content={color}></meta>
           </Head>
+          <ArticleSEO article={article} />
           {!logoWillAnimate && (
             <motion.div
               transition={{ delay: 1, duration: 1 }}
@@ -38,7 +38,7 @@ const Article: NextPage<any> = ({ articleId }) => {
                   transition={{ ease: config.ease, delay: 2, duration: 2 }}
                   style={{ backgroundColor: color }}
                 />
-                <Thumbnail src={src} alt={title} />
+                <Thumbnail src={thumbnail} alt={title} />
                 <Container style={{ maxWidth: 920 }}>
                   <Vstack space={2}>
                     {/* title */}
@@ -114,7 +114,7 @@ const Quote = ({ children }) => (
 
 const Thumbnail = styled.img`
   width: 100%;
-  height: 60vh;
+  height: 50vh;
   object-fit: cover;
 `;
 const Image = styled.img`
@@ -133,7 +133,7 @@ const Image = styled.img`
 `;
 const ImagePlaceholder = styled(motion.div)`
   width: 100%;
-  height: calc(60vh + 32px);
+  height: calc(50vh + 32px);
   top: -10px;
   position: absolute;
 `;

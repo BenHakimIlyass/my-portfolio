@@ -1,10 +1,13 @@
 export const articles = [
   {
     id: 661,
+    createdAt: "01 Aug 2020",
+    lastEdit: "22 Oct 2020",
     color: "#FF7E06",
+    tags: ["React", "React hooks", "React custom hooks", "functional programming"],
     title: `React custom hooks`,
     spoiler: `In this article, we are going to be talking about publishing react custom hooks to NPM.`,
-    src: `https://images.unsplash.com/photo-1541544181051-e46607bc22a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80`,
+    thumbnail: `https://images.unsplash.com/photo-1541544181051-e46607bc22a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80`,
     body: [
       {
         p: `Since I started working on real projects, I found myself looking for predefined packages from NPM community, it’s all too easy to go crazy with downloading and importing NPM packages and end up with megabytes of JavaScript. `,
@@ -80,10 +83,13 @@ export const articles = [
 
   {
     id: 24,
+    createdAt: "20 Oct 2020",
+    lastEdit: "22 Oct 2020",
+    tags: ["React", "styled-components", "CSSinJS"],
     title: `Useful utils for styled-components`,
     spoiler: `Cleaning styled component code using our own utils and libs is an important addition to a good design system.`,
     color: "#db5fb8",
-    src: `https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80`,
+    thumbnail: `https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80`,
     body: [
       {
         p: `In this article, we are going to be talking about cleaning styled component code using your own utils and libs.`,

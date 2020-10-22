@@ -6,3 +6,4 @@ export { default as scrollToElementById } from "./scrollToElementById";
 export { default as shorten } from "./shorten";
 export { default as mergeRef } from "./mergeRef";
 export { default as pickFromObject } from "./pickFromObject";
+export { default as createUrlFromTitle } from "./createUrlFromTitle";

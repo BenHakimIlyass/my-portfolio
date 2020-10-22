@@ -66,6 +66,7 @@ const Sidebar = ({ onClose }: { onClose: () => void }) => {
                 <Hstack
                   space={1.8}
                   alignItems="center"
+                  key={i}
                   style={shorten({ x: pathname.toLowerCase().slice(1) === item ? -24 : 0 })}
                 >
                   {pathname.slice(1) === item.toLowerCase() && (

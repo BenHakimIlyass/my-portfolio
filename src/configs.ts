@@ -1,6 +1,7 @@
 const configs = {
   animationDelay: 2000,
   ease: [0.6, 0, 0, 1],
+  url: "https://ilyassbh.me",
   seo: {
     title: "Ilyass Ben Hakim | Frontend developer",
     description:

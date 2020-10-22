@@ -1,7 +1,7 @@
 import * as React from "react";
 import Head from "next/head";
 import { breakpoints } from "@utils";
-import { Container, Text, Article, Vstack, BlogHero, Hstack } from "@components";
+import { Container, Text, Article, Vstack, BlogHero, Hstack, BlogSEO } from "@components";
 import { withAnimation } from "../../contextProvider";
 import styled, { Box } from "@xstyled/styled-components";
 import { articles } from "../../../data";
@@ -12,7 +12,7 @@ const Blog = () => {
       <Head>
         <title>Ilyass Ben Hakim - Blog</title>
       </Head>
-
+      <BlogSEO articles={articles} />
       <MainPlayground>
         <Vstack space={{ xs: 8, md: 12 }}>
           <BlogHero />
