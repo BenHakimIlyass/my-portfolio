@@ -1,6 +1,6 @@
 import * as React from "react";
 import Head from "next/head";
-import { Container, Hstack, Text, Vstack, Gist } from "@components";
+import { Container, Hstack, Text, Vstack, Gist, Code } from "@components";
 import styled, { Box, breakpoints, css } from "@xstyled/styled-components";
 import { articles } from "../../../data";
 import { NextPage } from "next";
@@ -9,7 +9,6 @@ import ErrorPage from "../404";
 import { pickFromObject, wrapBody } from "@utils";
 import { motion } from "framer-motion";
 import config from "@config";
-import dynamic from "next/dynamic";
 
 const Article: NextPage<any> = ({ articleId }) => {
   const [{ logoWillAnimate }] = useContextValue();
@@ -24,68 +23,81 @@ const Article: NextPage<any> = ({ articleId }) => {
         <>
           <Head>
             <title>Ilyass Ben Hakim - {title}</title>
+            <meta name="theme-color" content={color}></meta>
           </Head>
-          <Vstack space={4} style={{ position: "relative", paddingBottom: 20 }}>
-            <ImagePlaceholder
-              initial={{ y: 70 }}
-              animate={{ y: "-60vh" }}
-              transition={{ ease: config.ease, duration: 2 }}
-              style={{ backgroundColor: color }}
-            />
-            <Thumbnail src={src} />
-            <Container style={{ maxWidth: 920 }}>
-              <Vstack space={2}>
-                {/* title */}
-                <Text clone="h1" isSemiBold transition="all 0.4" whileHover={{ opacity: 0 }}>
-                  {title}
-                </Text>
-                <Vstack space={1}>
-                  {/* spoiler */}
-                  <Text clone="p" fontStyle="italic" color="gray">
-                    {spoiler}
-                  </Text>
-                  {body.map((element, i) => {
-                    const has = (prop) => element.hasOwnProperty(prop);
+          {!logoWillAnimate && (
+            <motion.div
+              transition={{ delay: 1, duration: 1 }}
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+            >
+              <Vstack space={4} style={{ position: "relative", paddingBottom: 20 }}>
+                <ImagePlaceholder
+                  initial={{ y: 70 }}
+                  animate={{ y: "-60vh" }}
+                  transition={{ ease: config.ease, delay: 2, duration: 2 }}
+                  style={{ backgroundColor: color }}
+                />
+                <Thumbnail src={src} alt={title} />
+                <Container style={{ maxWidth: 920 }}>
+                  <Vstack space={2}>
+                    {/* title */}
+                    <Text clone="h1" isSemiBold transition="all 0.4" whileHover={{ opacity: 0 }}>
+                      {title}
+                    </Text>
+                    <Vstack space={1}>
+                      {/* spoiler */}
+                      <Text clone="p" fontStyle="italic" color="gray">
+                        {spoiler}
+                      </Text>
+                      {body.map((element, i) => {
+                        const has = (prop) => element.hasOwnProperty(prop);
 
-                    // render quote
-                    if (has("quote")) return <Quote key={i}>{element.quote}</Quote>;
+                        // render quote
+                        if (has("quote")) return <Quote key={i}>{element.quote}</Quote>;
 
-                    // render bulleted list
-                    if (has("bulleted"))
-                      return (
-                        <Vstack as="ul" space={1} key={i}>
-                          {element.bulleted.map((item, index) => (
-                            <Text clone="p" bindWith="li" key={index}>
-                              {item}
+                        // render bulleted list
+                        if (has("bulleted"))
+                          return (
+                            <Vstack as="ul" space={1} key={i}>
+                              {element.bulleted.map((item, index) => (
+                                <Text clone="p" bindWith="li" key={index}>
+                                  {item}
+                                </Text>
+                              ))}
+                            </Vstack>
+                          );
+                        // render image
+                        if (has("image"))
+                          return (
+                            <Vstack space={1} acceptOneChild>
+                              <Image key={i} src={element.image.src} alt={element.image.alt} />
+                            </Vstack>
+                          );
+
+                        // render text (i, smallP, p, h5, h4, h3, h2, h1)
+                        if (!!wrapBody(element)) {
+                          return (
+                            <Text key={i} {...wrapBody(element)}>
+                              {element[wrapBody(element).as]}
                             </Text>
-                          ))}
-                        </Vstack>
-                      );
-                    // render image
-                    if (has("image")) return <Image key={i} src={element.image.src} alt={element.image.alt} />;
-
-                    // render text (i, smallP, p, h5, h4, h3, h2, h1)
-                    if (!!wrapBody(element)) {
-                      return (
-                        <Text key={i} {...wrapBody(element)}>
-                          {element[wrapBody(element).as]}
-                        </Text>
-                      );
-                    }
-                    if (has("code")) return <CodeWrapper clone="smallP">{element.code}</CodeWrapper>;
-                    if (has("gist"))
-                      // render github gist
-                      return (
-                        <div>
-                          <Gist style={{ margin: "1rem 0" }} key={i} gist={`BenHakimIlyass/${element.gist}`} />
-                        </div>
-                      );
-                    return null;
-                  })}
-                </Vstack>
+                          );
+                        }
+                        if (has("code")) return <Code>{element.code}</Code>;
+                        if (has("gist"))
+                          return (
+                            <Vstack space={1} acceptOneChild>
+                              <Gist key={i} gist={`BenHakimIlyass/${element.gist}`} />
+                            </Vstack>
+                          );
+                        return null;
+                      })}
+                    </Vstack>
+                  </Vstack>
+                </Container>
               </Vstack>
-            </Container>
-          </Vstack>
+            </motion.div>
+          )}
         </>
       ) : null}
     </div>
@@ -99,22 +111,7 @@ const Quote = ({ children }) => (
     <Text clone="h4">{children}</Text>
   </Hstack>
 );
-const CodeWrapper = styled(Text)`
-  background-color: lightGray;
-  color: tomato !important;
-  border-radius: 4px;
-  width: fit-content;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
-  box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.03);
-  ${breakpoints({
-    xs: css`
-      padding: 4px;
-    `,
-    md: css`
-      padding: 6px;
-    `,
-  })}
-`;
+
 const Thumbnail = styled.img`
   width: 100%;
   height: 60vh;
@@ -136,7 +133,8 @@ const Image = styled.img`
 `;
 const ImagePlaceholder = styled(motion.div)`
   width: 100%;
-  height: 60vh;
+  height: calc(60vh + 32px);
+  top: -10px;
   position: absolute;
 `;
 

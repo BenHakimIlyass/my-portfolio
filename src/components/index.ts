@@ -1,5 +1,4 @@
 export { default as Nav } from "./nav";
-export { default as Container } from "./container";
 export * from "./socialMedia";
 export * from "./layouts";
 export { default as Text } from "./text";
@@ -9,5 +8,6 @@ export { default as Toggle } from "./toggle";
 export { default as Button } from "./button";
 export { default as Title } from "./title";
 export { default as Gist } from "./gist";
+export { default as Code } from "./code";
 export { default as Playground } from "./playground";
 export { default as CodeSandboxButton } from "./codesandboxButton";

@@ -20,6 +20,7 @@
       "@components": ["src/components/index"],
       "@utils": ["src/utils/index"],
       "@hooks": ["src/hooks/index"],
+      "@global-styles": ["src/globalStyles/index"],
       "@config": ["src/configs"]
     }
   },

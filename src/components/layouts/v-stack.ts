@@ -4,6 +4,7 @@ import { breakpoints } from "@xstyled/system";
 type StackAPI = {
   space: number | { xs?: number; md?: number; lg?: number; xl?: number };
   splitAfter?: number;
+  acceptOneChild?: boolean;
 };
 
 const spaceToBreakpoints = (space: StackAPI["space"]) => {
@@ -29,12 +30,15 @@ const spaceToBreakpoints = (space: StackAPI["space"]) => {
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-const spaceGenerator = ({ space }: StackAPI) => css`
+const spaceGenerator = ({ space, acceptOneChild }: StackAPI) => css`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   & > * + * {
     ${breakpoints(spaceToBreakpoints(space))}
+  }
+  & > * {
+    ${acceptOneChild ? breakpoints(spaceToBreakpoints(space)) : ""}
   }
 `;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

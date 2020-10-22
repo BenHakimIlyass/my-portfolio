@@ -5,6 +5,7 @@ import useHeadroom from "react-useheadroom";
 import Link from "next/link";
 
 import { Text, Hstack, Container, Toggle } from "../";
+import { shDark, shDef } from "../../globalStyles";
 import AnimatedLogo from "./animated-logo";
 import { useTimeout, useContextValue, useColorModeWrapper } from "@hooks";
 import configs from "../../configs";
@@ -13,8 +14,6 @@ import Logo from "./logo";
 import Sidebar from "./sidebar";
 
 const links = ["Sandbox", "Blog", "Contact"];
-const shDark = "0px 2px 3px rgba(255, 255,255, 0), 0px 2px 2px rgba(255, 255, 255, 0.14)";
-const shDef = "0px 2px 3px rgba(0, 0, 0, 0), 0px 1px 2px rgba(0, 0, 0, 0.08)";
 const noSh = "0px 2px 3px rgba(255, 255,255, 0), 0px 2px 2px rgba(255, 255, 255, 0)";
 
 const Nav = () => {

@@ -18,7 +18,9 @@ const Blog = () => {
           <BlogHero />
           <Container>
             <Vstack space={{ xs: 2, md: 4 }}>
-              <Text clone="h5">Articles</Text>
+              <Text clone="h3" isBold>
+                Articles
+              </Text>
               <Box
                 forwardedAs={Hstack}
                 space={2}

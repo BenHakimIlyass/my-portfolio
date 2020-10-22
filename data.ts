@@ -23,6 +23,12 @@ export const articles = [
       },
       { h3: `Useheadroom hook` },
       {
+        image: {
+          alt: "Fishing hook",
+          src: `https://images.unsplash.com/photo-1570353825353-5daea21cdc4d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80`,
+        },
+      },
+      {
         gist: `2a356d49a140714551e8f224fbcae725`,
       },
       { h3: `Usage` },
@@ -77,11 +83,8 @@ export const articles = [
     title: `Useful utils for styled-components`,
     spoiler: `Cleaning styled component code using our own utils and libs is an important addition to a good design system.`,
     color: "#db5fb8",
-    src: `https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80`,
+    src: `https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80`,
     body: [
-      {
-        p: `In this article, we are going to be talking about cleaning styled component code using your own utils and libs.`,
-      },
       {
         p: `In this article, we are going to be talking about cleaning styled component code using your own utils and libs.`,
       },
@@ -92,7 +95,7 @@ export const articles = [
         p: `First of all, let's have a quick idea about what is styled-components?`,
       },
       {
-        p: `So the concept of this amazing library is to make styling React JS component easier by putting CSS inside Javascript, did it start clicking in your mind? not yet? OK!`,
+        p: `So the concept of this library is to make styling React JS component easier by putting CSS inside Javascript, did it start clicking in your mind? not yet? OK!`,
       },
       {
         p: `Here is an example of styled-components:`,
@@ -110,8 +113,9 @@ export const articles = [
         p: `Now we have a ready button element to use, and we can just import it and use it where ever we want in our application.`,
       },
       { h2: "Start hacking" },
-      { p: "Imagine we need to make a typography utils, which we can use it in all component." },
-      { p: "All we have to do it to create new file `typoUtils.js` or whatever... " },
+      { image: { src: "/icons/nerd-hacker.gif", alt: "Nerd Hacker" } },
+      { p: "Imagine we need to make a typography utils, which we can use in all text components." },
+      { p: "All we have to do is to create a new file `typoUtils.js` or whatever... " },
       {
         p:
           "Next, we need to define our style blocks using a function provided by styled-components called css it's a helper function to generate `CSS` from a template literal with interpolations.",

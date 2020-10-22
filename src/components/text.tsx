@@ -3,7 +3,7 @@ import { AnimationControls, TargetAndTransition, Transition } from "framer-motio
 import React from "react";
 
 type Props = {
-  clone: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "smallP";
+  clone: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "smallP" | "code";
   revert?: boolean;
   isBold?: boolean;
   isSemiBold?: boolean;
@@ -16,6 +16,7 @@ type Props = {
 };
 
 const styles = {
+  code: { xs: 0.88, md: 0.96 },
   smallP: { xs: 0.9, md: 1 },
   p: { xs: 1, md: 1.1 },
   h5: { xs: 1.1, md: 1.2 },

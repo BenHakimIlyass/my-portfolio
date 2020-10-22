@@ -1,5 +1,6 @@
 import { createGlobalStyle, css } from "@xstyled/styled-components";
 export { default as theme } from "./themeDependencies";
+export * from "./commons";
 export const GlobalStyle = createGlobalStyle(css`
   @font-face {
     font-family: "Inconsolata-Regular";
@@ -46,6 +47,9 @@ export const GlobalStyle = createGlobalStyle(css`
     ::selection {
       background-color: selection;
     }
+  }
+  code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
   }
   html {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",

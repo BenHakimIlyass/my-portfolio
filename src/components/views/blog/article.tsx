@@ -10,36 +10,39 @@ const shDark = (blur = 3, opacity = 0.2) =>
 const shDef = (blur = 3, opacity = 0.18) =>
   `0px 0px ${blur}px rgba(0, 0, 0, 0), 0px 0px ${blur}px rgba(0, 0, 0, ${opacity})`;
 
-const bgImageDef = `linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)`;
-const bgImageDark = `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%)`;
-
 const Article = ({ src, id, title, spoiler }) => {
   const handleColor = useColorModeWrapper();
 
   return (
     <Link href={`/blog/${title.replace(/ /g, "_")}?_id=${id}`}>
-      <Wrapper
-        style={{ boxShadow: handleColor(shDef(), shDark()) }}
-        bgImage={handleColor(bgImageDef, bgImageDark)}
-        onHover={handleColor(shDef(10), shDark(10))}
-      >
+      <Wrapper style={{ boxShadow: handleColor(shDef(), shDark()) }} onHover={handleColor(shDef(10), shDark(10))}>
         <Vstack space={2}>
           <Thumbnail src={src} alt={title} draggable={false} />
           <Box forwardedAs={Vstack} space={{ xs: 1, md: 2 }} px={5} pb={5}>
-            <Text clone="h4" isBold>
+            <Title clone="h4" isBold>
               {title}
-            </Text>
-            <Text clone="p">
-              {spoiler.slice(0, 140)}
-              {spoiler.length > 140 ? "..." : ""}
-            </Text>
+            </Title>
+            <Body clone="p">{spoiler}</Body>
           </Box>
         </Vstack>
       </Wrapper>
     </Link>
   );
 };
-
+const lineClamp = css`
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  width: auto;
+`;
+const Body = styled(Text)`
+  ${lineClamp}
+`;
+const Title = styled(Text)`
+  ${lineClamp}
+`;
 const Thumbnail = styled.img`
   object-fit: cover;
   width: 100%;
@@ -59,26 +62,18 @@ const Wrapper = styled.div`
   overflow: hidden;
   background-color: primary;
   transition: all 0.4s;
-  &::after {
-    content: "";
-    background-image: ${({ bgImage }) => bgImage};
-    position: absolute;
-    bottom: -1;
-    z-index: 100;
-    height: 100px;
-    overflow: hidden;
-    width: 100%;
-  }
+  padding-bottom: 2rem;
   &:hover {
     ${css(shorten({ y: -10 }))};
     box-shadow: ${({ onHover }) => onHover} !important;
   }
   ${breakpoints({
     xs: css`
-      height: 280px;
+      height: 260px;
     `,
     md: css`
-      height: 380px;
+      width: 100%;
+      height: 320px;
     `,
   })}
 `;
