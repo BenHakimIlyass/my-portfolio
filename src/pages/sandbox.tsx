@@ -1,11 +1,9 @@
 import * as React from "react";
 import Head from "next/head";
-import { SandboxHero, Container, Vstack, Hstack, Text, Center, CodeSandboxButton } from "@components";
+import { SandboxHero, Container, Vstack, Hstack, Text, CodeSandboxButton } from "@components";
 import { breakpoints } from "@utils";
 import { withAnimation } from "../contextProvider";
-import { useOnScreen } from "@hooks";
 import styled, { Box, useDown } from "@xstyled/styled-components";
-import { motion } from "framer-motion";
 
 const Sandbox = () => {
   const downLg = useDown("lg");
@@ -44,7 +42,7 @@ const Sandbox = () => {
               <Hstack space={{ xs: 2, md: 4 }} justifyContent="space-between">
                 {!downLg && (
                   <Box width={{ xs: "100%", lg: "40%" }} mb={{ md: 50 }} mt={{ md: "auto" }}>
-                    <Text clone="p" direction="right">
+                    <Text clone="p" textAlign={{ md: "right" }}>
                       Before, I was making web animation with react-spring which was one of the best ever, and I was
                       using it to animate svg elements sometimes. So here I created these tiny cute icons and I tried to
                       animate them with framer-motion.

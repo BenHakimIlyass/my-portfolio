@@ -1,6 +1,6 @@
 import * as React from "react";
 import Head from "next/head";
-import { Container, Hstack, Text, Vstack } from "@components";
+import { Container, Hstack, Text, Vstack, Gist } from "@components";
 import styled, { Box, breakpoints, css } from "@xstyled/styled-components";
 import { articles } from "../../../data";
 import { NextPage } from "next";
@@ -10,9 +10,6 @@ import { pickFromObject, wrapBody } from "@utils";
 import { motion } from "framer-motion";
 import config from "@config";
 import dynamic from "next/dynamic";
-
-// import Gist from "react-gist";
-const Gist = dynamic(() => import("react-gist"));
 
 const Article: NextPage<any> = ({ articleId }) => {
   const [{ logoWillAnimate }] = useContextValue();
@@ -78,7 +75,11 @@ const Article: NextPage<any> = ({ articleId }) => {
                     if (has("code")) return <CodeWrapper clone="smallP">{element.code}</CodeWrapper>;
                     if (has("gist"))
                       // render github gist
-                      return <Gist id={element.gist} key={i} />;
+                      return (
+                        <div>
+                          <Gist style={{ margin: "1rem 0" }} key={i} gist={`BenHakimIlyass/${element.gist}`} />
+                        </div>
+                      );
                     return null;
                   })}
                 </Vstack>
@@ -90,6 +91,7 @@ const Article: NextPage<any> = ({ articleId }) => {
     </div>
   );
 };
+// gistId={`gist-${element.gist}
 
 const Quote = ({ children }) => (
   <Hstack alignItems="center" space={2} style={{ flexWrap: "nowrap" }}>
@@ -100,7 +102,10 @@ const Quote = ({ children }) => (
 const CodeWrapper = styled(Text)`
   background-color: lightGray;
   color: tomato !important;
+  border-radius: 4px;
+  width: fit-content;
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
+  box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.03);
   ${breakpoints({
     xs: css`
       padding: 4px;
@@ -109,9 +114,6 @@ const CodeWrapper = styled(Text)`
       padding: 6px;
     `,
   })}
-  border-radius: 4px;
-  width: fit-content;
-  box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.03);
 `;
 const Thumbnail = styled.img`
   width: 100%;

@@ -14,21 +14,23 @@ const Experiences = () => {
           <Vstack space={1}>
             <Title>As a developer</Title>
             <Text clone="p">
-              Since I was 19 years old, I started practicing Javascript in React JS, there were lots of things that just
-              took me quite a while to figure out, such as state/props concept, one-way data flow, managing global
-              state, reusable components...
+              Since I was 19 years old, I started out by practicing Javascript in React JS, there were a lot of things
+              that just took me quite a while to figure out, such as state/props concept, one-way data flow, managing
+              global state, reusable components...
             </Text>
             <Text clone="p">
-              But an 8-9 months later, I found myself falling in love with react hooks, redux, Next JS,
-              styled-components, typescript, optimization concepts, web animations...
+              After a couple months, I wanted to move out to functional programming, and here I found myself falling in
+              love with react, hooks, redux, Next JS, styled-components, typescript, optimization concepts, web
+              animations...
             </Text>
             <Text clone="p">
-              <span>After that, I joined my friends, on a real project </span>
+              <span>After that, I joined my friends, on a really interesting project </span>
               <a href="gfree.co" target="_blanc" style={{ color: "#0888E4" }}>
                 the Gluten-Free Community
               </a>
               <span>
-                , and this was the first experience that allowed me to discover a lot of new concepts, as I said before.
+                , and that was the first experience that allowed me to discover a lot new concepts in the software
+                engineering field, as I said before.
               </span>
             </Text>
           </Vstack>

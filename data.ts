@@ -75,16 +75,51 @@ export const articles = [
   {
     id: 24,
     title: `Useful utils for styled-components`,
-    spoiler: `Cleaning styled component code using our own utils and libs, is an important adition for a good design system.`,
+    spoiler: `Cleaning styled component code using our own utils and libs is an important addition to a good design system.`,
     color: "#db5fb8",
     src: `https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80`,
     body: [
       {
-        p: `In this article, we are going to be talking about. Cleaning styled component code using your iwn utils and libs.`,
+        p: `In this article, we are going to be talking about cleaning styled component code using your own utils and libs.`,
       },
       {
-        p: `Since I started working on real projects, I found myself looking for predefined packages from NPM community, it’s all too easy to go crazy with downloading and importing NPM packages and end up with megabytes of JavaScript. `,
+        p: `In this article, we are going to be talking about cleaning styled component code using your own utils and libs.`,
       },
+      {
+        h2: `Styled-component`,
+      },
+      {
+        p: `First of all, let's have a quick idea about what is styled-components?`,
+      },
+      {
+        p: `So the concept of this amazing library is to make styling React JS component easier by putting CSS inside Javascript, did it start clicking in your mind? not yet? OK!`,
+      },
+      {
+        p: `Here is an example of styled-components:`,
+      },
+      {
+        gist: `d71a3991692d4fa4cb19b0baee38639f`,
+      },
+      {
+        p:
+          "Easy is that, we give our component a name, the HTML element that will be rendered e.g `styled.p` and we put the style inside a Template literals.",
+      },
+      { p: "Let's suppose we need to build a button in `button.js`, so we can use it as a reusable component." },
+      { gist: "df60d5dc5e61da8ee62d911f04e1bbb0" },
+      {
+        p: `Now we have a ready button element to use, and we can just import it and use it where ever we want in our application.`,
+      },
+      { h2: "Start hacking" },
+      { p: "Imagine we need to make a typography utils, which we can use it in all component." },
+      { p: "All we have to do it to create new file `typoUtils.js` or whatever... " },
+      {
+        p:
+          "Next, we need to define our style blocks using a function provided by styled-components called css it's a helper function to generate `CSS` from a template literal with interpolations.",
+      },
+      { gist: `af646370c03e878ca35c444f5b58492b` },
+      { p: `And now we can import them and use them on our text components.` },
+      { gist: "c1649c72d40557acb3f6f3e35433906a" },
+      { h4: "I'm still working on this article ..." },
     ],
   },
 ];
