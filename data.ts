@@ -17,14 +17,14 @@ export const articles = [
       },
       { quote: "Bad for them, worse for you" },
       { p: `And here, I decided to start writing my own packages so that I can use them in the future.` },
-      { h2: `Writing a custom hook` },
+      { h2: `Writing a custom hook`, link: `https://reactjs.org/docs/hooks-custom.html` },
       {
         p: `When I was looking for a package that can make my Header component (Navbar) fixed on the top, hide it when scrolling down, and pin it each time I scroll up, I found a lot of useful packages, but the problem is each one costs +10kb as a minified bundle (that means +35kb of unpacked size), and that's a lot for this feature. `,
       },
       {
         p: `My idea was about to create a react custom hook that returns the state of the Header logic, the first try was something like that:`,
       },
-      { h3: `Useheadroom hook` },
+      { h3: `Useheadroom hook`, link: `https://www.npmjs.com/package/react-useheadroom` },
       {
         image: {
           alt: "Fishing hook",
@@ -52,9 +52,13 @@ export const articles = [
       { gist: `4d4b634f3c9a2d4d64c2221c38b90d69` },
       { p: `And the usage was something like that, it looks nice isn't it?` },
       { gist: `e4a04a7be86dbd978613d70bf2dc9f2f` },
-      { h2: `Publishing to npm` },
-      { p: `Before publishing to NPM, we have to compile our ES6 Javascript code to ES5 using babel.` },
+      { h2: `Publishing to npm`, link: `https://zellwk.com/blog/publish-to-npm/` },
       {
+        link: `https://zellwk.com/blog/publish-to-npm/`,
+        p: `Before publishing to NPM, we have to compile our ES6 Javascript code to ES5 using babel.`,
+      },
+      {
+        link: `https://babeljs.io/docs/en/`,
         p: `Babel is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backward-compatible version of JavaScript in current and older browsers or environments.`,
       },
       { p: `So the first step is to add:` },
@@ -76,7 +80,10 @@ export const articles = [
           src: `https://images.unsplash.com/photo-1521763041807-c5f24b03ade7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80`,
         },
       },
-      { p: `After publishing to NPM, I tried importing my hook, and Houuuyah! It works.` },
+      {
+        p: `After publishing to NPM, I tried importing my hook, and Houuuyah! It works. And it's live now.`,
+        link: `https://codesandbox.io/s/tender-snowflake-zf79v`,
+      },
       { i: `Next to do : Typescript support.` },
     ],
   },
@@ -96,6 +103,7 @@ export const articles = [
       },
       {
         h2: `Styled-component`,
+        link: `https://styled-components.com/`,
       },
       {
         p: `First of all, let's have a quick idea about what is styled-components?`,
@@ -123,6 +131,7 @@ export const articles = [
       { p: "Imagine we need to make a typography utils, which we can use in all text components." },
       { p: "All we have to do is to create a new file `typoUtils.js` or whatever... " },
       {
+        link: `https://styled-components.com/docs/api#css`,
         p:
           "Next, we need to define our style blocks using a function provided by styled-components called css it's a helper function to generate `CSS` from a template literal with interpolations.",
       },

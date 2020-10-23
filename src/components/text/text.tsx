@@ -15,7 +15,7 @@ type Props = {
   whileHover: React.CSSProperties;
 };
 
-const styles = {
+export const fontStyles = {
   code: { xs: 0.88, md: 0.96 },
   smallP: { xs: 0.9, md: 1 },
   p: { xs: 1, md: 1.1 },
@@ -40,8 +40,8 @@ const Text: React.FC<Props | { [key: string]: any }> = ({
     forwardedAs={bindWith ? bindWith : clone === "smallP" ? "p" : clone}
     fontWeight={isBold ? 700 : isSemiBold ? 500 : 400}
     color={revert ? "primary" : "secondary"}
-    fontSize={{ xs: `${styles[clone].xs}rem`, md: `${styles[clone].md}rem` }}
-    lineHeight={{ xs: `${styles[clone].xs * 1.6}rem`, md: `${styles[clone].md * 1.6}rem` }}
+    fontSize={{ xs: `${fontStyles[clone].xs}rem`, md: `${fontStyles[clone].md}rem` }}
+    lineHeight={{ xs: `${fontStyles[clone].xs * 1.6}rem`, md: `${fontStyles[clone].md * 1.6}rem` }}
     {...props}
   >
     {children}
