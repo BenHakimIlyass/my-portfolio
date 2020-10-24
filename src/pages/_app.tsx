@@ -12,7 +12,10 @@ export default function App({ Component, pageProps }) {
       <ColorModeProvider>
         <GlobalStyle />
         <ContextProvider>
-          <Header />
+          <header>
+            {/* <DefaultSeo {...configs.seo} /> */}
+            <Nav />
+          </header>
           <main>
             <Component {...pageProps} />
             <SocialMediaBar />
@@ -22,11 +25,3 @@ export default function App({ Component, pageProps }) {
     </ThemeProvider>
   );
 }
-const Header = () => {
-  return (
-    <header>
-      <DefaultSeo {...configs.seo} />
-      <Nav />
-    </header>
-  );
-};
