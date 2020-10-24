@@ -1,11 +1,20 @@
 import { createGlobalStyle, css } from "@xstyled/styled-components";
 export { default as theme } from "./themeDependencies";
-
+export * from "./commons";
 export const GlobalStyle = createGlobalStyle(css`
+  @font-face {
+    font-family: "Inconsolata-Regular";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/Inconsolata-Regular.ttf") format("ttf");
+  }
+
   body {
     margin: 0;
     background-color: primary;
     overflow-x: hidden;
+    height: fit-content;
   }
   body::-webkit-scrollbar {
     width: 10px;
@@ -36,20 +45,26 @@ export const GlobalStyle = createGlobalStyle(css`
   * {
     scroll-behavior: smooth;
     ::selection {
-      background-color: gray;
+      background-color: selection;
     }
+  }
+  code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
   }
   html {
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
       sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
   }
-
+  img {
+    pointer-events: none;
+  }
   button,
   a {
     background-color: transparent;
     border: none;
     text-decoration: none;
     color: secondary;
+    border: none;
     cursor: pointer;
     transition: all 0.4s;
     text-align: center;

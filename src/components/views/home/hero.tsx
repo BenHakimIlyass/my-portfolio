@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styled from "@xstyled/styled-components";
-import { AnimatedP, AnimatedH3, Vstack, Container, Button } from "../../";
+import { Text, Vstack, Container, Button } from "../../";
 import { breakpoints } from "../../../utils";
 import { variants, itemsVariants } from "./variants";
 import Link from "next/link";
@@ -15,7 +15,10 @@ const HomeHero = () => {
     <SectionHolder>
       <HeroContainer>
         <Vstack space={2}>
-          <AnimatedH3
+          <Text
+            clone="h2"
+            isBold
+            bindWith={motion.h4}
             variants={variants(0)}
             initial="empty"
             animate="full"
@@ -24,18 +27,30 @@ const HomeHero = () => {
             {Split(Title).map((item, i) => (
               <WrapLetter letter={item} delay={0} key={i} />
             ))}
-          </AnimatedH3>
+          </Text>
           <Vstack space={0.3}>
-            <AnimatedP initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
+            <Text
+              clone="p"
+              bindWith={motion.p}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+            >
               A young software engineer, self-taught frontend developer and UI UX designer.
-            </AnimatedP>
-            <AnimatedP initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4 }}>
+            </Text>
+            <Text
+              clone="p"
+              bindWith={motion.p}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.4 }}
+            >
               I'm always working on my skillset, so I can be able to build such a perfect interactive web application,
               in which every component serves a reason.
-            </AnimatedP>
+            </Text>
           </Vstack>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.8 }}>
-            <Link href="/Contact">
+            <Link href="/contact">
               <a>
                 <Button>Contact</Button>
               </a>
@@ -96,4 +111,5 @@ const Box = styled.divBox`
   width: 100%;
   position: absolute;
 `;
+
 export default HomeHero;

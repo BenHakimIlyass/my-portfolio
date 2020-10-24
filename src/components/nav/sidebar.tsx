@@ -1,12 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styled, { Box } from "@xstyled/styled-components";
-import { Vstack, Hstack, Toggle, H5 } from "../";
-import Logo from "../nav/logo";
 import Link from "next/link";
-import { useAnimation, useColorModeWrapper } from "@hooks";
 import { useRouter } from "next/router";
+
 import { shorten } from "@utils";
+import { Vstack, Hstack, Toggle, Text } from "@components";
+import { useContextValue, useColorModeWrapper } from "@hooks";
+import Logo from "../nav/logo";
 
 const ease = [0.6, 0, 0, 1];
 const shDark = "0px 2px 3px rgba(255, 255,255, 0.12), 0px 2px 2px rgba(255, 255, 255, 0.24)";
@@ -14,7 +15,7 @@ const shDef = "0px 2px 3px rgba(0, 0, 0, 0), 0px 1px 2px rgba(0, 0, 0, 0.1)";
 
 const Close = (props) => {
   const handleColor = useColorModeWrapper();
-  const [{ sidebar }] = useAnimation();
+  const [{ sidebar }] = useContextValue();
   return (
     <motion.button
       {...props}
@@ -62,13 +63,20 @@ const Sidebar = ({ onClose }: { onClose: () => void }) => {
             </Hstack>
             <Vstack space={2}>
               {links.map((item, i) => (
-                <Hstack space={1.8} style={shorten({ x: pathname.toLowerCase().slice(1) === item ? -24 : 0 })}>
+                <Hstack
+                  space={1.8}
+                  alignItems="center"
+                  key={i}
+                  style={shorten({ x: pathname.toLowerCase().slice(1) === item ? -24 : 0 })}
+                >
                   {pathname.slice(1) === item.toLowerCase() && (
-                    <Box backgroundColor="secondary" width={4} height={30} />
+                    <Box backgroundColor="secondary" width={3} height={30} />
                   )}
                   <Link href={`/${item.toLowerCase()}`} key={i}>
                     <a onClick={onClose} style={shorten({ x: pathname.slice(1) === item ? -4 : 0 })} aria-label={item}>
-                      <H5>{item}</H5>
+                      <Text clone="h5" isBold>
+                        {item}
+                      </Text>
                     </a>
                   </Link>
                 </Hstack>
@@ -101,4 +109,5 @@ const Playground = styled(motion.div)`
     width: fit-content;
   }
 `;
+
 export default Sidebar;

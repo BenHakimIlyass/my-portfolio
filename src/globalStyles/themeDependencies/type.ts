@@ -6,5 +6,5 @@ const h400 = "1.7rem";
 const h500 = "1.3rem";
 const p = "1rem";
 
-const fontSizes = [0, p, small, h100, h200, h300, h400, h500];
+const fontSizes = [0, h100, h200, h300, h400, h500, p, small];
 export default fontSizes;

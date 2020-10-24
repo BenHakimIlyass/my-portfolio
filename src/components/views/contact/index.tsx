@@ -1,26 +1,37 @@
 import React from "react";
 import styled, { Box } from "@xstyled/styled-components";
-import { H3, Center, P, Vstack, Container, Button } from "../../";
+import { Text, Center, Vstack, Container, Button } from "../../";
 import { breakpoints } from "../../../utils";
+import { motion } from "framer-motion";
 const Contact = () => {
   return (
     <Center id="contact_section">
       <Wrapper>
         <Container>
           <Vstack space={3}>
-            <H3 direction="center" style={{ zIndex: 1 }} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+            <Text
+              clone="h3"
+              isBold
+              bindWith={motion.h3}
+              animate={{ opacity: 1 }}
+              initial={{ opacity: 0 }}
+              style={{ textAlign: "center" }}
+              zIndex={1}
+            >
               Thank you for visiting my portfolio.
-            </H3>
-            <P direction="center">
+            </Text>
+            <Text clone="p" textAlign="center">
               I will be pleased to have the opportunity to work with you, I'll be always looking for new challenges, so
               please feel free to contact me.
-            </P>
+            </Text>
             <Vstack space={1}>
               <Center>
                 <Image src="/me.jpeg" alt="Me" draggable={false} />
               </Center>
-              <P direction="center">Ilyass Ben Hakim</P>
-              <Box forwardedAs={P} color="gray" direction="center">
+              <Text clone="p" textAlign="center">
+                Ilyass Ben Hakim
+              </Text>
+              <Box clone="p" color="gray" textAlign="center">
                 UI UX Web designer and React JS developer
               </Box>
             </Vstack>

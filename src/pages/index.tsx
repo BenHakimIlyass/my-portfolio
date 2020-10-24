@@ -1,9 +1,10 @@
 import * as React from "react";
 import Head from "next/head";
-import { withAnimation } from "../animationProvider";
+import { withAnimation } from "../contextProvider";
 import { breakpoints } from "../utils";
 import styled from "@xstyled/styled-components";
 import { HomeHero, Vstack, Container, Technologies, Experiences } from "../components";
+
 
 const HomePage = () => {
   return (

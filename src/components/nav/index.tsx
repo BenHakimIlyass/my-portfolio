@@ -4,21 +4,20 @@ import styled, { Box, useDown } from "@xstyled/styled-components";
 import useHeadroom from "react-useheadroom";
 import Link from "next/link";
 
-import { H5, Hstack, Container, Toggle } from "../";
+import { Text, Hstack, Container, Toggle } from "../";
+import { shDark, shDef } from "../../globalStyles";
 import AnimatedLogo from "./animated-logo";
-import { useTimeout, useAnimation, useColorModeWrapper } from "@hooks";
+import { useTimeout, useContextValue, useColorModeWrapper } from "@hooks";
 import configs from "../../configs";
 import Menu from "./menu";
 import Logo from "./logo";
 import Sidebar from "./sidebar";
 
 const links = ["Sandbox", "Blog", "Contact"];
-const shDark = "0px 2px 3px rgba(255, 255,255, 0), 0px 2px 2px rgba(255, 255, 255, 0.14)";
-const shDef = "0px 2px 3px rgba(0, 0, 0, 0), 0px 1px 2px rgba(0, 0, 0, 0.08)";
 const noSh = "0px 2px 3px rgba(255, 255,255, 0), 0px 2px 2px rgba(255, 255, 255, 0)";
 
 const Nav = () => {
-  const [{ sidebar }, dispatch] = useAnimation();
+  const [{ sidebar }, dispatch] = useContextValue();
   const animate = useTimeout(configs.animationDelay);
   const isPinned = useHeadroom({});
 
@@ -49,8 +48,8 @@ const Nav = () => {
                 <Hstack alignItems="center" justifyContent="space-between" style={{ width: "100%" }}>
                   <Logo />
                   {!isDownMd && animate && (
-                    <Box col={10 / 12}>
-                      <Hstack space={3} alignItems="center" justifyContent="flex-end">
+                    <Box col={{ xs: 3 / 5, md: 2 / 3 }}>
+                      <Hstack space={2} alignItems="center" justifyContent="flex-end">
                         <div>
                           <Toggle />
                         </div>
@@ -58,7 +57,9 @@ const Nav = () => {
                           {links.map((item, i) => (
                             <Link href={`/${item.toLowerCase()}`} key={i}>
                               <a aria-label={item}>
-                                <H5>{item}</H5>
+                                <Text clone="h5" isBold>
+                                  {item}
+                                </Text>
                               </a>
                             </Link>
                           ))}

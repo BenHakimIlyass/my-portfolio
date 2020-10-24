@@ -29,9 +29,9 @@ const handleAlignement = ({ justifyContent, alignItems, style }: Partial<Props>)
 const unit = (space) => (typeof space === "number" ? `${space}rem` : space);
 //margins functions
 const handleMargins = (space) => css`
-  margin: calc(${space} / 2 * -1);
+  margin: calc(${unit(space)} / -2);
   & > * {
-    margin: calc(${space} / 2);
+    margin: calc(${unit(space)} / 2);
   }
 `;
 //breakpoints sipporting function

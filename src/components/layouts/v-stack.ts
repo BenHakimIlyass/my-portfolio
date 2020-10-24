@@ -4,6 +4,7 @@ import { breakpoints } from "@xstyled/system";
 type StackAPI = {
   space: number | { xs?: number; md?: number; lg?: number; xl?: number };
   splitAfter?: number;
+  acceptOne?: boolean;
 };
 
 const spaceToBreakpoints = (space: StackAPI["space"]) => {
@@ -38,7 +39,11 @@ const spaceGenerator = ({ space }: StackAPI) => css`
   }
 `;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-
+const acceptOneChild = ({ acceptOne, space }: StackAPI) => css`
+  & > * {
+    ${acceptOne ? breakpoints(spaceToBreakpoints(space)) : ""}
+  }
+`;
 const splitHandler = ({ splitAfter }: StackAPI): any =>
   splitAfter &&
   css`
@@ -54,6 +59,7 @@ const Vstack = styled.divBox<StackAPI>`
   position: relative;
   ${spaceGenerator}
   ${splitHandler}
+  ${acceptOneChild}
 `;
 
 export default Vstack;
