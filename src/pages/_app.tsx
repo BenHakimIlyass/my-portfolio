@@ -9,19 +9,25 @@ import ContextProvider from "../contextProvider";
 export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
-      <ColorModeProvider>
-        <GlobalStyle />
-        <ContextProvider>
-          <header>
-            <DefaultSeo {...configs.seo} />
-            <Nav />
-          </header>
-          <main>
-            <Component {...pageProps} />
-            <SocialMediaBar />
-          </main>
-        </ContextProvider>
-      </ColorModeProvider>
+      <div>
+        <ColorModeProvider>
+          <div>
+            <GlobalStyle />
+            <ContextProvider>
+              <div>
+                <header>
+                  <DefaultSeo {...configs.seo} />
+                  <Nav />
+                </header>
+                <main>
+                  <Component {...pageProps} />
+                  <SocialMediaBar />
+                </main>
+              </div>
+            </ContextProvider>
+          </div>
+        </ColorModeProvider>
+      </div>
     </ThemeProvider>
   );
 }

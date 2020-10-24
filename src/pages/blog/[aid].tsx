@@ -18,13 +18,13 @@ const Article: NextPage<any> = ({ articleId }) => {
   const article = pickFromObject(articleId, articles, "id");
   const { title, body, thumbnail, color, spoiler } = article;
   return (
-    <div>
+    <>
+      {articleIsValid && <ArticleSEO article={article} />}
       {!logoWillAnimate && articleIsValid ? (
         <>
-          {/* <Head>
+          <Head>
             <meta name="theme-color" content={color}></meta>
-          </Head> */}
-          <ArticleSEO article={article} />
+          </Head>
           {!logoWillAnimate && (
             <Vstack space={4} style={{ paddingBottom: 20 }}>
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ position: "relative" }}>
@@ -112,7 +112,7 @@ const Article: NextPage<any> = ({ articleId }) => {
           )}
         </>
       ) : null}
-    </div>
+    </>
   );
 };
 

@@ -7,15 +7,17 @@ import { createUrlFromTitle } from "@utils";
 const BlogSEO = ({ articles }) => (
   <>
     <NextSeo
-      title="Ilyass Ben Hakim"
       openGraph={{
+        type: "Blog",
+        url: `${config.url}/blog`,
         title: "Blog",
+        description: "You love reading? This might be a good page for you!",
         images: [
           {
             url: `${config.url}/blog_seo.png`,
             width: 800,
             height: 600,
-            alt: "Blog page preview",
+            alt: "Blog preview",
           },
         ],
       }}
@@ -25,7 +27,7 @@ const BlogSEO = ({ articles }) => (
       items={articles.map(({ id, title }, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        url: `${config.url}/blog/${createUrlFromTitle({ id, title })}`,
+        url: `${config.url}${createUrlFromTitle({ id, title })}`,
       }))}
     />
   </>
@@ -42,7 +44,7 @@ export interface CarouselJsonLdProps {
   }>;
 }
 
-const CarouselJsonLd: FC<CarouselJsonLdProps> = ({ items, url }) => {
+const CarouselJsonLd: FC<CarouselJsonLdProps> = ({ items }) => {
   const jslonld = JSON.stringify({
     "@context": `http://schema.org`,
     "@type": "ItemList",

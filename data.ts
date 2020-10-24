@@ -5,7 +5,7 @@ export const articles = [
     lastEdit: "22 Oct 2020",
     color: "#FF7E06",
     tags: ["React", "React hooks", "React custom hooks", "functional programming"],
-    title: `React custom hooks`,
+    title: `Publishing react custom hooks to npm`,
     spoiler: `In this article, we are going to be talking about publishing react custom hooks to NPM.`,
     thumbnail: `https://images.unsplash.com/photo-1541544181051-e46607bc22a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80`,
     body: [

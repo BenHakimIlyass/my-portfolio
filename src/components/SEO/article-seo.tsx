@@ -1,17 +1,18 @@
 import { BlogJsonLd, NextSeo } from "next-seo";
 import React from "react";
 import config from "@config";
+import { createUrlFromTitle } from "@utils";
 
 const ArticleSEO = ({ article }) => (
   <>
     <NextSeo
       title={`Ilyass Ben Hakim | ${article.title}`}
       description={article.spoiler}
-      canonical={`/blog/${article.title.replace(/ /g, "_")}?_id=${article.id}`}
+      canonical={createUrlFromTitle({ id: article.id, title: article.title })}
       openGraph={{
         title: article.title,
         description: article.spoiler,
-        url: `${config.url}/blog/${article._id}`,
+        url: `${config.url}${createUrlFromTitle({ id: article.id, title: article.title })}`,
         type: "article",
         article: {
           publishedTime: article.lastEdit,
@@ -27,13 +28,13 @@ const ArticleSEO = ({ article }) => (
       }}
     />
     <BlogJsonLd
-      url={`${config.url}/blog/${article.title.replace(/ /g, "_")}?_id=${article.id}`}
+      url={`${config.url}${createUrlFromTitle({ id: article.id, title: article.title })}`}
       title={article.title}
       images={[article.thumbnail]}
       datePublished={article.createdAt}
       dateModified={article.lastEdit}
       authorName="Ilyass Ben Hakim"
-      description={article.description}
+      description={article.spoiler}
     />
   </>
 );
