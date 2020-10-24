@@ -4,16 +4,13 @@ import { withAnimation } from "../contextProvider";
 import { breakpoints } from "../utils";
 import styled from "@xstyled/styled-components";
 import { HomeHero, Vstack, Container, Technologies, Experiences } from "../components";
-import { DefaultSeo } from "next-seo";
 
-import configs from "@config";
 
 const HomePage = () => {
   return (
     <>
       <Head>
         <title>Ilyass Ben Hakim</title>
-        <DefaultSeo {...configs.seo} />
       </Head>
 
       {/* Main sections */}

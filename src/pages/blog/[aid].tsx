@@ -21,9 +21,9 @@ const Article: NextPage<any> = ({ articleId }) => {
     <div>
       {!logoWillAnimate && articleIsValid ? (
         <>
-          <Head>
+          {/* <Head>
             <meta name="theme-color" content={color}></meta>
-          </Head>
+          </Head> */}
           <ArticleSEO article={article} />
           {!logoWillAnimate && (
             <Vstack space={4} style={{ paddingBottom: 20 }}>

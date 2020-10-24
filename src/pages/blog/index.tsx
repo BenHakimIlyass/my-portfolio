@@ -9,9 +9,6 @@ import { articles } from "../../../data";
 const Blog = () => {
   return (
     <>
-      <Head>
-        <title>Ilyass Ben Hakim - Blog</title>
-      </Head>
       <BlogSEO articles={articles} />
       <MainPlayground>
         <Vstack space={{ xs: 8, md: 12 }}>

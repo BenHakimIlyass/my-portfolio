@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }) {
         <GlobalStyle />
         <ContextProvider>
           <header>
-            {/* <DefaultSeo {...configs.seo} /> */}
+            <DefaultSeo {...configs.seo} />
             <Nav />
           </header>
           <main>
