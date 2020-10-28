@@ -4,6 +4,7 @@ import { Text, Vstack } from "../../";
 import { useColorModeWrapper } from "@hooks";
 import { shorten, createUrlFromTitle } from "@utils";
 import Link from "next/link";
+import Image from "next/image";
 
 const shDark = (blur = 3, opacity = 0.2) =>
   `0px 0px ${blur}px rgba(255, 255,255, 0), 0px 0px ${blur}px rgba(255, 255, 255, ${opacity})`;
@@ -17,7 +18,7 @@ const Article = ({ thumbnail, id, title, spoiler }) => {
     <Link href={createUrlFromTitle({ id, title })}>
       <Wrapper style={{ boxShadow: handleColor(shDef(), shDark()) }} hover={handleColor(shDef(10), shDark(10))}>
         <Vstack space={2}>
-          <Thumbnail src={thumbnail} alt={title} draggable={false} />
+          <Thumbnail src={thumbnail} alt={title} draggable={false} width={730} height={180} />
           <Box forwardedAs={Vstack} space={{ xs: 1, md: 2 }} px={5} pb={5}>
             <Title forwardedAs={Text} clone="h4" isBold>
               {title}
@@ -45,7 +46,7 @@ const Body = styled.box`
 const Title = styled.box`
   ${lineClamp}
 `;
-const Thumbnail = styled.img`
+const Thumbnail = styled(Image)`
   object-fit: cover;
   width: 100%;
   ${breakpoints({

@@ -1,10 +1,11 @@
-import { ThemeProvider, ColorModeProvider } from "@xstyled/styled-components";
+import { ThemeProvider, ColorModeProvider, useColorMode } from "@xstyled/styled-components";
 import { DefaultSeo } from "next-seo";
 
 import { Nav, SocialMediaBar } from "@components";
 import configs from "@config";
 import { GlobalStyle, theme } from "../globalStyles";
 import ContextProvider from "../contextProvider";
+import { useFavicons } from "@hooks";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -17,6 +18,7 @@ export default function App({ Component, pageProps }) {
               <div>
                 <header>
                   <DefaultSeo {...configs.seo} />
+                  <WrapFavicon />
                   <Nav />
                 </header>
                 <main>
@@ -31,3 +33,8 @@ export default function App({ Component, pageProps }) {
     </ThemeProvider>
   );
 }
+const WrapFavicon = () => {
+  const [mode] = useColorMode();
+  useFavicons(`/icons/favicon-${mode === "lightMode" ? "light" : "dark"}.ico`);
+  return null;
+};

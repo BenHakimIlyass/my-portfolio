@@ -3,6 +3,8 @@ import styled, { Box } from "@xstyled/styled-components";
 import { Text, Center, Vstack, Container, Button } from "../../";
 import { breakpoints } from "../../../utils";
 import { motion } from "framer-motion";
+import Image from "next/image";
+
 const Contact = () => {
   return (
     <Center id="contact_section">
@@ -26,7 +28,7 @@ const Contact = () => {
             </Text>
             <Vstack space={1}>
               <Center>
-                <Image src="/me.jpeg" alt="Me" draggable={false} />
+                <Img src="/me.jpeg" alt="Me" draggable={false} width={240} height={240} />
               </Center>
               <Text clone="p" textAlign="center">
                 Ilyass Ben Hakim
@@ -46,7 +48,7 @@ const Contact = () => {
     </Center>
   );
 };
-const Image = styled.img`
+const Img = styled(Image)`
   object-fit: cover;
   border-radius: 150px;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);

@@ -9,6 +9,7 @@ import ErrorPage from "../404";
 import { pickFromObject, wrapBody, handleReadtime } from "@utils";
 import { motion } from "framer-motion";
 import config from "@config";
+import Image from "next/image";
 
 const Article: NextPage<any> = ({ articleId }) => {
   const [{ logoWillAnimate }] = useContextValue();
@@ -34,7 +35,7 @@ const Article: NextPage<any> = ({ articleId }) => {
                   transition={{ ease: config.ease, delay: 1.2, duration: 2 }}
                   style={{ backgroundColor: color }}
                 />
-                <Thumbnail src={thumbnail} alt={title} />
+                <Thumbnail src={thumbnail} alt={title} unsized />
               </motion.div>
               <Container style={{ maxWidth: 920 }}>
                 <motion.div
@@ -76,7 +77,7 @@ const Article: NextPage<any> = ({ articleId }) => {
                           return (
                             <LinkedElement url={element.image.src} top={has("p") || has("i") ? 0 : "1rem"} key={i}>
                               <Vstack space={1} acceptOne>
-                                <Image src={element.image.src} alt={element.image.alt} />
+                                <Img height={600} width={940} src={element.image.src} alt={element.image.alt} />
                               </Vstack>
                             </LinkedElement>
                           );
@@ -144,24 +145,17 @@ const AuthorHeader = ({ body }) => (
     </Hstack>
   </Hstack>
 );
-const Thumbnail = styled.img`
+const Thumbnail = styled(Image)`
   width: 100%;
   height: 50vh;
   object-fit: cover;
 `;
-const Image = styled.img`
+const Img = styled(Image)`
   object-fit: cover;
   border-radius: 4px;
   width: 100%;
+  height: 400px;
   box-shadow: 0px 4px 26px rgba(0, 0, 0, 0.11);
-  ${breakpoints({
-    xs: css`
-      height: 300px;
-    `,
-    md: css`
-      height: 500px;
-    `,
-  })}
 `;
 const ImagePlaceholder = styled(motion.div)`
   width: 100%;
