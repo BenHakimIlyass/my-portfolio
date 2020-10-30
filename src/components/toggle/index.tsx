@@ -64,6 +64,7 @@ const Toggle = () => {
       name="Dark mode"
       htmlFor="Dark mode"
     >
+      Dark mode
       <div style={{ width: 24, height: 24 }}>
         <Brightness
           initial={{ opacity: 0 }}
@@ -91,6 +92,8 @@ const Toggle = () => {
 };
 const Wrapper = styled(Hstack)`
   width: fit-content;
+  display: relative;
+  color: primary;
   circle,
   path {
     fill: secondary;
