@@ -3,7 +3,7 @@ import { Text, WrapLetter, Container, Vstack, Hstack, varientsProps } from "@com
 import styled, { breakpoints, css } from "@xstyled/styled-components";
 import { motion } from "framer-motion";
 
-const Title = `“Until I feared I would lose it, I never loved to read. One does not love breathing.`;
+const Title = `Until I feared I would lose it, I never loved to read. One does not love breathing.`;
 
 const Split = (e) => e.split("");
 
@@ -12,10 +12,9 @@ const BlogHero = () => {
     <div style={{ position: "relative" }}>
       <Container>
         <Vstack space={2} style={{ zIndex: 199 }}>
-          <Text clone="h4" bindWith={motion.h4} {...varientsProps} isBold>
-            {Split(Title).map((item, i) => (
-              <WrapLetter letter={item} delay={0} key={i} style={{ fontSize: i === 0 ? 61 : "inherit" }} />
-            ))}
+          <Text clone="h4" bindWith={motion.h4} initial={{ opacity: 0 }} animate={{ opacity: 1 }} isBold>
+            <span style={{ fontSize: 61 }}>“</span>
+            {Title}
           </Text>
           <Hstack justifyContent="space-between">
             <Text clone="p">Good reading</Text>
