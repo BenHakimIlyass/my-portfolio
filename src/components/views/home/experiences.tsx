@@ -25,7 +25,7 @@ const Experiences = () => {
             </Text>
             <Text clone="p">
               <span>After that, I joined my friends, on a really interesting project </span>
-              <a href="gfree.co" target="_blanc" style={{ color: "#0888E4" }}>
+              <a href="https://gfree.co" target="_blanc" style={{ color: "#0888E4" }}>
                 the Gluten-Free Community
               </a>
               <span>

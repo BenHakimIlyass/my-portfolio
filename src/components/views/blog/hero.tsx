@@ -1,11 +1,7 @@
 import * as React from "react";
-import { Text, WrapLetter, Container, Vstack, Hstack, varientsProps } from "@components";
+import { Text, Container, Vstack, Hstack } from "@components";
 import styled, { breakpoints, css } from "@xstyled/styled-components";
 import { motion } from "framer-motion";
-
-const Title = `Until I feared I would lose it, I never loved to read. One does not love breathing.`;
-
-const Split = (e) => e.split("");
 
 const BlogHero = () => {
   return (
@@ -14,7 +10,7 @@ const BlogHero = () => {
         <Vstack space={2} style={{ zIndex: 199 }}>
           <Text clone="h4" bindWith={motion.h4} initial={{ opacity: 0 }} animate={{ opacity: 1 }} isBold>
             <span style={{ fontSize: 61 }}>“</span>
-            {Title}
+            Until I feared I would lose it, I never loved to read. One does not love breathing.
           </Text>
           <Hstack justifyContent="space-between">
             <Text clone="p">Good reading</Text>
