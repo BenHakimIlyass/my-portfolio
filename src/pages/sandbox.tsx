@@ -43,9 +43,9 @@ const Sandbox = () => {
                 {!downLg && (
                   <Box width={{ xs: "100%", lg: "40%" }} mb={{ md: 50 }} mt={{ md: "auto" }}>
                     <Text clone="p" textAlign={{ md: "right" }}>
-                      Before, I was making web animation with react-spring which was one of the best ever, and I was
-                      using it to animate svg elements sometimes. So here I created these tiny cute icons and I tried to
-                      animate them with framer-motion.
+                      Before, I was making web animation with react-spring which was one of my favorite motion
+                      libraries, and I was using it to animate svg elements sometimes. So here I created these tiny cute
+                      icons and I tried to animate them with framer-motion.
                     </Text>
                   </Box>
                 )}

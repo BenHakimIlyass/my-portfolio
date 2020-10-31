@@ -1,7 +1,6 @@
 import * as React from "react";
-import Head from "next/head";
 import { breakpoints } from "@utils";
-import { Container, Text, Article, Vstack, BlogHero, Hstack, BlogSEO } from "@components";
+import { Container, Text, Article, Vstack, BlogHero, Hstack, BlogSEO, DesignCard } from "@components";
 import { withAnimation } from "../../contextProvider";
 import styled, { Box } from "@xstyled/styled-components";
 import { articles } from "../../../data";
@@ -31,6 +30,24 @@ const Blog = () => {
               </Box>
             </Vstack>
           </Container>
+          <Container>
+            <Vstack space={{ xs: 2, md: 4 }}>
+              <Text clone="h3" isBold>
+                Dribbble shots
+              </Text>
+              <Box
+                forwardedAs={Hstack}
+                space={2}
+                justifyContent="space-between"
+                flexDirection={{ xs: "column", md: "row" }}
+                style={{ flexWrap: "nowrap" }}
+              >
+                {designs.map((props, i) => (
+                  <DesignCard {...props} key={i} />
+                ))}
+              </Box>
+            </Vstack>
+          </Container>
         </Vstack>
       </MainPlayground>
     </>
@@ -44,5 +61,20 @@ const MainPlayground = styled.div`
     920: `transform: translate3d(0,40vh,0);`,
   })}
 `;
-
+const designs = [
+  {
+    src: "/designs/simple-ui.png",
+    alt: "simple-ui",
+    title: "Simple UI hero section",
+    link: "14492195-Simple-UI-hero-section",
+    description: `A simple (not easy) example of a hero section.`,
+  },
+  {
+    src: "/designs/recipe.png",
+    alt: "recipe hero section",
+    title: "Recipe hero section",
+    link: "14495159-Recipe-hero-section",
+    description: `Based on Gfree.co recipe style, I created this hero section to describe the recipe details.`,
+  },
+];
 export default withAnimation(Blog);

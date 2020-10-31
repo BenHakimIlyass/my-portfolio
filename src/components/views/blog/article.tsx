@@ -70,13 +70,10 @@ const Wrapper = styled.div`
     ${css(shorten({ y: -10 }))};
     box-shadow: ${({ hover }) => hover} !important;
   }
+  height: auto;
   ${breakpoints({
-    xs: css`
-      height: 260px;
-    `,
     md: css`
       width: 100%;
-      height: 320px;
     `,
   })}
 `;
