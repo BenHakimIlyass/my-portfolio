@@ -13,17 +13,17 @@ const Experiences = () => {
           </Text>
           <Vstack space={1}>
             <Title>As a developer</Title>
-            <Text clone="p">
+            <Text>
               Since I was 19 years old, I started out by practicing Javascript in React JS, there were a lot of things
               that just took me quite a while to figure out, such as state/props concept, one-way data flow, managing
               global state, reusable components...
             </Text>
-            <Text clone="p">
+            <Text>
               After a couple months, I wanted to move out to functional programming, and here I found myself falling in
               love with react, hooks, redux, Next JS, styled-components, typescript, optimization concepts, web
               animations...
             </Text>
-            <Text clone="p">
+            <Text>
               <span>After that, I joined my friends, on a really interesting project </span>
               <a href="https://gfree.co" target="_blanc" style={{ color: "#0888E4" }}>
                 the Gluten-Free Community
@@ -36,14 +36,14 @@ const Experiences = () => {
           </Vstack>
           <Vstack space={1}>
             <Title>As a designer</Title>
-            <Text clone="p">
+            <Text>
               In 2016 I was trying to learn image/video editing, and that was the first step of my design career.{" "}
             </Text>
-            <Text clone="p">
+            <Text>
               After a while, a friend of mine told me that Adobe XD and Figma are the best free tools for prototyping,
               and here my real web design journey has started.
             </Text>
-            <Text clone="p">
+            <Text>
               In 2019 I started working as a web designer on{" "}
               <a style={{ color: "#0888E4" }} href="https://gfree.co" target="_blanc">
                 the Gluten-Free Community

@@ -29,13 +29,7 @@ const SandboxHero = () => {
               ))}
             </Text>
             <Vstack space={0.3}>
-              <Text
-                clone="p"
-                bindWith={motion.p}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-              >
+              <Text bindWith={motion.p} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
                 I often use codesandbox for small ideas, so feel free to edit them.
               </Text>
             </Vstack>

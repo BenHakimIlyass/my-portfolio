@@ -14,33 +14,19 @@ const Experiences = () => {
           <Title>As a developer</Title>
 
           <Vstack space={1} as="ul">
-            <Text clone="p" bindWith="li">
-              React JS/TS and Next JS -- Frontend developement
-            </Text>
-            <Text clone="p" bindWith="li">
-              React custom hooks -- Code optimization
-            </Text>
-            <Text clone="p" bindWith="li">
-              Redux, React Context API and React Query -- State management
-            </Text>
-            <Text clone="p" bindWith="li">
-              Framer motion and react-spring -- Web animations & graphic motions
-            </Text>
-            <Text clone="p" bindWith="li">
-              Native CSS, styled-components and xstyled/styled-components -- Styling components
-            </Text>
+            <Text bindWith="li">React JS/TS and Next JS -- Frontend developement</Text>
+            <Text bindWith="li">React custom hooks -- Code optimization</Text>
+            <Text bindWith="li">Redux, React Context API and React Query -- State management</Text>
+            <Text bindWith="li">Framer motion and react-spring -- Web animations & graphic motions</Text>
+            <Text bindWith="li">Native CSS, styled-components and xstyled/styled-components -- Styling components</Text>
           </Vstack>
         </Vstack>
         <Vstack space={1}>
           <Title>As a designer</Title>
 
           <Vstack space={1} as="ul">
-            <Text clone="p" bindWith="li">
-              Figma for UI UX design, prototyping and icons drawing.
-            </Text>
-            <Text clone="p" bindWith="li">
-              Adobe photoshop CC for image editing.
-            </Text>
+            <Text bindWith="li">Figma for UI UX design, prototyping and icons drawing.</Text>
+            <Text bindWith="li">Adobe photoshop CC for image editing.</Text>
           </Vstack>
         </Vstack>
       </Vstack>

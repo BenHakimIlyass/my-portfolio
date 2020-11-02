@@ -29,22 +29,10 @@ const HomeHero = () => {
             ))}
           </Text>
           <Vstack space={0.3}>
-            <Text
-              clone="p"
-              bindWith={motion.p}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
-            >
+            <Text bindWith={motion.p} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}>
               A young software engineer, self-taught frontend developer and UI UX designer.
             </Text>
-            <Text
-              clone="p"
-              bindWith={motion.p}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.4 }}
-            >
+            <Text bindWith={motion.p} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4 }}>
               I'm always working on my skillset, so I can be able to build such a perfect interactive web application,
               in which every component serves a reason.
             </Text>

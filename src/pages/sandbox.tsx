@@ -3,7 +3,8 @@ import Head from "next/head";
 import { SandboxHero, Container, Vstack, Hstack, Text, CodeSandboxButton } from "@components";
 import { breakpoints } from "@utils";
 import { withAnimation } from "../contextProvider";
-import styled, { Box, useDown } from "@xstyled/styled-components";
+import styled, { css, Box, useDown } from "@xstyled/styled-components";
+import Image from "next/image";
 
 const Sandbox = () => {
   const downLg = useDown("lg");
@@ -21,12 +22,12 @@ const Sandbox = () => {
             {/* Jordans animation */}
             <Vstack space={2}>
               <Text clone="h4">Jordans product slider</Text>
-              <Text clone="p">This animation is designed by me, using framer-motion.</Text>
+              <Text>This animation is designed by me, using framer-motion.</Text>
               <CodeSandboxButton href="https://codesandbox.io/s/new-platform-kn5sx" />
               <Hstack space={{ xs: 2, md: 4 }} justifyContent="space-between">
                 <WrappGif src="/icons/jordans.gif" />
                 <Box width={{ xs: "100%", lg: "40%" }} mb={{ md: 50 }} mt={{ md: "auto" }}>
-                  <Text clone="p">
+                  <Text>
                     The idea of this repository is to make a realistic product slider, but it was my first try with
                     framer-motion, we can say I was expermenting.
                   </Text>
@@ -37,12 +38,12 @@ const Sandbox = () => {
             {/* Animated icons */}
             <Vstack space={2}>
               <Text clone="h4">Animated Icons</Text>
-              <Text clone="p">These icons are designed and created by me, using Figma and framer-motion.</Text>
+              <Text>These icons are designed and created by me, using Figma and framer-motion.</Text>
               <CodeSandboxButton href="https://codesandbox.io/s/github/BenHakimIlyass/animated-icons" />
               <Hstack space={{ xs: 2, md: 4 }} justifyContent="space-between">
                 {!downLg && (
                   <Box width={{ xs: "100%", lg: "40%" }} mb={{ md: 50 }} mt={{ md: "auto" }}>
-                    <Text clone="p" textAlign={{ md: "right" }}>
+                    <Text textAlign={{ md: "right" }}>
                       Before, I was making web animation with react-spring which was one of my favorite motion
                       libraries, and I was using it to animate svg elements sometimes. So here I created these tiny cute
                       icons and I tried to animate them with framer-motion.
@@ -52,7 +53,7 @@ const Sandbox = () => {
                 <WrappGif src="/icons/icons.gif" />
                 {downLg && (
                   <Box width={{ xs: "100%", lg: "40%" }} mb={{ md: 50 }} mt={{ md: "auto" }}>
-                    <Text clone="p">
+                    <Text>
                       Before, I was making web animation with react-spring which was one of the best ever, and I was
                       using it to animate svg elements sometimes. So here I created these tiny cute icons and I tried to
                       animate them with framer-motion.
@@ -65,12 +66,13 @@ const Sandbox = () => {
             {/* Sun and moon animation */}
             <Vstack space={2}>
               <Text clone="h4">Sun and moon</Text>
-              <Text clone="p">This repository is made also with framer-motion and svg.</Text>
+              <Text>This repository is made also with framer-motion and svg.</Text>
               <CodeSandboxButton href="https://codesandbox.io/s/github/BenHakimIlyass/sun-moon-animation" />
               <Hstack space={{ xs: 2, md: 4 }} justifyContent="space-between">
                 <WrappGif src="/icons/sunandmoon.gif" />
+
                 <Box width={{ xs: "100%", lg: "40%" }} mb={{ md: 50 }} mt={{ md: "auto" }}>
-                  <Text clone="p">
+                  <Text>
                     After getting a litle bit familiarized with framer-motion, I made this full animated svg elements
                     repository.
                   </Text>
@@ -83,12 +85,16 @@ const Sandbox = () => {
     </>
   );
 };
-const WrappGif = (props) => <Gif width={{ xs: "100%", lg: "40%" }} {...props} draggable={false} />;
+const WrappGif = (props) => (
+  <Box width={{ xs: "100%", lg: "40%" }}>
+    <Gif {...props} draggable={false} unsized />
+  </Box>
+);
 
-const Gif = styled.imgBox`
+const Gif = styled(Image)`
   width: 100%;
   object-fit: cover;
-  height: 100%;
+  height: auto;
 `;
 const MainTextlayground = styled.div`
   margin-bottom: 100px;

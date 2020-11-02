@@ -22,7 +22,7 @@ const Contact = () => {
             >
               Thank you for visiting my portfolio.
             </Text>
-            <Text clone="p" textAlign="center">
+            <Text textAlign="center">
               I will be pleased to have the opportunity to work with you, I'll be always looking for new challenges, so
               please feel free to contact me.
             </Text>
@@ -30,10 +30,8 @@ const Contact = () => {
               <Center>
                 <Img src="/me.jpeg" alt="Me" draggable={false} width={240} height={240} />
               </Center>
-              <Text clone="p" textAlign="center">
-                Ilyass Ben Hakim
-              </Text>
-              <Box clone="p" color="gray" textAlign="center">
+              <Text textAlign="center">Ilyass Ben Hakim</Text>
+              <Box color="gray" textAlign="center">
                 UI UX Web designer and React JS developer
               </Box>
             </Vstack>

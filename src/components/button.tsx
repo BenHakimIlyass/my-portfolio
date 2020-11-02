@@ -54,9 +54,7 @@ const Button = ({ children }) => {
   const [mode] = useColorMode();
   return (
     <Thumbnail mode={mode} revert>
-      <Text clone="p" revert>
-        {children}
-      </Text>
+      <Text revert>{children}</Text>
     </Thumbnail>
   );
 };

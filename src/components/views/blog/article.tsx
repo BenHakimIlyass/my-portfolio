@@ -23,9 +23,7 @@ const Article = ({ thumbnail, id, title, spoiler }) => {
             <Title forwardedAs={Text} clone="h4" isBold>
               {title}
             </Title>
-            <Body forwardedAs={Text} clone="p">
-              {spoiler}
-            </Body>
+            <Body forwardedAs={Text}>{spoiler}</Body>
           </Box>
         </Vstack>
       </Wrapper>

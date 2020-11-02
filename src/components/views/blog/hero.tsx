@@ -13,8 +13,8 @@ const BlogHero = () => {
             Until I feared I would lose it, I never loved to read. One does not love breathing.
           </Text>
           <Hstack justifyContent="space-between">
-            <Text clone="p">Good reading</Text>
-            <Text clone="p">- Harper Lee</Text>
+            <Text>Good reading</Text>
+            <Text>- Harper Lee</Text>
           </Hstack>
         </Vstack>
       </Container>

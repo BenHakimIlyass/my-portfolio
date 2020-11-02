@@ -52,7 +52,7 @@ const Article: NextPage<any> = ({ articleId }) => {
                     </Text>
                     <Vstack space={1}>
                       {/* spoiler */}
-                      <Text clone="p" fontStyle="italic" color="gray">
+                      <Text fontStyle="italic" color="gray">
                         {spoiler}
                       </Text>
                       {body.map((element, i) => {
@@ -66,7 +66,7 @@ const Article: NextPage<any> = ({ articleId }) => {
                           return (
                             <Vstack as="ul" space={1} key={i}>
                               {element.bulleted.map((item, index) => (
-                                <Text clone="p" bindWith="li" key={index}>
+                                <Text bindWith="li" key={index}>
                                   {item}
                                 </Text>
                               ))}

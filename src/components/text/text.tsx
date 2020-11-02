@@ -1,9 +1,9 @@
-import { Box } from "@xstyled/styled-components";
+import styled, { css } from "@xstyled/styled-components";
 import { AnimationControls, TargetAndTransition, Transition } from "framer-motion";
 import React from "react";
 
 type Props = {
-  clone: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "smallP" | "code";
+  clone?: "h1" | "h2" | "h3" | "h4" | "h5" | "p" | "smallP" | "code";
   revert?: boolean;
   isBold?: boolean;
   isSemiBold?: boolean;
@@ -13,6 +13,7 @@ type Props = {
   transition?: Transition;
   children: JSX.Element | JSX.Element[] | any;
   whileHover: React.CSSProperties;
+  injectCss?: React.CSSProperties | string;
 };
 
 export const fontStyles = {
@@ -28,10 +29,11 @@ export const fontStyles = {
 
 // bypass type checking for @xstyled/styled-components box
 const Text: React.FC<Props | { [key: string]: any }> = ({
-  clone,
+  clone = "p",
   revert,
   isBold,
   isSemiBold,
+  injectCss,
   bindWith,
   children,
   ...props
@@ -42,10 +44,15 @@ const Text: React.FC<Props | { [key: string]: any }> = ({
     color={revert ? "primary" : "secondary"}
     fontSize={{ xs: `${fontStyles[clone].xs}rem`, md: `${fontStyles[clone].md}rem` }}
     lineHeight={{ xs: `${fontStyles[clone].xs * 1.6}rem`, md: `${fontStyles[clone].md * 1.6}rem` }}
+    injectCss={injectCss}
     {...props}
   >
     {children}
   </Box>
 );
+
+const Box = styled.box`
+  ${({ injectCss }: { injectCss: Pick<Props, "injectCss"> }) => (injectCss ? css(injectCss) : "")}
+`;
 
 export default Text;

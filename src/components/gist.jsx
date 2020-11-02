@@ -73,7 +73,7 @@ export default class ReactEmbedGist extends Component {
     } else if (this.state.error) {
       return (
         <Error>
-          <Text clone="p" color="#fff !important" textAlign="center">
+          <Text color="#fff !important" textAlign="center">
             This code block might not be available, please refresh this page and try again.
           </Text>
         </Error>
