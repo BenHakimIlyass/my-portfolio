@@ -5,11 +5,11 @@ import { breakpoints } from "@utils";
 import { withAnimation } from "../contextProvider";
 import styled, { css, Box, useDown } from "@xstyled/styled-components";
 
-const Sandbox = () => {
+const Designs = () => {
   return (
     <>
       <Head>
-        <title>Ilyass Ben Hakim - Sandbox</title>
+        <title>Ilyass Ben Hakim - Designs</title>
       </Head>
 
       <MainTextlayground>
@@ -44,7 +44,7 @@ const MainTextlayground = styled.div`
   })}
 `;
 
-export default withAnimation(Sandbox);
+export default withAnimation(Designs);
 const designs = [
   {
     src: "/designs/gfree-logo.png",
