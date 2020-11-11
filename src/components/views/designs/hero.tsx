@@ -66,7 +66,7 @@ const HeroContainer = styled(Container)`
 const Box = styled.div`
   width: 100%;
   position: absolute;
-  left: -100;
+  left: -20px;
   ${breakpoints({
     0: `top: -140px;`,
     920: `top: -20px;`,
