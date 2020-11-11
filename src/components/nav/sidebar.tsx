@@ -88,7 +88,7 @@ const Sidebar = ({ onClose }: { onClose: () => void }) => {
     </UnFocuser>
   );
 };
-const links = ["Sandbox", "Blog", "Contact"];
+const links = ["Sandbox", "Designs", "Blog", "Contact"];
 const UnFocuser = styled(motion.div)`
   width: 100%;
   height: 100vh;

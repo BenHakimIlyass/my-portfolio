@@ -13,7 +13,7 @@ import Menu from "./menu";
 import Logo from "./logo";
 import Sidebar from "./sidebar";
 
-const links = ["Sandbox", "Blog", "Contact"];
+const links = ["Sandbox", "Designs", "Blog", "Contact"];
 const noSh = "0px 2px 3px rgba(255, 255,255, 0), 0px 2px 2px rgba(255, 255, 255, 0)";
 
 const Nav = () => {
@@ -48,7 +48,7 @@ const Nav = () => {
                 <Hstack alignItems="center" justifyContent="space-between" style={{ width: "100%" }}>
                   <Logo />
                   {!isDownMd && animate && (
-                    <Box col={{ xs: 3 / 5, md: 2 / 3 }}>
+                    <Box col={{ xs: 3 / 5, md: 10 / 12 }}>
                       <Hstack space={2} alignItems="center" justifyContent="flex-end">
                         <div>
                           <Toggle />
