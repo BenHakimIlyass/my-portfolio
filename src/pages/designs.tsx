@@ -47,6 +47,13 @@ const MainTextlayground = styled.div`
 export default withAnimation(Designs);
 const designs = [
   {
+    src: "/designs/model.png",
+    alt: "model.me hero sectoion",
+    title: "Model.me - Models agaency landing page",
+    link: "14572037-Model-me-Models-agaency-landing-page",
+    description: `Landing page for a models agency`,
+  },
+  {
     src: "/designs/gfree-logo.png",
     alt: "gfree-logo",
     title: "Gfree.co - Gluten free community logo making",
