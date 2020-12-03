@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { Box, breakpoints, css } from "@xstyled/styled-components";
-import { Text, Vstack } from "../../";
+import { Text, Vstack, Placeholder } from "../../";
 import { useColorModeWrapper } from "@hooks";
 import { shorten, createUrlFromTitle } from "@utils";
 import Link from "next/link";
@@ -13,12 +13,14 @@ const shDef = (blur = 3, opacity = 0.18) =>
 
 const Article = ({ thumbnail, id, title, spoiler }) => {
   const handleColor = useColorModeWrapper();
+  const [loaded, load] = React.useState(false);
 
   return (
     <Link href={createUrlFromTitle({ id, title })}>
       <Wrapper style={{ boxShadow: handleColor(shDef(), shDark()) }} hover={handleColor(shDef(10), shDark(10))}>
         <Vstack space={2}>
-          <Thumbnail src={thumbnail} alt={title} draggable={false} width={730} height={180} />
+          {!loaded ? <Placeholder style={{ height: 180 }} /> : null}
+          <Thumbnail src={thumbnail} alt={title} draggable={false} width={730} height={180} onLoad={() => load(true)} />
           <Box forwardedAs={Vstack} space={{ xs: 1, md: 2 }} px={5} pb={5}>
             <Title forwardedAs={Text} clone="h4" isBold>
               {title}

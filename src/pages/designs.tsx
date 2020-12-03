@@ -1,9 +1,9 @@
 import * as React from "react";
 import Head from "next/head";
-import { SandboxHero, Container, Vstack, Text, DesignCard, DesignsHero } from "@components";
+import { Container, Vstack, Text, DesignCard, DesignsHero } from "@components";
 import { breakpoints } from "@utils";
 import { withAnimation } from "../contextProvider";
-import styled, { css, Box, useDown } from "@xstyled/styled-components";
+import styled, { Box } from "@xstyled/styled-components";
 
 const Designs = () => {
   return (

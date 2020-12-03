@@ -1,9 +1,9 @@
 import * as React from "react";
 import Head from "next/head";
-import { SandboxHero, Container, Vstack, Hstack, Text, CodeSandboxButton } from "@components";
+import { Placeholder, SandboxHero, Container, Vstack, Hstack, Text, CodeSandboxButton } from "@components";
 import { breakpoints } from "@utils";
 import { withAnimation } from "../contextProvider";
-import styled, { css, Box, useDown } from "@xstyled/styled-components";
+import styled, { Box, useDown } from "@xstyled/styled-components";
 import Image from "next/image";
 
 const Sandbox = () => {
@@ -85,11 +85,16 @@ const Sandbox = () => {
     </>
   );
 };
-const WrappGif = (props) => (
-  <Box width={{ xs: "100%", lg: "40%" }}>
-    <Gif {...props} draggable={false} unsized />
-  </Box>
-);
+const WrappGif = (props) => {
+  const [loaded, load] = React.useState(false);
+
+  return (
+    <Box width={{ xs: "100%", lg: "40%" }} position="relative">
+      {!loaded ? <Placeholder style={{ position: "absolute", height: "100%" }} /> : null}
+      <Gif {...props} draggable={false} style={{ opacity: loaded ? 1 : 0 }} unsized onLoad={() => load(true)} />
+    </Box>
+  );
+};
 
 const Gif = styled(Image)`
   width: 100%;
