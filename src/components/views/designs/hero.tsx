@@ -19,7 +19,7 @@ const DesignHero = () => {
             </Vstack>
 
             <a href="https://dribbble.com/ilyassbh" target="_blanc">
-              <Button>My diribbble</Button>
+              <Button>My dribbble</Button>
             </a>
           </Vstack>
         </Center>
