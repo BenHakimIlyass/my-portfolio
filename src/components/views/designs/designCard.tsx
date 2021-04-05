@@ -16,7 +16,7 @@ const DesignCard = ({ link, alt, src, description, title }) => {
             {description}
           </Text>
           {!loaded ? <Placeholder style={{ height: 300 }} /> : null}
-          <Img src={src} alt={alt} style={{ opacity: loaded ? 1 : 0 }} unsized onLoad={() => load(true)} />
+          <img src={src} alt={alt} style={{ opacity: loaded ? 1 : 0 }}  onLoad={() => load(true)} />
         </Vstack>
       </div>
     </>

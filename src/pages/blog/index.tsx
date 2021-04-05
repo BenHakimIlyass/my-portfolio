@@ -1,6 +1,5 @@
 import * as React from "react";
-import { breakpoints } from "@utils";
-import { Container, Text, Article, Vstack, BlogHero, Hstack, BlogSEO, DesignCard } from "@components";
+import { Container, Text, Article, Vstack, BlogHero, BlogSEO } from "@components";
 import { withAnimation } from "../../contextProvider";
 import styled, { Box } from "@xstyled/styled-components";
 import { articles } from "../../../data";
@@ -33,11 +32,8 @@ const Blog = () => {
 };
 // Chnage the y value in MainPlayground 920 breakpoint by md
 const MainPlayground = styled.div`
+  margin-top: 40vh;
   margin-bottom: 100px;
-  ${breakpoints({
-    0: { transform: `translate3d(0,24vh,0)` },
-    920: `transform: translate3d(0,40vh,0);`,
-  })}
 `;
 
 export default withAnimation(Blog);

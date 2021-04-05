@@ -38,10 +38,7 @@ const Designs = () => {
 
 const MainTextlayground = styled.div`
   margin-bottom: 100px;
-  ${breakpoints({
-    0: { transform: `translate3d(0,24vh,0)` },
-    920: `transform: translate3d(0,10vh,0);`,
-  })}
+  margin-top:10vh;
 `;
 
 export default withAnimation(Designs);

@@ -39,10 +39,7 @@ const Blog = () => {
 // Chnage the y value in MainPlayground 920 breakpoint by md
 const MainPlayground = styled(Vstack)`
   margin-bottom: 100px;
-  ${breakpoints({
-    0: { transform: `translate3d(0,24vh,0)` },
-    920: `transform: translate3d(0,40vh,0);`,
-  })}
+  margin-top:10vh;
 `;
 
 export default withAnimation(Blog);

@@ -14,8 +14,7 @@ export const GlobalStyle = createGlobalStyle(css`
     margin: 0;
     background-color: primary;
     overflow-x: hidden;
-    height: fit-content;
-  }
+    }
   body::-webkit-scrollbar {
     width: 10px;
   }

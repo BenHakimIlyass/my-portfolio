@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }) {
                   <WrapFavicon />
                   <Nav />
                 </header>
-                <main>
+                <main >
                   <Component {...pageProps} />
                   <SocialMediaBar />
                 </main>
