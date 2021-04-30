@@ -6,7 +6,7 @@ export const articles = [
     color: "#FF7E06",
     tags: ["Javascript", "React", "JS Hacks", "functional programming", "Immutable"],
     title: `Life saving Javascript immutable utilities`,
-    spoiler: `Instead of using someone else code (from NPM), let's try make our own JS utils`,
+    spoiler: `Instead of using someone else's code (from NPM), let's try making our own JS utils`,
     thumbnail: `https://images.unsplash.com/photo-1550948805-fbe6f5c0df95?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80`,
     body: [
       { h2: `Object manipulation { }` },
