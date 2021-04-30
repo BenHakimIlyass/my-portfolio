@@ -1,6 +1,74 @@
 export const articles = [
   {
-    id: 661,
+    id: 1,
+    createdAt: "30 Oct 2021",
+    lastEdit: "30 Oct 2021",
+    color: "#FF7E06",
+    tags: ["Javascript", "React", "JS Hacks", "functional programming", "Immutable"],
+    title: `Life saving Javascript immutable utilities`,
+    spoiler: `Instead of using someone else code (from NPM), let's try make our own JS utils`,
+    thumbnail: `https://images.unsplash.com/photo-1550948805-fbe6f5c0df95?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80`,
+    body: [
+      { h2: `Object manipulation { }` },
+
+      { h3: `Purge/delete empty properties` },
+      { p: `Return a new object without the empty values` },
+      { h4: `Code` },
+      { gist: `ef616775615c0ddeb5eb2f2ee6b1b49e` },
+      { h4: `Usage` },
+      { gist: `6f4c8d19dcc45c69f86010114d803936` },
+
+      { h3: `Generate unique id` },
+      {
+        p: `Math.random should be unique because of its seeding algorithm, convert it to base 36 (numbers + letters), and grab the first 9 characters after the decimal.`,
+      },
+      { i: `Can generate around 10 thousand unique IDs at once.` },
+      { h4: `Code` },
+      { gist: `cf6002ec1a30a97d85ce3498b64b5e6c` },
+      { h4: `Usage` },
+      { gist: `8829b8ecfb961be0614b8bdef28a22e9` },
+
+      { h2: `Array manipulation [ ]` },
+
+      { h3: `Remove duplications` },
+      { p: `Remove duplications in an array of objects using one unique key.` },
+      { h4: `Code` },
+      { gist: `fe7e4bec4fb9fbc67eb904cc53f04e58` },
+      { h4: `Usage` },
+      { gist: `e601776b9476b929ab782e90a4b0bae3` },
+
+      { h3: `Find duplications` },
+      { p: `Find duplications in an array of objects using one unique key.` },
+      { h4: `Code` },
+      { gist: `a08927dce70878664c2ba3a63b3ededb` },
+      { h4: `Usage` },
+      { gist: `8e22d3dbc3e2e66ecb033910df8e1f31` },
+
+      { h3: `Inject item by index` },
+      { p: `Insert an element in specific index in array.` },
+      { h4: `Code` },
+      { gist: `6e71d58b920c3eda49bec234b8f91751` },
+      { h4: `Usage` },
+      { gist: `5c2eed8a266855a266c6b6acc3cea58c` },
+
+      { h3: `Replace item by index` },
+      { p: `Replace item by index in array.` },
+      { h4: `Code` },
+      { gist: `a2486aed2ff8769928f7a031b593b707` },
+      { h4: `Usage` },
+      { gist: `4f13981cec940872394b8c41ddd58443` },
+
+      { h3: `Remove item by index` },
+      { p: `Remove an element by index in array.` },
+      { h4: `Code` },
+      { gist: `5d2336a89a071517a8411ecd9bfd8714` },
+      { h4: `Usage` },
+      { gist: `918dc65f82e89f2ea92a14b553396d9c` },
+      { i: `Made by me with ❤️` },
+    ],
+  },
+  {
+    id: 2,
     createdAt: "01 Aug 2020",
     lastEdit: "22 Oct 2020",
     color: "#FF7E06",
@@ -85,11 +153,12 @@ export const articles = [
         link: `https://codesandbox.io/s/tender-snowflake-zf79v`,
       },
       { i: `Next to do : Typescript support.` },
+      { i: `Made by me with ❤️` },
     ],
   },
 
   {
-    id: 24,
+    id: 3,
     createdAt: "20 Oct 2020",
     lastEdit: "22 Oct 2020",
     tags: ["React", "styled-components", "CSSinJS"],
@@ -139,6 +208,7 @@ export const articles = [
       { p: `And now we can import them and use them on our text components.` },
       { gist: "c1649c72d40557acb3f6f3e35433906a" },
       { h4: "I'm still working on this article ..." },
+      { i: `Made by me with ❤️` },
     ],
   },
 ];

@@ -28,14 +28,14 @@ const Article: NextPage<any> = ({ articleId }) => {
           </Head>
           {!logoWillAnimate && (
             <Vstack space={4} style={{ paddingBottom: 20 }}>
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ position: "relative" }}>
-                <ImagePlaceholder
-                  initial={{ y: 0 }}
-                  animate={{ y: "-60vh" }}
-                  transition={{ ease: config.ease, delay: 1.2, duration: 2 }}
-                  style={{ backgroundColor: color }}
-                />
-                <Thumbnail src={thumbnail} alt={title} unsized />
+              <motion.div
+                transition={{ duration: 0.4, delay: 0.6 }}
+                initial={{ y: 100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                style={{ position: "relative" }}
+              >
+                <ImagePlaceholder style={{ backgroundColor: "transparent", position: "relative" }} />
+                <Thumbnail src={thumbnail} alt={title} layout="fill" objectFit="cover" style={{ zIndex: 1 }} />
               </motion.div>
               <Container style={{ maxWidth: 920 }}>
                 <motion.div
@@ -146,9 +146,11 @@ const AuthorHeader = ({ body }) => (
   </Hstack>
 );
 const Thumbnail = styled(Image)`
-  width: 100%;
-  height: 50vh;
-  object-fit: cover;
+  img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+  }
 `;
 const Img = styled(Image)`
   object-fit: cover;

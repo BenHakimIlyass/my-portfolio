@@ -18,7 +18,7 @@ const Blog = () => {
               </Text>
               <Box mx={-16} row>
                 {articles.map((props, i) => (
-                  <Box col={{ xs: 1, md: 1 / 2 }} my={{ xs: "2rem", md: "4rem" }} p={8}>
+                  <Box col={{ xs: 1, md: 1 / 2 }} p={8}>
                     <Article {...props} key={i} />
                   </Box>
                 ))}
