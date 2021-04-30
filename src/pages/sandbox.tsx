@@ -14,7 +14,7 @@ const Sandbox = () => {
         <title>Ilyass Ben Hakim - Sandbox</title>
       </Head>
 
-      <MainTextlayground>
+      <MainPlayground>
         <Container>
           <Vstack space={{ xs: 4, md: 12 }}>
             <SandboxHero />
@@ -81,7 +81,7 @@ const Sandbox = () => {
             </Vstack>
           </Vstack>
         </Container>
-      </MainTextlayground>
+      </MainPlayground>
     </>
   );
 };
@@ -91,22 +91,19 @@ const WrappGif = (props) => {
   return (
     <Box width={{ xs: "100%", lg: "40%" }} position="relative">
       {!loaded ? <Placeholder style={{ position: "absolute", height: "100%" }} /> : null}
-      <Gif {...props} draggable={false} style={{ opacity: loaded ? 1 : 0 }} unsized onLoad={() => load(true)} />
+      <Gif {...props} draggable={false} style={{ opacity: loaded ? 1 : 0 }}  onLoad={() => load(true)} />
     </Box>
   );
 };
 
-const Gif = styled(Image)`
+const Gif = styled.img`
   width: 100%;
   object-fit: cover;
   height: auto;
 `;
-const MainTextlayground = styled.div`
+const MainPlayground = styled.div`
+  margin-top: 10vh;
   margin-bottom: 100px;
-  ${breakpoints({
-    0: { transform: `translate3d(0,24vh,0)` },
-    920: `transform: translate3d(0,10vh,0);`,
-  })}
 `;
 
 export default withAnimation(Sandbox);

@@ -21,10 +21,7 @@ const ContactPage = () => {
   );
 };
 const MainPlayground = styled.div`
+  margin-top:40vh;
   margin-bottom: 100px;
-  ${breakpoints({
-    0: { transform: `translate3d(0,20vh,0)` },
-    920: `transform: translate3d(0,30vh,0);`,
-  })}
 `;
 export default withAnimation(ContactPage);

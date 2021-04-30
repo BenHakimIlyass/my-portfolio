@@ -13,3 +13,4 @@ export { default as Playground } from "./playground";
 export { default as Gist } from "./gist";
 export { default as CodeSandboxButton } from "./codesandboxButton";
 export { default as Placeholder } from "./placeholder";
+export { default as Only } from "./only";

@@ -36,7 +36,7 @@ const Contact = () => {
               </Box>
             </Vstack>
             <Center>
-              <a href="/Ilyass_Ben_Hakim_-_Frontend_developer.pdf" target="_blanc">
+              <a href="/Ilyass's Resume.pdf" target="_blanc" rel="noreferrer noopener">
                 <Button>My resume</Button>
               </a>
             </Center>
@@ -49,7 +49,6 @@ const Contact = () => {
 const Img = styled(Image)`
   object-fit: cover;
   border-radius: 150px;
-  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.2);
   ${breakpoints({
     0: { width: "200px", height: "200px" },
     920: { width: "240px", height: "240px" },

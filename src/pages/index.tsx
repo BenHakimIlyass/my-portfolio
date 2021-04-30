@@ -3,7 +3,7 @@ import Head from "next/head";
 import { withAnimation } from "../contextProvider";
 import { breakpoints } from "../utils";
 import styled from "@xstyled/styled-components";
-import { HomeHero, Vstack, Container, Technologies, Experiences } from "../components";
+import { HomeHero, Vstack, Container, Technologies, Experiences,Career } from "../components";
 
 
 const HomePage = () => {
@@ -18,6 +18,9 @@ const HomePage = () => {
         <Vstack space={{ xs: 8, md: 12 }}>
           <HomeHero />
           <Container>
+            <Career />
+          </Container>
+          <Container>
             <Experiences />
           </Container>
           <Container>
@@ -29,10 +32,7 @@ const HomePage = () => {
   );
 };
 const MainPlayground = styled.div`
-  ${breakpoints({
-    0: { transform: `translate3d(0,24vh,0)` },
-    920: `transform: translate3d(0,10vh,0);`,
-  })}
+  margin-top: 10vh;
   margin-bottom: 100px;
 `;
 
