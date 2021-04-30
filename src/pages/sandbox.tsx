@@ -86,21 +86,13 @@ const Sandbox = () => {
   );
 };
 const WrappGif = (props) => {
-  const [loaded, load] = React.useState(false);
-
   return (
     <Box width={{ xs: "100%", lg: "40%" }} position="relative">
-      {!loaded ? <Placeholder style={{ position: "absolute", height: "100%" }} /> : null}
-      <Gif {...props} draggable={false} style={{ opacity: loaded ? 1 : 0 }}  onLoad={() => load(true)} />
+      <Image {...props} draggable={false} width={950} height={525} objectFit="cover" />
     </Box>
   );
 };
 
-const Gif = styled.img`
-  width: 100%;
-  object-fit: cover;
-  height: auto;
-`;
 const MainPlayground = styled.div`
   margin-top: 10vh;
   margin-bottom: 100px;

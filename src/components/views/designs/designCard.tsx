@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Text, Vstack, Placeholder } from "@components";
 
 const DesignCard = ({ link, alt, src, description, title }) => {
-  const [loaded, load] = React.useState(false);
   return (
     <>
       <div>
@@ -15,8 +14,7 @@ const DesignCard = ({ link, alt, src, description, title }) => {
           <Text injectCss={lineClamp} textAlign="left !important">
             {description}
           </Text>
-          {!loaded ? <Placeholder style={{ height: 300 }} /> : null}
-          <img src={src} alt={alt} style={{ opacity: loaded ? 1 : 0 }}  onLoad={() => load(true)} />
+          <Image src={src} alt={alt} width={475} height={356} objectFit="cover" />
         </Vstack>
       </div>
     </>
