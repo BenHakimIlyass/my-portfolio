@@ -14,7 +14,7 @@ export const articles = [
       { h3: `Purge/delete empty properties` },
       { p: `Return a new object without the empty values` },
       { h4: `Code` },
-      { gist: `ef616775615c0ddeb5eb2f2ee6b1b49e` },
+      { gist: `0b3d659a2a6587ce083909adb763029d` },
       { h4: `Usage` },
       { gist: `6f4c8d19dcc45c69f86010114d803936` },
 
@@ -110,7 +110,7 @@ export const articles = [
       {
         p: `After some researches, I noticed that the majority of other packages provide some methods and values such as:`,
       },
-      { bulleted: ["onHeaderPinned", "onHeaderUnpinned", "onHeaderFixed", "onUnHeaderfixed", "fixAtValue "] },
+      { bulleted: ["onHeaderPinned", "onHeaderUnpinned", "onHeaderFixed", "onHeaderUnfixed", "fixAtValue "] },
       {
         p: `So after adding those optional props, the hook was looking like that:`,
       },
@@ -135,7 +135,9 @@ export const articles = [
       { code: `yarn add —dev @babel/cli @babel/core @babel/preset-env @babel/preset-react` },
       { p: `Now we have to add a file configuration for babel called .babelrc .` },
       { gist: `a6145474a3f0a3d31f4952af680c5e20` },
-      { p: `Next, we need to update our package.json by adding the build command.` },
+      {
+        p: `Next, we need to update our package.json by adding the build command, which will compile every single file in the /src path and the output will be in the current path ./ `,
+      },
       { gist: `e9f8700c01c9a7bd264cc34651f4f275` },
       {
         p: `And now we have to run yarn run build or yarn build, so after that, we will see a new index.js file in our project folder.`,

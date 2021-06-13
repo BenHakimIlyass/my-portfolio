@@ -42,38 +42,36 @@ const Nav = () => {
         }}
       >
         <AnimateSharedLayout>
-          <AnimatePresence exitBeforeEnter>
-            {animate ? (
-              <Container>
-                <Hstack alignItems="center" justifyContent="space-between" style={{ width: "100%" }}>
-                  <Logo />
-                  {!isDownMd && animate && (
-                    <Box col={{ xs: 3 / 5, md: 10 / 12 }}>
-                      <Hstack space={2} alignItems="center" justifyContent="flex-end">
-                        <div>
-                          <Toggle />
-                        </div>
-                        <Hstack space={2}>
-                          {links.map((item, i) => (
-                            <Link href={`/${item.toLowerCase()}`} key={i}>
-                              <a aria-label={item}>
-                                <Text clone="h5" isBold>
-                                  {item}
-                                </Text>
-                              </a>
-                            </Link>
-                          ))}
-                        </Hstack>
+          {animate ? (
+            <Container>
+              <Hstack alignItems="center" justifyContent="space-between" style={{ width: "100%" }}>
+                <Logo />
+                {!isDownMd && animate && (
+                  <Box col={{ xs: 3 / 5, md: 10 / 12 }}>
+                    <Hstack space={2} alignItems="center" justifyContent="flex-end">
+                      <div>
+                        <Toggle />
+                      </div>
+                      <Hstack space={2}>
+                        {links.map((item, i) => (
+                          <Link href={`/${item.toLowerCase()}`} key={i}>
+                            <a aria-label={item}>
+                              <Text clone="h5" isBold>
+                                {item}
+                              </Text>
+                            </a>
+                          </Link>
+                        ))}
                       </Hstack>
-                    </Box>
-                  )}
-                  {isDownMd && animate && <Menu sidebar={sidebar} onClick={toggleSidebar} />}
-                </Hstack>
-              </Container>
-            ) : (
-              <AnimatedLogo />
-            )}
-          </AnimatePresence>
+                    </Hstack>
+                  </Box>
+                )}
+                {isDownMd && animate && <Menu sidebar={sidebar} onClick={toggleSidebar} />}
+              </Hstack>
+            </Container>
+          ) : (
+            <AnimatedLogo />
+          )}
         </AnimateSharedLayout>
       </Navbar>
     </>
