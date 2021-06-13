@@ -6,7 +6,7 @@ import { useTimeout, useContextValue } from "@hooks";
 import { Text } from "@components";
 import configs from "@config";
 
-const Logo = ({ focused, onClick }: { focused?: boolean; onClick?: () => void }) => {
+const Logo = ({ focused, onClick, ...props }: { focused?: boolean; onClick?: () => void }) => {
   const logoHiddenLettersState = useTimeout(configs.animationDelay);
   const [{ logoWillAnimate }] = useContextValue();
 
