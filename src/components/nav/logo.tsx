@@ -6,7 +6,7 @@ import { useTimeout, useContextValue } from "@hooks";
 import { Text } from "@components";
 import configs from "@config";
 
-const Logo = ({ focused, onClick, ...props }: { focused?: boolean; onClick?: () => void }) => {
+const Logo = () => {
   const logoHiddenLettersState = useTimeout(configs.animationDelay);
   const [{ logoWillAnimate }] = useContextValue();
 
@@ -16,14 +16,10 @@ const Logo = ({ focused, onClick, ...props }: { focused?: boolean; onClick?: () 
       onMouseEnter: () => hover(true),
       onMouseLeave: () => hover(false),
     };
-  const ref = React.useRef(null);
-  React.useEffect(() => {
-    if (focused) ref.current.focus();
-  }, []);
-  
+
   return (
     <Link href="/">
-      <a {...handleHover()} ref={ref}>
+      <a {...handleHover()}>
         {logoHiddenLettersState || !logoWillAnimate ? (
           <Text clone="h4" isBold>
             <span>.il</span>
@@ -41,8 +37,6 @@ const Logo = ({ focused, onClick, ...props }: { focused?: boolean; onClick?: () 
         ) : (
           <motion.div
             layoutId="logo"
-            onClick={onClick}
-            {...props}
             animate
             transition={{
               duration: 2,
